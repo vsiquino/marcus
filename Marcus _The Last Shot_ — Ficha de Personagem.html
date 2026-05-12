@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marcus "The Last Shot" — Ficha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;font-size:13px;color:#1A1A1A;background:#F0EBF8;min-height:100vh;padding:12px}
+.sheet{width:100%;max-width:1400px;margin:0 auto;display:grid;gap:8px}
+.header{background:#1A0A2E;border-radius:12px;padding:14px 20px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px}
+.header-left .name{font-size:24px;font-weight:600;color:#C8A951;letter-spacing:.5px}
+.header-left .sub{font-size:12px;color:#C3ADE8;margin-top:3px}
+.stat-pills{display:flex;gap:8px;flex-wrap:wrap}
+.pill{background:rgba(255,255,255,.08);border:1px solid rgba(200,169,81,.4);border-radius:8px;padding:6px 14px;text-align:center;min-width:68px}
+.pill-val{font-size:18px;font-weight:600;color:#C8A951}
+.pill-lbl{font-size:9px;color:#9B8AC4;margin-top:1px;white-space:nowrap;line-height:1.3}
+.cols{display:grid;grid-template-columns:1fr 1.4fr 1.3fr;gap:8px}
+.card{background:#fff;border:1px solid #E0D6F0;border-radius:12px;overflow:hidden}
+.card-title{background:#3D1A6E;color:#fff;font-size:11px;font-weight:500;padding:6px 12px;letter-spacing:.6px;text-transform:uppercase;display:flex;align-items:center;gap:6px}
+.card-title i{font-size:14px;color:#C8A951}
+.card-body{padding:10px 12px}
+.attr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}
+.attr-box{border:1px solid #E0D6F0;border-radius:8px;padding:6px 4px;text-align:center;background:#FAF7FF}
+.attr-name{font-size:9px;color:#888;letter-spacing:.4px;text-transform:uppercase}
+.attr-val{font-size:16px;font-weight:600;color:#3D1A6E}
+.attr-mod{font-size:11px;color:#888}
+.save-row{display:flex;gap:4px;margin-top:7px}
+.save-badge{flex:1;border-radius:7px;padding:4px 4px;text-align:center;font-size:10px}
+.save-prof{background:#EDE5F7;color:#3D1A6E;font-weight:600}
+.save-norm{background:#F5F5F5;color:#888}
+.skills-list{margin-top:6px}
+.skill-row{display:flex;align-items:center;padding:3px 0;border-bottom:1px solid #F0EBF8;font-size:12px;gap:6px}
+.skill-row:last-child{border-bottom:none}
+.skill-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.dot-prof{background:#C8A951}
+.dot-norm{background:#DDD}
+.skill-name{flex:1;color:#333}
+.skill-mod{font-weight:600;color:#3D1A6E;min-width:26px;text-align:right}
+.skill-prof .skill-name{font-weight:600;color:#3D1A6E}
+.atk-header{display:grid;grid-template-columns:1fr 34px 70px 62px;gap:4px;padding-bottom:5px;border-bottom:1px solid #E0D6F0;margin-bottom:2px}
+.atk-row{display:grid;grid-template-columns:1fr 34px 70px 62px;gap:4px;align-items:center;padding:4px 0;border-bottom:1px solid #F5F0FB;font-size:12px}
+.atk-row:last-child{border-bottom:none}
+.atk-name{font-weight:600;color:#1A1A1A}
+.atk-type{font-size:10px;color:#888}
+.atk-bonus{text-align:center;font-weight:600;color:#3D1A6E}
+.atk-dmg{text-align:center;font-size:11px}
+.atk-range{text-align:right;font-size:10px;color:#888}
+.col-lbl{font-size:10px;color:#888;text-transform:uppercase;letter-spacing:.4px}
+.spell-row{display:grid;grid-template-columns:38px 1fr auto;gap:7px;align-items:start;padding:5px 0;border-bottom:1px solid #F5F0FB;font-size:12px}
+.spell-row:last-child{border-bottom:none}
+.spell-lvl{background:#EDE5F7;color:#3D1A6E;border-radius:6px;font-size:10px;font-weight:600;text-align:center;padding:3px 3px;white-space:nowrap}
+.spell-chain{background:#C3ADE8;color:#1A0A2E}
+.spell-name{font-weight:600;color:#1A1A1A;line-height:1.3}
+.spell-desc{font-size:11px;color:#666;grid-column:2/4;margin-top:2px;line-height:1.4}
+.spell-action{font-size:10px;font-weight:500;text-align:right;white-space:nowrap;color:#555}
+.ab-tag{color:#C8A951;font-weight:600}
+.conc-tag{display:inline-block;font-size:9px;padding:1px 5px;border-radius:5px;background:#FFF3CD;color:#856404;margin-left:3px;vertical-align:middle}
+.feature-row{padding:5px 0;border-bottom:1px solid #F5F0FB;font-size:12px}
+.feature-row:last-child{border-bottom:none}
+.feature-name{font-weight:600;color:#3D1A6E;margin-bottom:2px}
+.feature-desc{color:#555;font-size:11px;line-height:1.5}
+.king-stats{display:grid;grid-template-columns:repeat(6,1fr);gap:4px;margin-bottom:8px}
+.king-attr{text-align:center;background:#FAF7FF;border-radius:7px;padding:4px;border:1px solid #E0D6F0}
+.king-attr-name{font-size:9px;color:#888;text-transform:uppercase}
+.king-attr-val{font-size:13px;font-weight:600;color:#1A1A1A}
+.king-attr-mod{font-size:10px;color:#888}
+.tag{display:inline-block;font-size:10px;padding:2px 7px;border-radius:6px;background:#EDE5F7;color:#3D1A6E;margin-right:3px;margin-bottom:3px;font-weight:500}
+.invc-row{display:grid;grid-template-columns:115px 1fr;gap:8px;padding:4px 0;border-bottom:1px solid #F5F0FB;font-size:12px;align-items:start}
+.invc-row:last-child{border-bottom:none}
+.invc-name{font-weight:600;color:#3D1A6E}
+.invc-desc{color:#555;font-size:11px;line-height:1.4}
+.footer-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.equip-row{display:flex;justify-content:space-between;align-items:center;padding:3px 0;border-bottom:1px solid #F5F0FB;font-size:12px}
+.equip-row:last-child{border-bottom:none}
+.equip-name{font-weight:600;color:#1A1A1A}
+.equip-detail{color:#888;font-size:11px}
+.bs-row{padding:4px 0;border-bottom:1px solid #F5F0FB;font-size:12px;line-height:1.5}
+.bs-row:last-child{border-bottom:none}
+.bs-label{font-weight:600;color:#3D1A6E}
+.bs-text{color:#555;font-size:11px}
+.footer-bar{background:#1A0A2E;border-radius:12px;padding:10px 20px;display:flex;gap:24px;justify-content:center;flex-wrap:wrap}
+.fb-item{text-align:center}
+.fb-val{font-size:15px;font-weight:600;color:#C8A951}
+.fb-lbl{font-size:10px;color:#9B8AC4}
+@media(max-width:900px){.cols{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}.header{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<div class="header">
+  <div class="header-left">
+    <div class="name">Marcus "The Last Shot"</div>
+    <div class="sub">Warlock 3 — The Undead &nbsp;·&nbsp; Humano &nbsp;·&nbsp; Criminal &nbsp;·&nbsp; Neutro</div>
+  </div>
+  <div class="stat-pills">
+    <div class="pill"><div class="pill-val">12</div><div class="pill-lbl">Classe de<br>Armadura</div></div>
+    <div class="pill"><div class="pill-val">24</div><div class="pill-lbl">Pontos<br>de Vida</div></div>
+    <div class="pill"><div class="pill-val">9m</div><div class="pill-lbl">Velocidade</div></div>
+    <div class="pill"><div class="pill-val">+6</div><div class="pill-lbl">Iniciativa<br>(Alert)</div></div>
+    <div class="pill"><div class="pill-val">+2</div><div class="pill-lbl">Prof.<br>Bonus</div></div>
+    <div class="pill"><div class="pill-val">3d8</div><div class="pill-lbl">Dados<br>de Vida</div></div>
+  </div>
+</div>
+
+<div class="cols">
+
+  <div style="display:flex;flex-direction:column;gap:8px">
+    <div class="card">
+      <div class="card-title"><i class="ti ti-sword"></i>Atributos</div>
+      <div class="card-body">
+        <div class="attr-grid">
+          <div class="attr-box"><div class="attr-name">Força</div><div class="attr-val">8</div><div class="attr-mod">−1</div></div>
+          <div class="attr-box"><div class="attr-name">Destreza</div><div class="attr-val">13</div><div class="attr-mod">+1</div></div>
+          <div class="attr-box"><div class="attr-name">Constituição</div><div class="attr-val">15</div><div class="attr-mod">+2</div></div>
+          <div class="attr-box"><div class="attr-name">Inteligência</div><div class="attr-val">11</div><div class="attr-mod">+0</div></div>
+          <div class="attr-box"><div class="attr-name">Sabedoria</div><div class="attr-val">11</div><div class="attr-mod">+0</div></div>
+          <div class="attr-box"><div class="attr-name">Carisma</div><div class="attr-val">17</div><div class="attr-mod">+3</div></div>
+        </div>
+        <div class="save-row">
+          <div class="save-badge save-norm">For −1</div>
+          <div class="save-badge save-norm">Des +1</div>
+          <div class="save-badge save-norm">Con +2</div>
+          <div class="save-badge save-norm">Int +0</div>
+          <div class="save-badge save-prof">Sab +2 ★</div>
+          <div class="save-badge save-prof">Car +5 ★</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><i class="ti ti-list-check"></i>Habilidades</div>
+      <div class="card-body">
+        <div class="skills-list">
+          <div class="skill-row"><div class="skill-dot dot-norm"></div><span class="skill-name">Acrobacia (Des)</span><span class="skill-mod">+1</span></div>
+          <div class="skill-row"><div class="skill-dot dot-norm"></div><span class="skill-name">Arcanismo (Int)</span><span class="skill-mod">+0</span></div>
+          <div class="skill-row"><div class="skill-dot dot-norm"></div><span class="skill-name">Atletismo (For)</span><span class="skill-mod">−1</span></div>
+          <div class="skill-row skill-prof"><div class="skill-dot dot-prof"></div><span class="skill-name">Enganação (Car)</span><span class="skill-mod">+5</span></div>
+          <div class="skill-row"><div class="skill-dot dot-norm"></div><span class="skill-name">Furtividade (Des)</span><span class="skill-mod">+1</span></div>
+          <div class="skill-row"><div class="skill-dot dot-norm"></div><span class="skill-name">História (Int)</span><span class="skill-mod">+0</span></div>
+          <div class="skill-row"><div class="skill-dot dot-norm"></div><span class="skill-name">Intuição (Sab)</span><span class="skill-mod">+0</span></div>
+          <div class="skill-row skill-prof"><div class="skill-dot dot-prof"></div><span class="skill-name">Intimidação (Car)</span><span class="skill-mod">+5</span></div>
+          <div class="skill-row skill-prof"><div class="skill-dot dot-prof"></div><span class="skill-name">Investigação (Int)</span><span class="skill-mod">+2</span></div>
+          <div class="skill-row"><div class="skill-dot dot-norm"></div><span class="skill-name">Medicina (Sab)</span><span class="skill-mod">+0</span></div>
+          <div class="skill-row"><div class="skill-dot dot-norm"></div><span class="skill-name">Percepção (Sab)</span><span class="skill-mod">+0</span></div>
+          <div class="skill-row"><div class="skill-dot dot-norm"></div><span class="skill-name">Performance (Car)</span><span class="skill-mod">+3</span></div>
+          <div class="skill-row skill-prof"><div class="skill-dot dot-prof"></div><span class="skill-name">Persuasão (Car)</span><span class="skill-mod">+5</span></div>
+          <div class="skill-row skill-prof"><div class="skill-dot dot-prof"></div><span class="skill-name">Prestidigitação (Des)</span><span class="skill-mod">+3</span></div>
+          <div class="skill-row skill-prof"><div class="skill-dot dot-prof"></div><span class="skill-name">Stealth (Des)</span><span class="skill-mod">+3</span></div>
+          <div class="skill-row"><div class="skill-dot dot-norm"></div><span class="skill-name">Sobrevivência (Sab)</span><span class="skill-mod">+0</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:8px">
+    <div class="card">
+      <div class="card-title"><i class="ti ti-crosshair"></i>Ataques</div>
+      <div class="card-body">
+        <div class="atk-header">
+          <div class="col-lbl">Nome</div><div class="col-lbl" style="text-align:center">Bônus</div><div class="col-lbl" style="text-align:center">Dano</div><div class="col-lbl" style="text-align:right">Alcance</div>
+        </div>
+        <div class="atk-row"><div><div class="atk-name">Eldritch Blast</div><div class="atk-type">Força · Cantrip · Ação</div></div><div class="atk-bonus">+5</div><div class="atk-dmg">1d10+3</div><div class="atk-range">36m</div></div>
+        <div class="atk-row"><div><div class="atk-name">Chill Touch</div><div class="atk-type">Necrótico · Cantrip · Ação</div></div><div class="atk-bonus">+5</div><div class="atk-dmg">1d8</div><div class="atk-range">18m</div></div>
+        <div class="atk-row"><div><div class="atk-name">Besta Leve</div><div class="atk-type">Perfurante · Ação</div></div><div class="atk-bonus">+3</div><div class="atk-dmg">1d8+1</div><div class="atk-range">24/96m</div></div>
+        <div class="atk-row"><div><div class="atk-name">Adaga (corpo a corpo)</div><div class="atk-type">Perfurante · Finesse</div></div><div class="atk-bonus">+3</div><div class="atk-dmg">1d4+1</div><div class="atk-range">C/C</div></div>
+        <div class="atk-row"><div><div class="atk-name">Adaga (arremesso)</div><div class="atk-type">Perfurante · Ação</div></div><div class="atk-bonus">+3</div><div class="atk-dmg">1d4+1</div><div class="atk-range">6/18m</div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><i class="ti ti-sparkles"></i>Magias &nbsp;<span style="font-size:10px;color:#C8A951;font-weight:400">Save DC 13 · Ataque +5 · 2 slots nível 2</span></div>
+      <div class="card-body">
+        <div class="spell-row">
+          <div class="spell-lvl">Cantrip</div>
+          <div><div class="spell-name">Eldritch Blast</div><div class="spell-desc">1d10+3 Força · Repelling push 3m · Agonizing +3 dano</div></div>
+          <div class="spell-action">Ação</div>
+        </div>
+        <div class="spell-row">
+          <div class="spell-lvl">Cantrip</div>
+          <div><div class="spell-name">Chill Touch</div><div class="spell-desc">1d8 Necrótico · impede cura · desvantagem p/ undead</div></div>
+          <div class="spell-action">Ação</div>
+        </div>
+        <div class="spell-row">
+          <div class="spell-lvl">1→2</div>
+          <div><div class="spell-name">Hex <span class="conc-tag">Conc.</span></div><div class="spell-desc">Bônus 1d6 · desvantagem num atributo · 27m · 1h</div></div>
+          <div class="spell-action">Ação<br><span style="font-size:10px;color:#888">BA mover</span></div>
+        </div>
+        <div class="spell-row">
+          <div class="spell-lvl">1→2</div>
+          <div><div class="spell-name">Armor of Agathys</div><div class="spell-desc">10 HP temp + 10 frio p/ quem te acertar (upcast nv2)</div></div>
+          <div class="spell-action">Ação</div>
+        </div>
+        <div class="spell-row">
+          <div class="spell-lvl">2</div>
+          <div><div class="spell-name">Darkness <span class="conc-tag">Conc.</span></div><div class="spell-desc">Escuridão mágica 4,5m raio · só Marcus enxerga (Devil's Sight)</div></div>
+          <div class="spell-action">Ação</div>
+        </div>
+        <div class="spell-row">
+          <div class="spell-lvl">2</div>
+          <div><div class="spell-name">Misty Step</div><div class="spell-desc">Teleport 9m instantâneo · sem Concentração</div></div>
+          <div class="spell-action ab-tag">Ação<br>Bônus</div>
+        </div>
+        <div class="spell-row">
+          <div class="spell-lvl spell-chain">Chain</div>
+          <div><div class="spell-name">Find Familiar — King</div><div class="spell-desc">Pseudodragão · age no próprio turno · ataque com reação</div></div>
+          <div class="spell-action">Ação<br>Mágica</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><i class="ti ti-eye"></i>Invocações Éldrica</div>
+      <div class="card-body">
+        <div class="invc-row"><div class="invc-name">Agonizing Blast</div><div class="invc-desc">Eldritch Blast ganha +3 dano (mod. Car) por projétil</div></div>
+        <div class="invc-row"><div class="invc-name">Repelling Blast</div><div class="invc-desc">Eldritch Blast empurra o alvo 3m para longe</div></div>
+        <div class="invc-row"><div class="invc-name">Devil's Sight</div><div class="invc-desc">Enxerga no escuro normal e mágico até 36m — combo com Darkness</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:8px">
+    <div class="card">
+      <div class="card-title"><i class="ti ti-wand"></i>Habilidades de Classe</div>
+      <div class="card-body">
+        <div class="feature-row"><div class="feature-name">Pact Magic</div><div class="feature-desc">2 slots nível 2 · recupera no Short Rest · Magical Cunning: recupera 1 slot por Long Rest</div></div>
+        <div class="feature-row"><div class="feature-name">Pact of the Chain</div><div class="feature-desc">King age no próprio turno · pode renunciar um ataque pra King usar reação</div></div>
+        <div class="feature-row"><div class="feature-name">Form of Dread</div><div class="feature-desc"><span style="background:#C8A951;color:#1A0A2E;font-size:10px;padding:1px 6px;border-radius:5px;font-weight:600;margin-right:4px">Ação Bônus</span>Forma espectral 1 min · ganha 1d10+3 HP temp · acertos: WIS DC 13 ou medo até fim do próximo turno · 2× Long Rest</div></div>
+        <div class="feature-row"><div class="feature-name">Devil's Sight</div><div class="feature-desc">Visão perfeita até 36m em escuridão de qualquer tipo</div></div>
+        <div class="feature-row"><div class="feature-name">Alert (Feat)</div><div class="feature-desc">+5 Iniciativa (total +6) · nunca é surpreendido · invisíveis sem vantagem</div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><i class="ti ti-dragon"></i>King — Pseudodragão <span style="font-size:10px;font-weight:400;color:#C8A951;margin-left:4px">Pact of the Chain</span></div>
+      <div class="card-body">
+        <div class="king-stats">
+          <div class="king-attr"><div class="king-attr-name">For</div><div class="king-attr-val">6</div><div class="king-attr-mod">−2</div></div>
+          <div class="king-attr"><div class="king-attr-name">Des</div><div class="king-attr-val">15</div><div class="king-attr-mod">+2</div></div>
+          <div class="king-attr"><div class="king-attr-name">Con</div><div class="king-attr-val">13</div><div class="king-attr-mod">+1</div></div>
+          <div class="king-attr"><div class="king-attr-name">Int</div><div class="king-attr-val">10</div><div class="king-attr-mod">+0</div></div>
+          <div class="king-attr"><div class="king-attr-name">Sab</div><div class="king-attr-val">12</div><div class="king-attr-mod">+1</div></div>
+          <div class="king-attr"><div class="king-attr-name">Car</div><div class="king-attr-val">10</div><div class="king-attr-mod">+0</div></div>
+        </div>
+        <div style="display:flex;gap:14px;margin-bottom:8px;font-size:12px;flex-wrap:wrap">
+          <span><strong>CA</strong> 13</span><span><strong>HP</strong> 7</span><span><strong>Mov.</strong> 4,5m</span><span><strong>Voo</strong> 18m</span><span><strong>Tam.</strong> Tiny</span>
+        </div>
+        <div class="feature-row"><div class="feature-name">Mordida</div><div class="feature-desc">+4 · 1d4+2 Perfurante · alcance 1,5m</div></div>
+        <div class="feature-row"><div class="feature-name">Ferrão</div><div class="feature-desc">+4 · 1d4+2 Perfurante + Veneno DC 11 CON ou dorme 1h</div></div>
+        <div class="feature-row"><div class="feature-name">Sentidos</div><div class="feature-desc">Blindsight 3m · Darkvision 18m · Telepatia 9m</div></div>
+        <div class="feature-row" style="border-bottom:none"><div class="feature-desc" style="color:#C8A951;font-style:italic">Sabe o sobrenome verdadeiro de Marcus. Age como se "The Last Shot" fosse o nome dele.</div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><i class="ti ti-lock"></i>Proficiências & Idiomas</div>
+      <div class="card-body" style="font-size:12px">
+        <div style="display:flex;flex-wrap:wrap;gap:3px;padding-bottom:6px">
+          <span class="tag">Armas Simples</span><span class="tag">Armadura Leve</span><span class="tag">Thieves' Tools</span><span class="tag">Cartographer's Tools</span>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:3px;padding-top:2px">
+          <span style="font-size:11px;color:#888;margin-right:4px;align-self:center">Idiomas:</span><span class="tag">Common</span><span class="tag">Elvish</span><span class="tag">Draconic</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer-grid">
+  <div class="card">
+    <div class="card-title"><i class="ti ti-backpack"></i>Equipamento</div>
+    <div class="card-body">
+      <div class="equip-row"><span class="equip-name">Besta Leve + 20 Virotes</span><span class="equip-detail">1d8+1 · 24/96m</span></div>
+      <div class="equip-row"><span class="equip-name">Adaga</span><span class="equip-detail">Escondida na bota · Finesse · Thrown 6/18m</span></div>
+      <div class="equip-row"><span class="equip-name">Armadura de Couro</span><span class="equip-detail">CA 11 + Des</span></div>
+      <div class="equip-row"><span class="equip-name">Mochila · Diário Surrado</span><span class="equip-detail">Rotas, contatos, observações</span></div>
+      <div class="equip-row"><span class="equip-name">Cartographer's Tools</span><span class="equip-detail">Proficiente</span></div>
+      <div class="equip-row"><span class="equip-name">Thieves' Tools</span><span class="equip-detail">Proficiente</span></div>
+      <div class="equip-row"><span class="equip-name">220 GP</span><span class="equip-detail">Reserva de mercador</span></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title"><i class="ti ti-book"></i>Backstory & Ganchos</div>
+    <div class="card-body">
+      <div class="bs-row"><span class="bs-label">Origem: </span><span class="bs-text">Família nobre. Sobrenome abandonado. Saiu sem carta, sem despedida.</span></div>
+      <div class="bs-row"><span class="bs-label">O Pacto: </span><span class="bs-text">Acordou com poderes. A entidade apareceu num sonho. Sem forma, sem nome, sem motivo claro.</span></div>
+      <div class="bs-row"><span class="bs-label">A Mulher: </span><span class="bs-text">Um amor que sumiu. Gancho central da backstory. Nome a definir.</span></div>
+      <div class="bs-row"><span class="bs-label">Modo Sombrio: </span><span class="bs-text">Quando a situação aperta, a entidade vaza. A mesma sensação do sonho.</span></div>
+      <div class="bs-row"><span class="bs-label">"The Last Shot": </span><span class="bs-text">No bar é a última rodada. Em combate é o último disparo. Ele nunca explica qual dos dois é o verdadeiro.</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="footer-bar">
+  <div class="fb-item"><div class="fb-val">DC 13</div><div class="fb-lbl">Spell Save DC</div></div>
+  <div class="fb-item"><div class="fb-val">+5</div><div class="fb-lbl">Spell Attack</div></div>
+  <div class="fb-item"><div class="fb-val">2× Nv2</div><div class="fb-lbl">Slots (Short Rest)</div></div>
+  <div class="fb-item"><div class="fb-val">10</div><div class="fb-lbl">Passive Perc.</div></div>
+  <div class="fb-item"><div class="fb-val">12</div><div class="fb-lbl">Passive Inv.</div></div>
+  <div class="fb-item"><div class="fb-val">Neutro</div><div class="fb-lbl">Alinhamento</div></div>
+  <div class="fb-item"><div class="fb-val">Milestone</div><div class="fb-lbl">Progressão</div></div>
+</div>
+
+</div>
+</body>
+</html>
