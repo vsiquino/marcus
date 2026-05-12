@@ -55,10 +55,10 @@ body{font-family:Inter,sans-serif;font-size:13px;color:#EDE5F7;background:#0A011
 .cols{display:grid;grid-template-columns:190px 1fr 1fr;gap:8px}
 .attr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
 .attr-box{border:1px solid #2D1560;border-radius:8px;padding:5px 3px;text-align:center;background:#0A0118}
-.attr-name{font-size:8px;color:#555;text-transform:uppercase}
+.attr-name{font-size:7px;color:#555;text-transform:uppercase;letter-spacing:-.2px;overflow:hidden;white-space:nowrap}
 .attr-val{font-size:15px;font-weight:600;color:#C3ADE8}
 .attr-mod{font-size:10px;color:#9B8AC4}
-.save-row{display:flex;gap:3px;margin-top:6px;flex-wrap:wrap}
+.save-row{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:6px}
 .save-badge{flex:1;border-radius:6px;padding:3px 2px;text-align:center;font-size:9px;min-width:30px}
 .save-prof{background:#3D1A6E;color:#EDE5F7;font-weight:600}
 .save-norm{background:#0A0118;color:#444;border:1px solid #2D1560}
@@ -327,10 +327,10 @@ body{font-family:Inter,sans-serif;font-size:13px;color:#EDE5F7;background:#0A011
       <div class="card-body">
         <div class="attr-grid">
           <div class="attr-box"><div class="attr-name">Forca</div><div class="attr-val">8</div><div class="attr-mod">-1</div></div>
-          <div class="attr-box"><div class="attr-name">Destreza</div><div class="attr-val">13</div><div class="attr-mod">+1</div></div>
-          <div class="attr-box"><div class="attr-name">Constituicao</div><div class="attr-val">15</div><div class="attr-mod">+2</div></div>
-          <div class="attr-box"><div class="attr-name">Inteligencia</div><div class="attr-val">11</div><div class="attr-mod">+0</div></div>
-          <div class="attr-box"><div class="attr-name">Sabedoria</div><div class="attr-val">11</div><div class="attr-mod">+0</div></div>
+          <div class="attr-box"><div class="attr-name">Destr.</div><div class="attr-val">13</div><div class="attr-mod">+1</div></div>
+          <div class="attr-box"><div class="attr-name">Const.</div><div class="attr-val">15</div><div class="attr-mod">+2</div></div>
+          <div class="attr-box"><div class="attr-name">Intel.</div><div class="attr-val">11</div><div class="attr-mod">+0</div></div>
+          <div class="attr-box"><div class="attr-name">Sabed.</div><div class="attr-val">11</div><div class="attr-mod">+0</div></div>
           <div class="attr-box"><div class="attr-name">Carisma</div><div class="attr-val">17</div><div class="attr-mod">+3</div></div>
         </div>
         <div class="save-row">
@@ -557,7 +557,7 @@ body{font-family:Inter,sans-serif;font-size:13px;color:#EDE5F7;background:#0A011
       <div class="qa-item"><div class="qa-q">17. Coisa que finge nao se importar</div><div class="qa-a">A familia que deixou pra tras.</div></div>
       <div class="qa-item"><div class="qa-q">18. Acredita em destino</div><div class="qa-a">Nao acreditava, ate a entidade aparecer. Agora nao sabe mais o que acredita.</div></div>
       <div class="qa-item"><div class="qa-q">19. Mentira que conta pra si mesmo</div><div class="qa-a">Que esta bem sozinho.</div></div>
-      <div class="qa-item" style="background:rgba(200,169,81,.05);border:1px solid rgba(200,169,81,.2);border-radius:4px"><div class="qa-q" style="color:#C8A951">20. Se pudesse reviver um unico dia</div><div class="qa-a" style="color:#EDE5F7;font-weight:500">O dia que fugiu de casa.</div></div>
+      <div class="qa-item"><div class="qa-q">20. Se pudesse reviver um unico dia</div><div class="qa-a">O dia que fugiu de casa.</div></div>
       <div class="qa-item"><div class="qa-q">21. Ja sentiu que esqueceu algo importante</div><div class="qa-a">Nao. Guarda tudo no diario exatamente por isso.</div></div>
       <div class="qa-item"><div class="qa-q">22. Ultima coisa dita antes de quase morrer</div><div class="qa-a">"Longe do seu castelo voce e so carne barata como qualquer um." Dito por um ladrao com uma faca no pescoco dele.</div></div>
       <div class="qa-item"><div class="qa-q">23. Confia nas proprias memorias</div><div class="qa-a">Sim. Por isso o diario. Se esta escrito, e real.</div></div>
@@ -639,10 +639,10 @@ body{font-family:Inter,sans-serif;font-size:13px;color:#EDE5F7;background:#0A011
       <div class="quick-rolls" style="border-top:1px solid #2D1560">
         <div class="quick-label">Saving Throws</div>
         <div class="quick-grid">
-          <button class="quick-btn" onclick="quickRoll('Save WIS',20,2)">Sabedoria<span>+2</span></button>
+          <button class="quick-btn" onclick="quickRoll('Save WIS',20,2)">Sabed.<span>+2</span></button>
           <button class="quick-btn" onclick="quickRoll('Save CHA',20,5)">Carisma<span>+5</span></button>
-          <button class="quick-btn" onclick="quickRoll('Save CON',20,2)">Constituicao<span>+2</span></button>
-          <button class="quick-btn" onclick="quickRoll('Save DEX',20,1)">Destreza<span>+1</span></button>
+          <button class="quick-btn" onclick="quickRoll('Save CON',20,2)">Const.<span>+2</span></button>
+          <button class="quick-btn" onclick="quickRoll('Save DEX',20,1)">Destr.<span>+1</span></button>
         </div>
       </div>
       <div class="quick-rolls" style="border-top:1px solid #2D1560">
@@ -671,8 +671,7 @@ body{font-family:Inter,sans-serif;font-size:13px;color:#EDE5F7;background:#0A011
 
 <script>
 const MAX_HP=24,MAX_KING_HP=7;
-const state={hp:24,tempHp:0,slots:[true,true],fod:[true,true],deathSucc:[false,false,false],deathFail:[false,false,false],concentration:null,conditions:{},kingHp:7,magicalCunning:true
-,"toll-the-dead":{title:"Toll the Dead",badges:["Cantrip","Necromancia","WIS Save"],stats:[{l:"Tempo",v:"1 Acao"},{l:"Alcance",v:"18m"},{l:"Duracao",v:"Instantanea"}],comp:"V, S",body:"<p>Voce aponta para uma criatura visivel dentro do alcance e o som de um sino funeral enche o ar ao redor dela. A criatura deve ser bem sucedida num <strong>teste de resistencia de Sabedoria</strong> ou sofrer dano necrotico.</p><p><strong>1d8 necrotico</strong> se o alvo tiver todos os HP.<br><strong>1d12 necrotico</strong> se o alvo ja tiver sofrido dano (HP faltando).</p>",tags:[{l:"WIS Save DC 13",c:"red"},{l:"1d8 ou 1d12",c:"gold"},{l:"Sem ataque",c:"green"}],tip:"Superior ao Chill Touch contra alvos ja danificados. 1d12 medio e 6.5 vs 1d10+3 medio do EB = 8.5, mas Toll nao precisa de ataque (contorna miss chance). Use quando precisar de dano garantido via save contra alvos ja feridos."}};
+const state={hp:24,tempHp:0,slots:[true,true],fod:[true,true],deathSucc:[false,false,false],deathFail:[false,false,false],concentration:null,conditions:{},kingHp:7,magicalCunning:true};
 function save(){try{localStorage.setItem("marcus_v3",JSON.stringify(state));}catch(e){}}
 function load(){try{const d=localStorage.getItem("marcus_v3");if(d)Object.assign(state,JSON.parse(d));}catch(e){}}
 function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove("show"),2500);}
@@ -721,7 +720,8 @@ const modalData={
 "pact-of-the-chain":{title:"Pact of the Chain",badges:["Pact Boon","Nivel 3"],stats:[{l:"Tipo",v:"Pact Boon"},{l:"Familiar",v:"Pseudodragao"},{l:"Acao",v:"Acao Magica"}],comp:"-",body:"<p>Voce aprende Find Familiar como Acao Magica. O familiar pode ser: Imp, Pseudodragao, Quasit ou Sprite.</p><p>Quando voce toma a acao de Ataque, pode <strong>renunciar um ataque</strong> para o familiar atacar usando sua Reacao.</p><p>O familiar age no proprio turno com iniciativa propria.</p>",tags:[{l:"King - Pseudodragao",c:"gold"},{l:"Turno proprio",c:"green"}],tip:"King e mais valioso dando Help (vantagem no proximo ataque). O ferrao venenoso DC 11 CON e eficaz contra alvos com CON baixa."},
 "alert":{title:"Alert",badges:["Feat","Passivo","Permanente"],stats:[{l:"Tipo",v:"Feat de Origem"},{l:"Bonus",v:"+5 Iniciativa"},{l:"Total",v:"+6 (Alert+Des)"}],comp:"-",body:"<p>Beneficios permanentes:<br>- <strong>+5 de bonus para Iniciativa</strong> (total +6 com DES +1)<br>- Voce <strong>nao pode ser surpreendido</strong> enquanto consciente.<br>- Criaturas ocultas nao ganham vantagem de ataque contra voce.</p>",tags:[{l:"+5 Iniciativa",c:"gold"},{l:"Nunca surpreendido",c:"green"}],tip:"Para um personagem que depende de Concentracao, agir primeiro e crucial. Voce estabelece Darkness e Hex antes que inimigos ajam. +6 Iniciativa coloca Marcus no topo na maioria dos encontros."},
 "dark-ones-blessing":{title:"Dark Ones Blessing",badges:["The Undead","Passivo"],stats:[{l:"Ativa",v:"Ao reduzir a 0 HP"},{l:"Efeito",v:"+5 HP temp"},{l:"Raio",v:"3m aliados"}],comp:"-",body:"<p>Quando voce reduz um inimigo a 0 HP, ganha <strong>5 HP temporarios</strong>. Tambem ativa se um aliado dentro de 3m reduzir um inimigo a 0 HP.</p><p>HP temp nao se acumula - fica o maior.</p>",tags:[{l:"5 HP temp",c:"gold"},{l:"Ao matar",c:""},{l:"Aliados 3m",c:"green"}],tip:"Healing passivo em combate. Em encontros com multiplos inimigos fracos, Marcus pode sustentar combate por muito mais tempo."},
-"king-attacks":{title:"King - Ataques",badges:["Pseudodragao","Pact of the Chain"],stats:[{l:"Mordida",v:"+4 - 1d4+2"},{l:"Ferrao",v:"+4 - Veneno DC 11"},{l:"CA",v:"13"}],comp:"-",body:"<p><strong>Mordida:</strong> +4 para acertar, alcance 1,5m. Com acerto: 1d4+2 perfurante.</p><p><strong>Ferrao:</strong> +4 para acertar, alcance 1,5m. Com acerto: 1d4+2 perfurante e DC 11 CON ou fica inconsciente por 1 hora. Acorda com dano ou se alguem acordar.</p><p><strong>Resistencias:</strong> Dano nao-magico B/P/C. Imune: Encantado, Paralisado.</p>",tags:[{l:"Veneno DC 11 CON",c:"red"},{l:"Dorme 1h",c:"red"},{l:"Resistencias fisicas",c:"green"}],tip:"O ferrao e surpreendente em roleplay. DC 11 CON e baixo o suficiente para ser viavel contra a maioria dos humanos. Uma criatura dormindo por 1h e essencialmente tirada do encontro."}
+"king-attacks":{title:"King - Ataques",badges:["Pseudodragao","Pact of the Chain"],stats:[{l:"Mordida",v:"+4 - 1d4+2"},{l:"Ferrao",v:"+4 - Veneno DC 11"},{l:"CA",v:"13"}],comp:"-",body:"<p><strong>Mordida:</strong> +4 para acertar, alcance 1,5m. Com acerto: 1d4+2 perfurante.</p><p><strong>Ferrao:</strong> +4 para acertar, alcance 1,5m. Com acerto: 1d4+2 perfurante e DC 11 CON ou fica inconsciente por 1 hora. Acorda com dano ou se alguem acordar.</p><p><strong>Resistencias:</strong> Dano nao-magico B/P/C. Imune: Encantado, Paralisado.</p>",tags:[{l:"Veneno DC 11 CON",c:"red"},{l:"Dorme 1h",c:"red"},{l:"Resistencias fisicas",c:"green"}],tip:"O ferrao e surpreendente em roleplay. DC 11 CON e baixo o suficiente para ser viavel contra a maioria dos humanos. Uma criatura dormindo por 1h e essencialmente tirada do encontro."},
+"toll-the-dead":{title:"Toll the Dead",badges:["Cantrip","Necromancia","WIS Save"],stats:[{l:"Tempo",v:"1 Acao"},{l:"Alcance",v:"18m"},{l:"Duracao",v:"Instantanea"}],comp:"V, S",body:"<p>Voce aponta para uma criatura visivel dentro do alcance e o som de um sino funeral enche o ar. A criatura deve ser bem-sucedida num <strong>teste de resistencia de Sabedoria (DC 13)</strong> ou sofrer dano necrotico.</p><p><strong>1d8 necrotico</strong> se o alvo tiver todos os HP.<br><strong>1d12 necrotico</strong> se o alvo ja tiver sofrido dano (HP faltando).",tags:[{l:"WIS Save DC 13",c:"red"},{l:"1d8 ou 1d12",c:"gold"},{l:"Sem rolagem de ataque",c:"green"}],tip:"Superior ao Chill Touch contra alvos ja danificados. 1d12 medio e 6.5 - use quando precisar de dano garantido via save. Nao precisa acertar - o alvo faz o save."}
 };
 function openModal(key){
   const data=modalData[key];if(!data)return;
