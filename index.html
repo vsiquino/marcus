@@ -195,6 +195,49 @@ body{font-family:Inter,sans-serif;font-size:13px;color:#EDE5F7;background:#0A011
 .toast{position:fixed;bottom:20px;right:20px;background:#3D1A6E;color:#EDE5F7;padding:10px 16px;border-radius:8px;font-size:12px;font-weight:500;opacity:0;transition:opacity .3s;pointer-events:none;z-index:1999;border:1px solid #C8A951}
 .toast.show{opacity:1}
 @media(max-width:900px){.cols{grid-template-columns:1fr}.bio-grid{grid-template-columns:1fr}.qa-grid{grid-template-columns:1fr}.header{grid-template-columns:1fr}.hp-block{grid-template-columns:1fr 1fr}}
+
+.dice-panel{display:grid;grid-template-columns:1fr 340px;gap:8px;align-items:start}
+.dice-card{background:#130828;border:1px solid #2D1560;border-radius:12px;overflow:hidden}
+.dice-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:16px}
+.die-btn{background:#0A0118;border:2px solid #3D1A6E;border-radius:10px;padding:12px 8px;cursor:pointer;text-align:center;transition:all .2s;font-family:Inter,sans-serif}
+.die-btn:hover{border-color:#C8A951;background:#1A0A2E;transform:translateY(-2px)}
+.die-btn:active{transform:translateY(0) scale(.95)}
+.die-symbol{font-size:28px;display:block;margin-bottom:4px}
+.die-label{font-size:11px;font-weight:600;color:#C3ADE8}
+.die-btn.d20{border-color:#5A2A9E}
+.die-btn.d20:hover{border-color:#C8A951;box-shadow:0 0 12px rgba(200,169,81,.3)}
+.roll-result{padding:16px;text-align:center;min-height:120px;display:flex;flex-direction:column;align-items:center;justify-content:center;border-top:1px solid #2D1560}
+.roll-number{font-size:72px;font-weight:600;color:#C8A951;line-height:1;transition:all .3s;font-family:Cinzel,serif}
+.roll-number.crit{color:#FFD700;text-shadow:0 0 20px rgba(255,215,0,.5);animation:critpulse .6s ease}
+.roll-number.fail{color:#E05050;text-shadow:0 0 20px rgba(224,80,80,.4)}
+@keyframes critpulse{0%{transform:scale(1)}50%{transform:scale(1.2)}100%{transform:scale(1)}}
+@keyframes rollspin{0%{opacity:0;transform:translateY(-10px)}100%{opacity:1;transform:translateY(0)}}
+.roll-spin{animation:rollspin .25s ease}
+.roll-label{font-size:12px;color:#9B8AC4;margin-top:4px}
+.roll-formula{font-size:11px;color:#555;margin-top:2px}
+.mod-row{display:flex;align-items:center;gap:8px;padding:12px 16px;border-top:1px solid #2D1560}
+.mod-label{font-size:11px;color:#9B8AC4;white-space:nowrap}
+.mod-input{background:#0A0118;border:1px solid #3D1A6E;color:#C8A951;border-radius:6px;width:52px;height:28px;text-align:center;font-size:14px;font-weight:600;font-family:Inter,sans-serif}
+.mod-input:focus{outline:none;border-color:#C8A951}
+.adv-btn{background:#0A0118;border:1px solid #2D1560;color:#666;border-radius:6px;padding:4px 10px;font-size:10px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif;transition:all .15s}
+.adv-btn.active{font-weight:700}
+.adv-btn.adv.active{background:#0A2A0A;border-color:#4CAF50;color:#90C850}
+.adv-btn.dis.active{background:#2A0A0A;border-color:#E05050;color:#FF8080}
+.adv-btn:hover{border-color:#C8A951}
+.quick-rolls{padding:12px 16px;border-top:1px solid #2D1560}
+.quick-label{font-size:10px;color:#666;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;font-weight:600}
+.quick-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px}
+.quick-btn{background:#0A0118;border:1px solid #2D1560;color:#C3ADE8;border-radius:6px;padding:6px 8px;font-size:11px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif;transition:all .15s;text-align:left}
+.quick-btn:hover{border-color:#C8A951;color:#C8A951;background:#1A0A2E}
+.quick-btn span{float:right;color:#C8A951}
+.history-list{padding:10px 14px;max-height:300px;overflow-y:auto}
+.hist-item{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid #1D0D3E;font-size:11px}
+.hist-item:last-child{border-bottom:none}
+.hist-die{color:#9B8AC4;font-size:10px}
+.hist-result{font-weight:600;color:#C8A951}
+.hist-result.crit{color:#FFD700}
+.hist-result.fail{color:#E05050}
+.hist-total{color:#EDE5F7;font-size:12px;font-weight:600}
 </style>
 </head>
 <body>
@@ -218,6 +261,7 @@ body{font-family:Inter,sans-serif;font-size:13px;color:#EDE5F7;background:#0A011
   <button class="nav-tab active" onclick="switchTab(event,'ficha')">&#9876; Ficha</button>
   <button class="nav-tab" onclick="switchTab(event,'bio')">&#128214; Bio & Historia</button>
   <button class="nav-tab" onclick="switchTab(event,'qa')">&#127917; Personalidade</button>
+  <button class="nav-tab" onclick="switchTab(event,'dados')">&#127922; Dados</button>
 </div>
 
 <div class="tab-panel active" id="tab-ficha">
@@ -341,7 +385,7 @@ body{font-family:Inter,sans-serif;font-size:13px;color:#EDE5F7;background:#0A011
       <div class="card-body">
         <div class="atk-header"><div class="col-lbl">Nome</div><div class="col-lbl" style="text-align:center">Bonus</div><div class="col-lbl" style="text-align:center">Dano</div><div class="col-lbl" style="text-align:right">Alcance</div></div>
         <div class="atk-row"><div><div class="atk-name">Eldritch Blast</div><div class="atk-type">Forca - Cantrip - Acao</div></div><div class="atk-bonus">+5</div><div class="atk-dmg">1d10+3</div><div class="atk-range">36m</div></div>
-        <div class="atk-row"><div><div class="atk-name">Minor Illusion</div><div class="atk-type">Ilusao - Cantrip - Acao</div></div><div class="atk-bonus">-</div><div class="atk-dmg">-</div><div class="atk-range">9m</div></div>
+        <div class="atk-row"><div><div class="atk-name">Toll the Dead</div><div class="atk-type">Necrotioo - Cantrip - WIS Save</div></div><div class="atk-bonus">DC 13</div><div class="atk-dmg">1d8/1d12</div><div class="atk-range">18m</div></div>
         <div class="atk-row"><div><div class="atk-name">Besta Leve</div><div class="atk-type">Perfurante - Acao</div></div><div class="atk-bonus">+3</div><div class="atk-dmg">1d8+1</div><div class="atk-range">24/96m</div></div>
         <div class="atk-row"><div><div class="atk-name">Adaga (corpo)</div><div class="atk-type">Perfurante - Finesse</div></div><div class="atk-bonus">+3</div><div class="atk-dmg">1d4+1</div><div class="atk-range">C/C</div></div>
         <div class="atk-row"><div><div class="atk-name">Adaga (arremesso)</div><div class="atk-type">Perfurante - Acao</div></div><div class="atk-bonus">+3</div><div class="atk-dmg">1d4+1</div><div class="atk-range">6/18m</div></div>
@@ -358,7 +402,7 @@ body{font-family:Inter,sans-serif;font-size:13px;color:#EDE5F7;background:#0A011
       </div>
       <div class="card-body">
         <div class="spell-row" onclick="openModal('eldritch-blast')"><div class="spell-lvl spell-cantrip">Cantrip</div><div><div class="spell-name">Eldritch Blast</div><div class="spell-desc">1d10+3 Forca - push 3m - a vontade</div></div><div class="spell-action">Acao</div></div>
-        <div class="spell-row" onclick="openModal('minor-illusion')"><div class="spell-lvl spell-cantrip">Cantrip</div><div><div class="spell-name">Minor Illusion</div><div class="spell-desc">Som ou imagem estatica ate 1.5m cubico - a vontade</div></div><div class="spell-action">Acao</div></div>
+        <div class="spell-row" onclick="openModal('toll-the-dead')"><div class="spell-lvl spell-cantrip">Cantrip</div><div><div class="spell-name">Toll the Dead</div><div class="spell-desc">1d8 necrotico ou 1d12 se alvo tiver HP faltando - WIS DC 13</div></div><div class="spell-action">Acao</div></div>
         <div class="spell-row" onclick="openModal('hex')"><div class="spell-lvl">1-2</div><div><div class="spell-name">Hex <span class="conc-tag">Conc.</span></div><div class="spell-desc">+1d6 dano - desvantagem num atributo - 27m - 1h</div></div><div class="spell-action">Acao<br><span style="font-size:9px;color:#444">BA mover</span></div></div>
         <div class="spell-row" onclick="openModal('armor-of-agathys')"><div class="spell-lvl">1-2</div><div><div class="spell-name">Armor of Agathys</div><div class="spell-desc">10 HP temp + 10 frio p quem acertar (upcast nv2)</div></div><div class="spell-action">Acao</div></div>
         <div class="spell-row" onclick="openModal('darkness')"><div class="spell-lvl">2</div><div><div class="spell-name">Darkness <span class="conc-tag">Conc.</span></div><div class="spell-desc">Escuridao magica 4.5m raio - so Marcus enxerga</div></div><div class="spell-action">Acao</div></div>
@@ -478,35 +522,139 @@ body{font-family:Inter,sans-serif;font-size:13px;color:#EDE5F7;background:#0A011
 <div class="qa-grid">
   <div class="qa-card">
     <div class="bio-title" style="padding:8px 14px">Tracos de Personalidade</div>
-    <div class="qa-trait"><div class="qa-icon">&#127867;</div><div><div class="qa-trait-label">Traco 1</div><div class="qa-trait-text">Marcus sempre compra a ultima rodada. Nao importa o quanto custou a noite - a ultima rodada e dele. E o unico ritual que ele mantem sem questionar.</div></div></div>
-    <div class="qa-trait"><div class="qa-icon">&#128506;</div><div><div class="qa-trait-label">Traco 2</div><div class="qa-trait-text">Ele sempre sabe duas saidas de qualquer sala. Nao e paranoia - e um habito tao antigo que ele nao percebe mais fazendo. Outros percebem.</div></div></div>
-    <div class="qa-trait"><div class="qa-icon">&#128527;</div><div><div class="qa-trait-label">Traco 3</div><div class="qa-trait-text">Tem um humor seco que surge nos momentos errados. E um mecanismo de defesa que ele nunca parou para examinar.</div></div></div>
-    <div class="qa-trait"><div class="qa-icon">&#128065;</div><div><div class="qa-trait-label">Traco 4 - Modo Sombrio</div><div class="qa-trait-text">Quando a situacao fica grave, algo muda nele. A voz fica mais baixa, os olhos mais escuros. E a mesma sensacao do sonho.</div></div></div>
+    <div class="qa-trait"><div class="qa-icon">&#127867;</div><div><div class="qa-trait-label">Traco 1 - O Ritual</div><div class="qa-trait-text">Marcus sempre compra a ultima rodada. Nao importa o quanto custou a noite. E o unico ritual que ele mantem sem questionar - e provavelmente o unico que nao sabe explicar.</div></div></div>
+    <div class="qa-trait"><div class="qa-icon">&#128506;</div><div><div class="qa-trait-label">Traco 2 - As Saidas</div><div class="qa-trait-text">Ele sempre sabe duas saidas de qualquer sala. Nao e paranoia - e habito tao antigo que nao percebe mais fazendo. Outros percebem.</div></div></div>
+    <div class="qa-trait"><div class="qa-icon">&#128527;</div><div><div class="qa-trait-label">Traco 3 - O Humor</div><div class="qa-trait-text">Tem humor seco que surge nos momentos errados. Mecanismo de defesa que nunca parou para examinar.</div></div></div>
+    <div class="qa-trait"><div class="qa-icon">&#128065;</div><div><div class="qa-trait-label">Traco 4 - O Gesto</div><div class="qa-trait-text">Quando nervoso, passa o polegar pelo dedo indicador - o mesmo gesto de antes de apontar. Nao percebe que esta fazendo. E o gesto que antecede o disparo.</div></div></div>
   </div>
   <div class="qa-card">
     <div class="bio-title" style="padding:8px 14px">Ideais, Vinculos e Falhas</div>
-    <div class="qa-trait"><div class="qa-icon">&#128293;</div><div><div class="qa-trait-label">Ideal</div><div class="qa-trait-text"><strong style="color:#C8A951">Liberdade.</strong> Ninguem deveria ter que carregar um nome que nao escolheu. As correntes mais pesadas sao as invisiveis.</div></div></div>
-    <div class="qa-trait"><div class="qa-icon">&#128009;</div><div><div class="qa-trait-label">Vinculo 1</div><div class="qa-trait-text">King. O que Marcus sente por ele e real. Se alguem machucar King, Marcus vai lembrar.</div></div></div>
-    <div class="qa-trait"><div class="qa-icon">&#128156;</div><div><div class="qa-trait-label">Vinculo 2</div><div class="qa-trait-text">A mulher que sumiu. Ele nao sabe se esta procurando ela ou tentando provar que consegue viver sem saber.</div></div></div>
-    <div class="qa-trait"><div class="qa-icon">&#127917;</div><div><div class="qa-trait-label">Falha</div><div class="qa-trait-text">Marcus foge antes de precisar. Nao de combate - de conversas. De compromissos. E mais facil ser "The Last Shot" do que ser quem ele era antes.</div></div></div>
+    <div class="qa-trait"><div class="qa-icon">&#128293;</div><div><div class="qa-trait-label">Ideal - Liberdade</div><div class="qa-trait-text">Ninguem deveria carregar um nome que nao escolheu. As correntes mais pesadas sao as invisiveis.</div></div></div>
+    <div class="qa-trait"><div class="qa-icon">&#128009;</div><div><div class="qa-trait-label">Vinculo 1 - King</div><div class="qa-trait-text">O que Marcus sente por King e real. Se alguem machucar King, Marcus vai lembrar - e o diario vai registrar.</div></div></div>
+    <div class="qa-trait"><div class="qa-icon">&#128156;</div><div><div class="qa-trait-label">Vinculo 2 - Ela</div><div class="qa-trait-text">A mulher que conheceu no comeco da vida de estrada. Sumiu sem explicacao. Ele ainda procura o rosto dela em todo bar que entra.</div></div></div>
+    <div class="qa-trait"><div class="qa-icon">&#128218;</div><div><div class="qa-trait-label">Vinculo 3 - O Diario</div><div class="qa-trait-text">O objeto que nunca abandonaria. Se esta escrito, e real. E o unico sistema em que confia mais do que na propria memoria.</div></div></div>
+    <div class="qa-trait"><div class="qa-icon">&#127917;</div><div><div class="qa-trait-label">Falha</div><div class="qa-trait-text">Foge antes de precisar. Nao de combate - de conversas, compromissos, perguntas diretas. E mais facil ser The Last Shot do que ser quem ele era antes.</div></div></div>
   </div>
-  <div class="qa-card">
-    <div class="bio-title" style="padding:8px 14px">Perguntas de Roleplay</div>
-    <div class="qa-item"><div class="qa-q">Por que voce saiu da sua familia?</div><div class="qa-a">Ele muda de assunto. Se pressionado: "Tinha coisas la que nao conseguia ser. Aqui consigo." Nao e a resposta completa. Mas e honesta.</div></div>
-    <div class="qa-item"><div class="qa-q">O que voce quer?</div><div class="qa-a">Essa pergunta o desconforta mais do que qualquer combate. A resposta mais honesta: encontrar o que perdeu sem ter que admitir que perdeu.</div></div>
-    <div class="qa-item"><div class="qa-q">Voce tem medo da entidade?</div><div class="qa-a">"Medo e a palavra errada. E mais como respeito por algo que voce nao entende. Entao, sim. Mais ou menos."</div></div>
-    <div class="qa-item"><div class="qa-q">O que King significa pra voce?</div><div class="qa-a">Ele olha pro familiar antes de responder. "Companhia. A unica criatura que sabe quem eu sou de verdade e ainda fica."</div></div>
-  </div>
-  <div class="qa-card">
-    <div class="bio-title" style="padding:8px 14px">Relacao com o Pacto</div>
-    <div class="qa-item"><div class="qa-q">Como voce se sente sobre seus poderes?</div><div class="qa-a">Uteis. As vezes assustadores, mas principalmente uteis. Marcus e pragmatico demais para entrar em crise existencial sobre a origem de algo que funciona.</div></div>
-    <div class="qa-item"><div class="qa-q">Voce tentou entender a entidade?</div><div class="qa-a">No comeco, sim. As respostas que encontrou faziam a entidade parecer menor do que ela e. Entao parou de procurar respostas.</div></div>
-    <div class="qa-item"><div class="qa-q">Form of Dread - como voce experimenta isso?</div><div class="qa-a">E como se algo que normalmente fica quieto atras dos olhos decidisse olhar de volta. Ele nao controla o que aparece.</div></div>
-    <div class="qa-item"><div class="qa-q">E se a entidade pedir algo?</div><div class="qa-a">"Depende do que pedir. Quando ela pedir, a gente ve."</div></div>
+  <div class="qa-card" style="grid-column:1/-1">
+    <div class="bio-title" style="padding:8px 14px">As 25 Perguntas</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0">
+      <div class="qa-item"><div class="qa-q">1. Memoria da infancia que nunca esqueceu</div><div class="qa-a">Acordou no meio da noite, viu um canto do proprio quarto com sombras mais fundas que o resto e a sensacao de algo vasto observando. Durou dez segundos. Nunca contou pra ninguem.</div></div>
+      <div class="qa-item"><div class="qa-q">2. A pior coisa que alguem ja disse</div><div class="qa-a">"Voce e exatamente igual ao seu pai." Dito por alguem que conhecia os dois. Marcus nao respondeu. Saiu da sala. Nao voltou.</div></div>
+      <div class="qa-item"><div class="qa-q">3. Pessoa mais importante que perdeu</div><div class="qa-a">Uma mulher que conheceu no comeco da vida de estrada. Sumiu um dia sem explicacao. Ele ainda procura o rosto dela em todo bar que entra.</div></div>
+      <div class="qa-item"><div class="qa-q">4. O que faria abandonar tudo</div><div class="qa-a">Ter uma familia propria.</div></div>
+      <div class="qa-item"><div class="qa-q">5. Habito quando nervoso</div><div class="qa-a">Passa o polegar pelo dedo indicador - o mesmo gesto de antes de apontar - sem perceber que esta fazendo.</div></div>
+      <div class="qa-item"><div class="qa-q">6. O que tem medo de esquecer</div><div class="qa-a">O rosto dela.</div></div>
+      <div class="qa-item"><div class="qa-q">7. Momento mais feliz da vida</div><div class="qa-a">Deitados com ela olhando pro ceu numa estrada entre cidades, ela apontando estrelas que ele nunca tinha parado pra ver.</div></div>
+      <div class="qa-item"><div class="qa-q">8. Ja sonhou com lugar que nunca visitou</div><div class="qa-a">Nao. Desde a noite da estalagem, nao sonha mais. Ou nao lembra. Nunca soube dizer qual dos dois.</div></div>
+      <div class="qa-item"><div class="qa-q">9. Segredo que levaria pro tumulo</div><div class="qa-a">O sobrenome que abandonou. So King sabe.</div></div>
+      <div class="qa-item"><div class="qa-q">10. O que faria matar alguem</div><div class="qa-a">Machucar alguem que ele protege.</div></div>
+      <div class="qa-item"><div class="qa-q">11. A maior culpa</div><div class="qa-a">Ter abandonado a familia sem uma palavra. Discordava de tudo, mas hoje sabe que eles mereciam mais.</div></div>
+      <div class="qa-item"><div class="qa-q">12. Alguem que acredita ter decepcionado</div><div class="qa-a">Ela.</div></div>
+      <div class="qa-item"><div class="qa-q">13. Primeira vez que o mundo foi cruel</div><div class="qa-a">Nos primeiros dias de estrada ainda usava o sobrenome sem pensar, ate alguem tentar mata-lo por causa dele. Foi quando guardou o nome no bolso e nunca mais tirou.</div></div>
+      <div class="qa-item"><div class="qa-q">14. Acredita que pessoas mudam</div><div class="qa-a">Sim, porque ele mesmo mudou. Mas desconfia quando muda rapido demais.</div></div>
+      <div class="qa-item"><div class="qa-q">15. Objeto que nunca abandonaria</div><div class="qa-a">O diario.</div></div>
+      <div class="qa-item"><div class="qa-q">16. Quem ainda lembraria dele</div><div class="qa-a">King. E talvez ela, em algum lugar.</div></div>
+      <div class="qa-item"><div class="qa-q">17. Coisa que finge nao se importar</div><div class="qa-a">A familia que deixou pra tras.</div></div>
+      <div class="qa-item"><div class="qa-q">18. Acredita em destino</div><div class="qa-a">Nao acreditava, ate a entidade aparecer. Agora nao sabe mais o que acredita.</div></div>
+      <div class="qa-item"><div class="qa-q">19. Mentira que conta pra si mesmo</div><div class="qa-a">Que esta bem sozinho.</div></div>
+      <div class="qa-item" style="background:rgba(200,169,81,.05);border:1px solid rgba(200,169,81,.2);border-radius:4px"><div class="qa-q" style="color:#C8A951">20. Se pudesse reviver um unico dia</div><div class="qa-a" style="color:#EDE5F7;font-weight:500">O dia que fugiu de casa.</div></div>
+      <div class="qa-item"><div class="qa-q">21. Ja sentiu que esqueceu algo importante</div><div class="qa-a">Nao. Guarda tudo no diario exatamente por isso.</div></div>
+      <div class="qa-item"><div class="qa-q">22. Ultima coisa dita antes de quase morrer</div><div class="qa-a">"Longe do seu castelo voce e so carne barata como qualquer um." Dito por um ladrao com uma faca no pescoco dele.</div></div>
+      <div class="qa-item"><div class="qa-q">23. Confia nas proprias memorias</div><div class="qa-a">Sim. Por isso o diario. Se esta escrito, e real.</div></div>
+      <div class="qa-item"><div class="qa-q">24. Ja sentiu que reconheceu alguem que nunca viu</div><div class="qa-a">Sim. Toda vez que a entidade se manifesta, sente que conhece aquela presenca ha muito mais tempo do que deveria.</div></div>
+      <div class="qa-item"><div class="qa-q">25. Existe algum rosto que nao consegue lembrar</div><div class="qa-a">Nao. Lembra de todos os rostos. E uma das poucas coisas que nunca precisou anotar no diario.</div></div>
+    </div>
   </div>
 </div>
-</div>
+</div></div>
 
+<div class="tab-panel" id="tab-dados">
+<div class="dice-panel">
+  <div style="display:flex;flex-direction:column;gap:8px">
+    <div class="dice-card">
+      <div class="card-title"><i class="ti ti-dice"></i>Dados</div>
+      <div class="dice-grid">
+        <div class="die-btn" onclick="rollDie(4)"><span class="die-symbol">&#9670;</span><span class="die-label">d4</span></div>
+        <div class="die-btn" onclick="rollDie(6)"><span class="die-symbol">&#9632;</span><span class="die-label">d6</span></div>
+        <div class="die-btn" onclick="rollDie(8)"><span class="die-symbol">&#9671;</span><span class="die-label">d8</span></div>
+        <div class="die-btn" onclick="rollDie(10)"><span class="die-symbol">&#10070;</span><span class="die-label">d10</span></div>
+        <div class="die-btn" onclick="rollDie(12)"><span class="die-symbol">&#11042;</span><span class="die-label">d12</span></div>
+        <div class="die-btn d20" onclick="rollDie(20)"><span class="die-symbol">&#11043;</span><span class="die-label">d20</span></div>
+        <div class="die-btn" onclick="rollDie(100)"><span class="die-symbol">&#9711;</span><span class="die-label">d100</span></div>
+        <div class="die-btn" onclick="rollCustom()"><span class="die-symbol" style="font-size:22px;margin-bottom:6px">?</span><span class="die-label">Custom</span></div>
+      </div>
+      <div class="mod-row">
+        <span class="mod-label">Modificador:</span>
+        <input class="mod-input" id="modInput" type="number" value="0" min="-10" max="20">
+        <button class="adv-btn adv" id="advBtn" onclick="toggleAdv()">Vantagem</button>
+        <button class="adv-btn dis" id="disBtn" onclick="toggleDis()">Desvantagem</button>
+      </div>
+      <div class="roll-result">
+        <div class="roll-number" id="rollNumber">—</div>
+        <div class="roll-label" id="rollLabel">Clique em um dado para rolar</div>
+        <div class="roll-formula" id="rollFormula"></div>
+      </div>
+    </div>
+    <div class="dice-card">
+      <div class="card-title"><i class="ti ti-history"></i>Historico</div>
+      <div class="history-list" id="historyList">
+        <div style="text-align:center;color:#444;font-size:11px;padding:16px">Nenhuma rolagem ainda</div>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:8px">
+    <div class="dice-card">
+      <div class="card-title"><i class="ti ti-bolt"></i>Rolagens Rapidas de Marcus</div>
+      <div class="quick-rolls">
+        <div class="quick-label">Ataques</div>
+        <div class="quick-grid">
+          <button class="quick-btn" onclick="quickRoll('Eldritch Blast',20,5,'1d10+3',10)">Eldritch Blast<span>+5</span></button>
+          <button class="quick-btn" onclick="quickRoll('Besta Leve',20,3,'1d8+1',8)">Besta Leve<span>+3</span></button>
+          <button class="quick-btn" onclick="quickRoll('Adaga',20,3,'1d4+1',4)">Adaga<span>+3</span></button>
+          <button class="quick-btn" onclick="quickRoll('King Mordida',20,4,'1d4+2',4)">King: Mordida<span>+4</span></button>
+        </div>
+      </div>
+      <div class="quick-rolls" style="border-top:1px solid #2D1560">
+        <div class="quick-label">Dano</div>
+        <div class="quick-grid">
+          <button class="quick-btn" onclick="quickDamage('EB Dano',10,3)">EB Dano<span>1d10+3</span></button>
+          <button class="quick-btn" onclick="quickDamage('Toll Dead',12,0)">Toll the Dead<span>1d12</span></button>
+          <button class="quick-btn" onclick="quickDamage('Hex Bonus',6,0)">Hex Bonus<span>1d6</span></button>
+          <button class="quick-btn" onclick="quickDamage('FoD HP Temp',10,3)">Form of Dread<span>1d10+3</span></button>
+        </div>
+      </div>
+      <div class="quick-rolls" style="border-top:1px solid #2D1560">
+        <div class="quick-label">Testes de Habilidade</div>
+        <div class="quick-grid">
+          <button class="quick-btn" onclick="quickRoll('Iniciativa',20,6)">Iniciativa<span>+6</span></button>
+          <button class="quick-btn" onclick="quickRoll('Enganacao',20,5)">Enganacao<span>+5</span></button>
+          <button class="quick-btn" onclick="quickRoll('Persuasao',20,5)">Persuasao<span>+5</span></button>
+          <button class="quick-btn" onclick="quickRoll('Intimidacao',20,5)">Intimidacao<span>+5</span></button>
+          <button class="quick-btn" onclick="quickRoll('Investigacao',20,2)">Investigacao<span>+2</span></button>
+          <button class="quick-btn" onclick="quickRoll('Stealth',20,3)">Stealth<span>+3</span></button>
+          <button class="quick-btn" onclick="quickRoll('Percepcao',20,0)">Percepcao<span>+0</span></button>
+          <button class="quick-btn" onclick="quickRoll('Prestidigitacao',20,3)">Prestidigitacao<span>+3</span></button>
+        </div>
+      </div>
+      <div class="quick-rolls" style="border-top:1px solid #2D1560">
+        <div class="quick-label">Saving Throws</div>
+        <div class="quick-grid">
+          <button class="quick-btn" onclick="quickRoll('Save WIS',20,2)">Sabedoria<span>+2</span></button>
+          <button class="quick-btn" onclick="quickRoll('Save CHA',20,5)">Carisma<span>+5</span></button>
+          <button class="quick-btn" onclick="quickRoll('Save CON',20,2)">Constituicao<span>+2</span></button>
+          <button class="quick-btn" onclick="quickRoll('Save DEX',20,1)">Destreza<span>+1</span></button>
+        </div>
+      </div>
+      <div class="quick-rolls" style="border-top:1px solid #2D1560">
+        <div class="quick-label">King</div>
+        <div class="quick-grid">
+          <button class="quick-btn" onclick="quickRoll('King Ferrao',20,4,'1d4+2',4)">King: Ferrao<span>+4</span></button>
+          <button class="quick-btn" onclick="quickDamage('King Dano',4,2)">King: Dano<span>1d4+2</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 </div>
 
 <div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
@@ -523,7 +671,8 @@ body{font-family:Inter,sans-serif;font-size:13px;color:#EDE5F7;background:#0A011
 
 <script>
 const MAX_HP=24,MAX_KING_HP=7;
-const state={hp:24,tempHp:0,slots:[true,true],fod:[true,true],deathSucc:[false,false,false],deathFail:[false,false,false],concentration:null,conditions:{},kingHp:7,magicalCunning:true};
+const state={hp:24,tempHp:0,slots:[true,true],fod:[true,true],deathSucc:[false,false,false],deathFail:[false,false,false],concentration:null,conditions:{},kingHp:7,magicalCunning:true
+,"toll-the-dead":{title:"Toll the Dead",badges:["Cantrip","Necromancia","WIS Save"],stats:[{l:"Tempo",v:"1 Acao"},{l:"Alcance",v:"18m"},{l:"Duracao",v:"Instantanea"}],comp:"V, S",body:"<p>Voce aponta para uma criatura visivel dentro do alcance e o som de um sino funeral enche o ar ao redor dela. A criatura deve ser bem sucedida num <strong>teste de resistencia de Sabedoria</strong> ou sofrer dano necrotico.</p><p><strong>1d8 necrotico</strong> se o alvo tiver todos os HP.<br><strong>1d12 necrotico</strong> se o alvo ja tiver sofrido dano (HP faltando).</p>",tags:[{l:"WIS Save DC 13",c:"red"},{l:"1d8 ou 1d12",c:"gold"},{l:"Sem ataque",c:"green"}],tip:"Superior ao Chill Touch contra alvos ja danificados. 1d12 medio e 6.5 vs 1d10+3 medio do EB = 8.5, mas Toll nao precisa de ataque (contorna miss chance). Use quando precisar de dano garantido via save contra alvos ja feridos."}};
 function save(){try{localStorage.setItem("marcus_v3",JSON.stringify(state));}catch(e){}}
 function load(){try{const d=localStorage.getItem("marcus_v3");if(d)Object.assign(state,JSON.parse(d));}catch(e){}}
 function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove("show"),2500);}
@@ -591,6 +740,133 @@ function openModal(key){
 function closeModal(){document.getElementById("modalOverlay").classList.remove("open");document.body.style.overflow="";}
 function closeModalOutside(e){if(e.target===document.getElementById("modalOverlay"))closeModal();}
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal();});
+
+// ===================== DICE =====================
+let rollHistory = [];
+let advState = null; // null, 'adv', 'dis'
+
+function toggleAdv() {
+  if (advState === 'adv') { advState = null; }
+  else { advState = 'adv'; }
+  updateAdvBtns();
+}
+function toggleDis() {
+  if (advState === 'dis') { advState = null; }
+  else { advState = 'dis'; }
+  updateAdvBtns();
+}
+function updateAdvBtns() {
+  document.getElementById('advBtn').className = 'adv-btn adv' + (advState === 'adv' ? ' active' : '');
+  document.getElementById('disBtn').className = 'adv-btn dis' + (advState === 'dis' ? ' active' : '');
+}
+
+function rand(sides) { return Math.floor(Math.random() * sides) + 1; }
+
+function rollDie(sides) {
+  const mod = parseInt(document.getElementById('modInput').value) || 0;
+  let roll1 = rand(sides);
+  let roll2 = sides === 20 && advState ? rand(sides) : null;
+  let finalRoll = roll1;
+  let formula = '1d' + sides;
+  let detail = '';
+
+  if (roll2 !== null) {
+    if (advState === 'adv') { finalRoll = Math.max(roll1, roll2); detail = '(' + roll1 + ', ' + roll2 + ') vantagem'; }
+    else { finalRoll = Math.min(roll1, roll2); detail = '(' + roll1 + ', ' + roll2 + ') desvantagem'; }
+  } else {
+    detail = String(roll1);
+  }
+
+  const total = finalRoll + mod;
+  const modStr = mod !== 0 ? (mod > 0 ? ' + ' + mod : ' - ' + Math.abs(mod)) : '';
+  formula = detail + modStr + ' = ' + total;
+
+  const isCrit = sides === 20 && finalRoll === 20;
+  const isFail = sides === 20 && finalRoll === 1;
+
+  showResult(total, 'd' + sides, formula, isCrit, isFail);
+  addHistory('d' + sides, finalRoll, mod, total, isCrit, isFail);
+}
+
+function quickRoll(name, sides, mod, damageFormula, damageSides) {
+  const oldMod = document.getElementById('modInput').value;
+  document.getElementById('modInput').value = mod;
+  let roll1 = rand(sides);
+  let roll2 = advState ? rand(sides) : null;
+  let finalRoll = roll1;
+  let detail = '';
+
+  if (roll2 !== null) {
+    if (advState === 'adv') { finalRoll = Math.max(roll1, roll2); detail = '(' + roll1 + ', ' + roll2 + ') vant'; }
+    else { finalRoll = Math.min(roll1, roll2); detail = '(' + roll1 + ', ' + roll2 + ') desv'; }
+  } else { detail = String(roll1); }
+
+  const total = finalRoll + mod;
+  const modStr = mod !== 0 ? (mod > 0 ? ' + ' + mod : ' - ' + Math.abs(mod)) : '';
+  const formula = name + ': ' + detail + modStr + ' = ' + total;
+
+  const isCrit = finalRoll === 20;
+  const isFail = finalRoll === 1;
+
+  showResult(total, name, formula, isCrit, isFail);
+  addHistory(name, finalRoll, mod, total, isCrit, isFail);
+}
+
+function quickDamage(name, sides, mod) {
+  const roll = rand(sides);
+  const total = roll + mod;
+  const modStr = mod !== 0 ? (mod > 0 ? '+' + mod : mod) : '';
+  const formula = name + ': ' + roll + modStr + ' = ' + total;
+  showResult(total, name, formula, false, false);
+  addHistory(name, roll, mod, total, false, false);
+}
+
+function rollCustom() {
+  const input = prompt('Digite a rolagem (ex: 2d6+3, 1d20, 3d8-1):');
+  if (!input) return;
+  const match = input.trim().toLowerCase().match(/^(\d+)d(\d+)([+-]\d+)?$/);
+  if (!match) { alert('Formato invalido. Use: NdX ou NdX+M'); return; }
+  const count = parseInt(match[1]);
+  const sides = parseInt(match[2]);
+  const mod = match[3] ? parseInt(match[3]) : 0;
+  let rolls = [];
+  for (let i = 0; i < count; i++) rolls.push(rand(sides));
+  const sum = rolls.reduce((a, b) => a + b, 0);
+  const total = sum + mod;
+  const modStr = mod !== 0 ? (mod > 0 ? '+' + mod : mod) : '';
+  const formula = input + ': [' + rolls.join(', ') + ']' + modStr + ' = ' + total;
+  showResult(total, input, formula, false, false);
+  addHistory(input, sum, mod, total, false, false);
+}
+
+function showResult(total, dieName, formula, isCrit, isFail) {
+  const numEl = document.getElementById('rollNumber');
+  const labelEl = document.getElementById('rollLabel');
+  const formulaEl = document.getElementById('rollFormula');
+  numEl.className = 'roll-number roll-spin' + (isCrit ? ' crit' : isFail ? ' fail' : '');
+  numEl.textContent = total;
+  labelEl.textContent = isCrit ? '&#127922; CRITICO!' : isFail ? '&#128128; FALHA CRITICA' : dieName;
+  formulaEl.textContent = formula;
+  void numEl.offsetWidth;
+}
+
+function addHistory(die, raw, mod, total, isCrit, isFail) {
+  rollHistory.unshift({ die, raw, mod, total, isCrit, isFail, time: new Date().toLocaleTimeString('pt-BR', {hour:'2-digit',minute:'2-digit',second:'2-digit'}) });
+  if (rollHistory.length > 20) rollHistory.pop();
+  renderHistory();
+}
+
+function renderHistory() {
+  const el = document.getElementById('historyList');
+  if (!rollHistory.length) { el.innerHTML = '<div style="text-align:center;color:#444;font-size:11px;padding:16px">Nenhuma rolagem ainda</div>'; return; }
+  el.innerHTML = rollHistory.map(r => {
+    const cls = r.isCrit ? ' crit' : r.isFail ? ' fail' : '';
+    const modStr = r.mod !== 0 ? (r.mod > 0 ? '+' + r.mod : r.mod) : '';
+    const flag = r.isCrit ? ' &#127822;' : r.isFail ? ' &#128128;' : '';
+    return '<div class="hist-item"><span class="hist-die">' + r.time + ' &mdash; ' + r.die + modStr + '</span><span class="hist-total' + cls + '">' + r.total + flag + '</span></div>';
+  }).join('');
+}
+
 load();render();
 </script>
 </body>
