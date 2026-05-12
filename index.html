@@ -3,206 +3,206 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Marcus "The Last Shot"</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<title>Marcus The Last Shot</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Cinzel:wght@600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Inter',sans-serif;font-size:13px;color:#1A1A1A;background:#0D0520;min-height:100vh;padding:10px}
-.sheet{width:100%;max-width:1400px;margin:0 auto;display:grid;gap:8px}
-
-/* HEADER */
-.header{background:#1A0A2E;border-radius:12px;padding:12px 18px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;border:1px solid #3D1A6E}
-.name{font-size:22px;font-weight:600;color:#C8A951}
-.sub{font-size:11px;color:#C3ADE8;margin-top:2px}
+body{font-family:Inter,sans-serif;font-size:13px;color:#EDE5F7;background:#0A0118;min-height:100vh;padding:10px}
+.sheet{width:100%;max-width:1440px;margin:0 auto;display:grid;gap:8px}
+.nav-tabs{display:flex;gap:4px;background:#1A0A2E;border-radius:12px;padding:6px;border:1px solid #3D1A6E}
+.nav-tab{flex:1;background:none;border:none;color:#9B8AC4;font-size:12px;font-weight:600;padding:8px 12px;border-radius:8px;cursor:pointer;font-family:Inter,sans-serif;transition:all .2s}
+.nav-tab:hover{color:#EDE5F7;background:rgba(255,255,255,.05)}
+.nav-tab.active{background:#3D1A6E;color:#C8A951}
+.tab-panel{display:none;gap:8px;flex-direction:column}
+.tab-panel.active{display:flex}
+.header{background:linear-gradient(135deg,#1A0A2E,#2D0A5E);border-radius:12px;padding:14px 20px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;border:1px solid #3D1A6E}
+.char-name{font-family:Cinzel,serif;font-size:24px;font-weight:600;color:#C8A951;letter-spacing:1px}
+.char-sub{font-size:11px;color:#C3ADE8;margin-top:3px}
 .stat-pills{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
-.pill{background:rgba(255,255,255,.06);border:1px solid rgba(200,169,81,.35);border-radius:8px;padding:5px 12px;text-align:center;min-width:62px}
+.pill{background:rgba(255,255,255,.06);border:1px solid rgba(200,169,81,.35);border-radius:8px;padding:6px 12px;text-align:center;min-width:62px}
 .pill-val{font-size:17px;font-weight:600;color:#C8A951}
 .pill-lbl{font-size:9px;color:#9B8AC4;margin-top:1px;white-space:nowrap;line-height:1.3}
-
-/* HP BLOCK */
 .hp-block{background:#1A0A2E;border-radius:12px;padding:14px 18px;display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:12px;align-items:center;border:1px solid #3D1A6E}
 .hp-section{text-align:center}
 .hp-label{font-size:10px;color:#9B8AC4;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
-.hp-display{font-size:42px;font-weight:600;color:#C8A951;line-height:1;cursor:default}
+.hp-display{font-size:42px;font-weight:600;color:#C8A951;line-height:1}
 .hp-display.hurt{color:#E05050}
 .hp-display.critical{color:#FF3333;animation:pulse 1s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
 .hp-controls{display:flex;gap:5px;justify-content:center;margin-top:8px}
-.hp-btn{background:#3D1A6E;border:none;color:#fff;border-radius:6px;width:32px;height:28px;font-size:16px;cursor:pointer;transition:background .15s;font-weight:600}
+.hp-btn{background:#3D1A6E;border:none;color:#fff;border-radius:6px;width:32px;height:28px;font-size:16px;cursor:pointer;font-weight:600;font-family:Inter,sans-serif;transition:background .15s}
 .hp-btn:hover{background:#5A2A9E}
-.hp-btn:active{transform:scale(.95)}
-.hp-input{background:#0D0520;border:1px solid #3D1A6E;color:#C8A951;border-radius:6px;width:52px;height:28px;text-align:center;font-size:14px;font-weight:600;font-family:'Inter',sans-serif}
+.hp-input{background:#0A0118;border:1px solid #3D1A6E;color:#C8A951;border-radius:6px;width:52px;height:28px;text-align:center;font-size:14px;font-weight:600;font-family:Inter,sans-serif}
 .hp-input:focus{outline:none;border-color:#C8A951}
 .rest-btns{display:flex;flex-direction:column;gap:6px}
-.rest-btn{border:none;border-radius:8px;padding:8px 14px;font-size:11px;font-weight:600;cursor:pointer;transition:all .15s;white-space:nowrap;font-family:'Inter',sans-serif}
-.short-rest{background:#2A4A6E;color:#90C8FF}
-.short-rest:hover{background:#3A5A8E}
-.long-rest{background:#2A1A4E;color:#C8A951}
-.long-rest:hover{background:#3A2A6E}
-.rest-btn:active{transform:scale(.97)}
-
-/* DEATH SAVES */
-.death-saves{display:flex;gap:16px;align-items:center;justify-content:center}
+.rest-btn{border:none;border-radius:8px;padding:9px 14px;font-size:12px;font-weight:600;cursor:pointer;transition:all .15s;font-family:Inter,sans-serif}
+.short-rest{background:#1A2A4E;color:#90C8FF;border:1px solid #2A4A8E}
+.short-rest:hover{background:#2A3A6E}
+.long-rest{background:#1A0A3E;color:#C8A951;border:1px solid #3D1A6E}
+.long-rest:hover{background:#2A1A5E}
 .ds-group{display:flex;flex-direction:column;align-items:center;gap:4px}
 .ds-label{font-size:9px;text-transform:uppercase;letter-spacing:.5px}
-.ds-label.succ{color:#4CAF50}
-.ds-label.fail{color:#E05050}
+.ds-label.succ{color:#4CAF50}.ds-label.fail{color:#E05050}
 .ds-circles{display:flex;gap:4px}
-.ds-circle{width:18px;height:18px;border-radius:50%;border:2px solid #555;cursor:pointer;transition:all .15s}
+.ds-circle{width:18px;height:18px;border-radius:50%;border:2px solid #444;cursor:pointer;transition:all .15s}
 .ds-circle.active-succ{background:#4CAF50;border-color:#4CAF50}
 .ds-circle.active-fail{background:#E05050;border-color:#E05050}
-.ds-circle:hover{border-color:#C8A951}
-
-/* MAIN COLS */
-.cols{display:grid;grid-template-columns:200px 1fr 1fr;gap:8px}
-.card{background:#1A0A2E;border:1px solid #2D1560;border-radius:12px;overflow:hidden}
+.card{background:#130828;border:1px solid #2D1560;border-radius:12px;overflow:hidden}
 .card-title{background:#3D1A6E;color:#fff;font-size:10px;font-weight:600;padding:6px 12px;letter-spacing:.7px;text-transform:uppercase;display:flex;align-items:center;gap:6px}
 .card-title i{font-size:13px;color:#C8A951}
 .card-body{padding:10px 12px}
-
-/* ATTRS */
+.cols{display:grid;grid-template-columns:190px 1fr 1fr;gap:8px}
 .attr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
-.attr-box{border:1px solid #2D1560;border-radius:8px;padding:5px 3px;text-align:center;background:#0D0520}
-.attr-name{font-size:8px;color:#888;letter-spacing:.3px;text-transform:uppercase}
+.attr-box{border:1px solid #2D1560;border-radius:8px;padding:5px 3px;text-align:center;background:#0A0118}
+.attr-name{font-size:8px;color:#555;text-transform:uppercase}
 .attr-val{font-size:15px;font-weight:600;color:#C3ADE8}
 .attr-mod{font-size:10px;color:#9B8AC4}
 .save-row{display:flex;gap:3px;margin-top:6px;flex-wrap:wrap}
 .save-badge{flex:1;border-radius:6px;padding:3px 2px;text-align:center;font-size:9px;min-width:30px}
 .save-prof{background:#3D1A6E;color:#EDE5F7;font-weight:600}
-.save-norm{background:#0D0520;color:#666;border:1px solid #2D1560}
-
-/* SKILLS */
+.save-norm{background:#0A0118;color:#444;border:1px solid #2D1560}
 .skill-row{display:flex;align-items:center;padding:2.5px 0;border-bottom:1px solid #1D0D3E;font-size:11px;gap:5px}
 .skill-row:last-child{border-bottom:none}
 .skill-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
-.dot-prof{background:#C8A951}
-.dot-norm{background:#333}
-.skill-name{flex:1;color:#AAA}
+.dot-prof{background:#C8A951}.dot-norm{background:#333}
+.skill-name{flex:1;color:#9B8AC4}
 .skill-mod{font-weight:600;color:#C3ADE8;min-width:24px;text-align:right}
 .skill-prof .skill-name{color:#EDE5F7;font-weight:500}
-
-/* ATTACKS */
 .atk-header,.atk-row{display:grid;grid-template-columns:1fr 34px 68px 58px;gap:4px;font-size:11px}
 .atk-header{padding-bottom:4px;border-bottom:1px solid #2D1560;margin-bottom:2px}
-.col-lbl{font-size:9px;color:#666;text-transform:uppercase;letter-spacing:.3px}
+.col-lbl{font-size:9px;color:#444;text-transform:uppercase;letter-spacing:.3px}
 .atk-row{align-items:center;padding:3.5px 0;border-bottom:1px solid #1D0D3E}
 .atk-row:last-child{border-bottom:none}
 .atk-name{font-weight:600;color:#EDE5F7}
-.atk-type{font-size:9px;color:#666}
+.atk-type{font-size:9px;color:#444}
 .atk-bonus{text-align:center;font-weight:600;color:#C3ADE8}
 .atk-dmg{text-align:center;color:#C8A951;font-weight:500}
-.atk-range{text-align:right;font-size:10px;color:#777}
-
-/* SPELLS */
-.spell-slots-row{display:flex;gap:8px;align-items:center;padding:8px 12px;background:#0D0520;border-bottom:1px solid #2D1560}
+.atk-range{text-align:right;font-size:10px;color:#555}
+.spell-slots-row{display:flex;gap:8px;align-items:center;padding:8px 12px;background:#0A0118;border-bottom:1px solid #2D1560;flex-wrap:wrap}
 .slot-bubble{width:28px;height:28px;border-radius:50%;border:2px solid #C8A951;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:#C8A951}
-.slot-bubble.used{background:#0D0520;border-color:#333;color:#333}
+.slot-bubble.used{background:#0A0118;border-color:#333;color:#333}
 .slot-bubble.available{background:#C8A951;color:#1A0A2E}
 .slot-bubble:hover{transform:scale(1.1)}
-.slot-label{font-size:10px;color:#9B8AC4;margin-right:4px}
+.slot-label{font-size:10px;color:#9B8AC4}
 .conc-indicator{margin-left:auto;font-size:10px;color:#9B8AC4;display:flex;align-items:center;gap:4px}
 .conc-active{color:#FFD700;font-weight:600}
-
-.spell-row{display:grid;grid-template-columns:36px 1fr auto;gap:6px;align-items:start;padding:4.5px 0;border-bottom:1px solid #1D0D3E;font-size:11px}
+.spell-row{display:grid;grid-template-columns:36px 1fr auto;gap:6px;align-items:start;padding:4.5px 6px;border-bottom:1px solid #1D0D3E;font-size:11px;cursor:pointer;border-radius:4px;transition:background .15s}
 .spell-row:last-child{border-bottom:none}
-.spell-lvl{background:#2D1560;color:#C3ADE8;border-radius:5px;font-size:9px;font-weight:600;text-align:center;padding:2px 3px;white-space:nowrap}
+.spell-row:hover{background:rgba(200,169,81,.07)}
+.spell-lvl{background:#2D1560;color:#C3ADE8;border-radius:5px;font-size:9px;font-weight:600;text-align:center;padding:2px 3px;white-space:nowrap;align-self:center}
 .spell-chain{background:#1A3050;color:#90C8FF}
 .spell-cantrip{background:#1A2A0A;color:#90C850}
 .spell-name{font-weight:600;color:#EDE5F7;line-height:1.3}
-.spell-desc{font-size:10px;color:#888;grid-column:2/4;margin-top:1px;line-height:1.4}
-.spell-action{font-size:9px;font-weight:600;text-align:right;white-space:nowrap;color:#9B8AC4}
+.spell-desc{font-size:10px;color:#555;grid-column:2/4;margin-top:1px;line-height:1.4}
+.spell-action{font-size:9px;font-weight:600;text-align:right;white-space:nowrap;color:#9B8AC4;align-self:center}
 .ab-tag{color:#C8A951}
 .conc-tag{display:inline-block;font-size:8px;padding:1px 4px;border-radius:4px;background:#3D2A00;color:#C8A951;margin-left:3px;vertical-align:middle}
-
-/* CONC TRACKER */
-.conc-btn{background:#0D0520;border:1px solid #2D1560;color:#888;border-radius:6px;padding:3px 8px;font-size:10px;cursor:pointer;transition:all .15s;font-family:'Inter',sans-serif;margin-top:3px}
+.conc-btn{background:#0A0118;border:1px solid #2D1560;color:#555;border-radius:6px;padding:3px 8px;font-size:10px;cursor:pointer;font-family:Inter,sans-serif;transition:all .15s}
 .conc-btn.active{background:#3D2A00;border-color:#C8A951;color:#C8A951;font-weight:600}
 .conc-btn:hover{border-color:#C8A951;color:#C8A951}
-
-/* FEATURES */
-.feature-row{padding:4px 0;border-bottom:1px solid #1D0D3E;font-size:11px}
+.feature-row{padding:4px 6px;border-bottom:1px solid #1D0D3E;font-size:11px;cursor:pointer;border-radius:4px;transition:background .15s}
 .feature-row:last-child{border-bottom:none}
-.feature-name{font-weight:600;color:#C3ADE8;margin-bottom:1px;display:flex;align-items:center;gap:6px}
-.feature-desc{color:#888;font-size:10px;line-height:1.5}
+.feature-row:hover{background:rgba(200,169,81,.07)}
+.feature-name{font-weight:600;color:#C3ADE8;margin-bottom:2px;display:flex;align-items:center;gap:6px}
+.feature-desc{color:#555;font-size:10px;line-height:1.5}
 .use-pips{display:flex;gap:4px}
 .pip{width:14px;height:14px;border-radius:50%;border:2px solid #C8A951;cursor:pointer;transition:all .15s}
-.pip.used{background:#0D0520;border-color:#333}
+.pip.used{background:#0A0118;border-color:#333}
 .pip.available{background:#C8A951}
-.pip:hover{transform:scale(1.2)}
-
-/* KING */
 .king-stats{display:grid;grid-template-columns:repeat(6,1fr);gap:3px;margin-bottom:7px}
-.king-attr{text-align:center;background:#0D0520;border-radius:6px;padding:3px;border:1px solid #2D1560}
-.king-attr-name{font-size:8px;color:#666;text-transform:uppercase}
+.king-attr{text-align:center;background:#0A0118;border-radius:6px;padding:3px;border:1px solid #2D1560}
+.king-attr-name{font-size:8px;color:#444;text-transform:uppercase}
 .king-attr-val{font-size:12px;font-weight:600;color:#C3ADE8}
-.king-attr-mod{font-size:9px;color:#777}
+.king-attr-mod{font-size:9px;color:#555}
 .king-hp-row{display:flex;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap}
-.king-hp-btn{background:#2D1560;border:none;color:#C3ADE8;border-radius:5px;width:24px;height:22px;font-size:13px;cursor:pointer;font-weight:600}
+.king-hp-btn{background:#2D1560;border:none;color:#C3ADE8;border-radius:5px;width:24px;height:22px;font-size:13px;cursor:pointer;font-weight:600;font-family:Inter,sans-serif}
 .king-hp-btn:hover{background:#3D1A6E}
 .king-hp-display{font-size:18px;font-weight:600;color:#C8A951;min-width:28px;text-align:center}
 .king-hp-display.dead{color:#E05050}
-
-/* INVOCATIONS */
-.invc-row{display:grid;grid-template-columns:100px 1fr;gap:6px;padding:3.5px 0;border-bottom:1px solid #1D0D3E;font-size:11px;align-items:start}
+.invc-row{display:grid;grid-template-columns:115px 1fr;gap:6px;padding:4px 6px;border-bottom:1px solid #1D0D3E;font-size:11px;align-items:start;cursor:pointer;border-radius:4px;transition:background .15s}
 .invc-row:last-child{border-bottom:none}
+.invc-row:hover{background:rgba(200,169,81,.07)}
 .invc-name{font-weight:600;color:#C3ADE8}
-.invc-desc{color:#888;font-size:10px;line-height:1.4}
-
-/* PROFICIENCIES */
+.invc-desc{color:#555;font-size:10px;line-height:1.4}
 .tag{display:inline-block;font-size:10px;padding:2px 7px;border-radius:5px;background:#2D1560;color:#C3ADE8;margin-right:3px;margin-bottom:3px;font-weight:500}
-
-/* EQUIPMENT */
+.cond-row{display:flex;gap:5px;flex-wrap:wrap;padding:6px 12px;background:#0A0118;border-bottom:1px solid #2D1560}
+.cond-btn{background:#0A0118;border:1px solid #2D1560;color:#444;border-radius:5px;padding:3px 8px;font-size:10px;cursor:pointer;transition:all .15s;font-family:Inter,sans-serif}
+.cond-btn:hover{border-color:#C8A951;color:#C8A951}
+.cond-btn.c-fear.active{background:#2A1A0A;border-color:#C8A951;color:#C8A951;font-weight:600}
+.cond-btn.c-blind.active{background:#2A2A2A;border-color:#AAA;color:#CCC;font-weight:600}
+.cond-btn.c-charm.active{background:#2A0A2A;border-color:#C050C0;color:#D880D8;font-weight:600}
+.cond-btn.c-prone.active{background:#2A0A0A;border-color:#E05050;color:#FF8080;font-weight:600}
+.cond-btn.c-poison.active{background:#0A1A0A;border-color:#4CAF50;color:#90C850;font-weight:600}
+.cond-btn.c-restrained.active{background:#1A1A2A;border-color:#90C8FF;color:#90C8FF;font-weight:600}
 .equip-row{display:flex;justify-content:space-between;align-items:center;padding:3px 0;border-bottom:1px solid #1D0D3E;font-size:11px}
 .equip-row:last-child{border-bottom:none}
 .equip-name{font-weight:600;color:#EDE5F7}
-.equip-detail{color:#666;font-size:10px}
-
-/* BACKSTORY */
-.bs-row{padding:3.5px 0;border-bottom:1px solid #1D0D3E;font-size:11px;line-height:1.5}
-.bs-row:last-child{border-bottom:none}
-.bs-label{font-weight:600;color:#C3ADE8}
-.bs-text{color:#888;font-size:10px}
-
-/* FOOTER */
+.equip-detail{color:#444;font-size:10px}
 .footer-bar{background:#1A0A2E;border-radius:12px;padding:8px 16px;display:flex;gap:20px;justify-content:center;flex-wrap:wrap;border:1px solid #3D1A6E}
 .fb-item{text-align:center}
 .fb-val{font-size:14px;font-weight:600;color:#C8A951}
 .fb-lbl{font-size:9px;color:#9B8AC4}
-
-/* CONDITIONS */
-.cond-row{display:flex;gap:5px;flex-wrap:wrap;padding:6px 12px;background:#0D0520;border-bottom:1px solid #2D1560}
-.cond-btn{background:#0D0520;border:1px solid #2D1560;color:#666;border-radius:5px;padding:3px 8px;font-size:10px;cursor:pointer;transition:all .15s;font-family:'Inter',sans-serif}
-.cond-btn.active{font-weight:600}
-.cond-btn.c-poison.active{background:#1A2A0A;border-color:#4CAF50;color:#90C850}
-.cond-btn.c-fear.active{background:#2A1A0A;border-color:#C8A951;color:#C8A951}
-.cond-btn.c-blind.active{background:#2A2A2A;border-color:#AAA;color:#CCC}
-.cond-btn.c-charm.active{background:#2A0A2A;border-color:#C050C0;color:#D880D8}
-.cond-btn.c-prone.active{background:#2A0A0A;border-color:#E05050;color:#FF8080}
-.cond-btn.c-conc.active{background:#3D2A00;border-color:#C8A951;color:#C8A951}
-.cond-btn:hover{border-color:#C8A951;color:#C8A951}
-
-/* TOAST */
-.toast{position:fixed;bottom:20px;right:20px;background:#3D1A6E;color:#EDE5F7;padding:10px 16px;border-radius:8px;font-size:12px;font-weight:500;opacity:0;transition:opacity .3s;pointer-events:none;z-index:999;border:1px solid #C8A951}
+#magCunning{font-size:10px;color:#555;text-align:center;margin-top:4px;cursor:pointer;padding:3px 8px;border-radius:5px;border:1px solid #2D1560;transition:border-color .15s}
+#magCunning:hover{border-color:#C8A951}
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .2s;backdrop-filter:blur(4px)}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal{background:#1A0A2E;border:1px solid #5A2A9E;border-radius:16px;max-width:520px;width:100%;max-height:85vh;overflow-y:auto;position:relative;transform:translateY(10px);transition:transform .2s}
+.modal-overlay.open .modal{transform:translateY(0)}
+.modal-header{background:linear-gradient(135deg,#3D1A6E,#5A1A9E);padding:16px 20px;border-radius:16px 16px 0 0;position:sticky;top:0;z-index:2}
+.modal-title{font-family:Cinzel,serif;font-size:18px;color:#C8A951;margin-bottom:4px}
+.modal-sub{font-size:11px;color:#C3ADE8;display:flex;gap:8px;flex-wrap:wrap}
+.modal-badge{background:rgba(255,255,255,.1);border-radius:5px;padding:2px 8px;font-size:10px;font-weight:600}
+.modal-close{position:absolute;top:12px;right:14px;background:none;border:none;color:#9B8AC4;font-size:20px;cursor:pointer;line-height:1;transition:color .15s}
+.modal-close:hover{color:#EDE5F7}
+.modal-body{padding:16px 20px}
+.modal-section{margin-bottom:14px}
+.modal-section-title{font-size:10px;font-weight:600;color:#9B8AC4;text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px;padding-bottom:4px;border-bottom:1px solid #2D1560}
+.modal-text{font-size:12px;color:#C3ADE8;line-height:1.7}
+.modal-text p{margin-bottom:8px}
+.modal-text p:last-child{margin-bottom:0}
+.modal-stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px}
+.modal-stat{background:#0A0118;border:1px solid #2D1560;border-radius:8px;padding:8px;text-align:center}
+.modal-stat-label{font-size:9px;color:#555;text-transform:uppercase;letter-spacing:.4px}
+.modal-stat-val{font-size:13px;font-weight:600;color:#C8A951;margin-top:2px}
+.modal-tip{background:#1A1A0A;border:1px solid #3D2A00;border-radius:8px;padding:10px 12px;margin-top:10px}
+.modal-tip-label{font-size:9px;font-weight:600;color:#C8A951;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+.modal-tip-text{font-size:11px;color:#B8A070;line-height:1.6}
+.modal-tag{display:inline-block;font-size:10px;padding:2px 8px;border-radius:5px;background:#2D1560;color:#C3ADE8;margin-right:4px;margin-bottom:3px}
+.modal-tag.gold{background:#3D2A00;color:#C8A951}
+.modal-tag.green{background:#0A2A0A;color:#90C850}
+.modal-tag.red{background:#2A0A0A;color:#FF8080}
+.bio-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.bio-card{background:#130828;border:1px solid #2D1560;border-radius:12px;overflow:hidden}
+.bio-title{background:#3D1A6E;color:#C8A951;font-size:11px;font-weight:600;padding:9px 14px;letter-spacing:.6px;text-transform:uppercase;font-family:Cinzel,serif}
+.bio-body{padding:14px 16px}
+.bio-text{font-size:12px;color:#C3ADE8;line-height:1.8}
+.bio-text p{margin-bottom:10px}
+.bio-text p:last-child{margin-bottom:0}
+.bio-highlight{color:#C8A951;font-weight:600}
+.bio-quote{border-left:3px solid #C8A951;padding-left:12px;margin:12px 0;font-style:italic;color:#9B8AC4;font-size:12px;line-height:1.7}
+.qa-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.qa-card{background:#130828;border:1px solid #2D1560;border-radius:12px;overflow:hidden}
+.qa-item{padding:12px 14px;border-bottom:1px solid #1D0D3E}
+.qa-item:last-child{border-bottom:none}
+.qa-q{font-size:10px;font-weight:600;color:#9B8AC4;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px}
+.qa-a{font-size:12px;color:#C3ADE8;line-height:1.6}
+.qa-trait{display:flex;gap:8px;padding:10px 14px;border-bottom:1px solid #1D0D3E;align-items:start}
+.qa-trait:last-child{border-bottom:none}
+.qa-icon{font-size:18px;flex-shrink:0}
+.qa-trait-label{font-size:9px;font-weight:600;color:#C8A951;text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px}
+.qa-trait-text{font-size:12px;color:#C3ADE8;line-height:1.6}
+.toast{position:fixed;bottom:20px;right:20px;background:#3D1A6E;color:#EDE5F7;padding:10px 16px;border-radius:8px;font-size:12px;font-weight:500;opacity:0;transition:opacity .3s;pointer-events:none;z-index:1999;border:1px solid #C8A951}
 .toast.show{opacity:1}
-
-/* FOOTER GRID */
-.footer-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-
-/* SECTION SEP */
-.section-sep{font-size:9px;font-weight:600;color:#666;letter-spacing:.5px;text-transform:uppercase;padding:5px 0 2px;border-bottom:1px solid #2D1560;margin-bottom:3px}
-
-@media(max-width:900px){.cols{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}.header{grid-template-columns:1fr}.hp-block{grid-template-columns:1fr 1fr}}
+@media(max-width:900px){.cols{grid-template-columns:1fr}.bio-grid{grid-template-columns:1fr}.qa-grid{grid-template-columns:1fr}.header{grid-template-columns:1fr}.hp-block{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
 <div class="sheet">
-
-<!-- HEADER -->
 <div class="header">
   <div>
-    <div class="name">Marcus "The Last Shot"</div>
-    <div class="sub">Warlock 3 — The Undead · Humano · Criminal · Neutro</div>
+    <div class="char-name">Marcus "The Last Shot"</div>
+    <div class="char-sub">Warlock 3 - The Undead - Humano - Criminal - Neutro</div>
   </div>
   <div></div>
   <div class="stat-pills">
@@ -214,111 +214,84 @@ body{font-family:'Inter',sans-serif;font-size:13px;color:#1A1A1A;background:#0D0
     <div class="pill"><div class="pill-val">+5</div><div class="pill-lbl">Spell Atk</div></div>
   </div>
 </div>
+<div class="nav-tabs">
+  <button class="nav-tab active" onclick="switchTab(event,'ficha')">&#9876; Ficha</button>
+  <button class="nav-tab" onclick="switchTab(event,'bio')">&#128214; Bio & Historia</button>
+  <button class="nav-tab" onclick="switchTab(event,'qa')">&#127917; Personalidade</button>
+</div>
 
-<!-- HP BLOCK -->
+<div class="tab-panel active" id="tab-ficha">
 <div class="hp-block">
-  <!-- CURRENT HP -->
   <div class="hp-section">
     <div class="hp-label">Pontos de Vida</div>
     <div class="hp-display" id="hpDisplay">24</div>
     <div class="hp-controls">
-      <button class="hp-btn" onclick="changeHP(-5)">−5</button>
-      <button class="hp-btn" onclick="changeHP(-1)">−1</button>
-      <input class="hp-input" id="hpInput" type="number" value="" placeholder="Δ" title="Digite um valor e pressione Enter para alterar HP">
+      <button class="hp-btn" onclick="changeHP(-5)">-5</button>
+      <button class="hp-btn" onclick="changeHP(-1)">-1</button>
+      <input class="hp-input" id="hpInput" type="number" placeholder="delta">
       <button class="hp-btn" onclick="changeHP(+1)">+1</button>
       <button class="hp-btn" onclick="changeHP(+5)">+5</button>
     </div>
-    <div style="font-size:9px;color:#666;margin-top:4px;text-align:center">Máximo: <span style="color:#9B8AC4">24</span></div>
+    <div style="font-size:9px;color:#444;margin-top:4px;text-align:center">Max: 24</div>
   </div>
-
-  <!-- TEMP HP -->
   <div class="hp-section">
-    <div class="hp-label">HP Temporário</div>
+    <div class="hp-label">HP Temporario</div>
     <div class="hp-display" id="tempHpDisplay" style="color:#90C8FF">0</div>
     <div class="hp-controls">
-      <button class="hp-btn" style="background:#1A2A4E" onclick="changeTempHP(-1)">−1</button>
-      <input class="hp-input" id="tempHpInput" type="number" value="" placeholder="Δ" style="border-color:#1A3050;color:#90C8FF">
+      <button class="hp-btn" style="background:#1A2A4E" onclick="changeTempHP(-1)">-1</button>
+      <input class="hp-input" id="tempHpInput" type="number" placeholder="set" style="border-color:#1A3050;color:#90C8FF">
       <button class="hp-btn" style="background:#1A2A4E" onclick="changeTempHP(+1)">+1</button>
     </div>
-    <div style="font-size:9px;color:#666;margin-top:4px;text-align:center">Armor of Agathys: +10</div>
+    <div style="font-size:9px;color:#444;margin-top:4px;text-align:center">Agathys:+10 FoD:+1d10+3</div>
   </div>
-
-  <!-- DEATH SAVES -->
   <div class="hp-section">
     <div class="hp-label">Death Saves</div>
-    <div class="death-saves" style="margin-top:6px">
-      <div class="ds-group">
-        <div class="ds-label succ">Sucesso</div>
-        <div class="ds-circles">
-          <div class="ds-circle" id="succ0" onclick="toggleDS('succ',0)"></div>
-          <div class="ds-circle" id="succ1" onclick="toggleDS('succ',1)"></div>
-          <div class="ds-circle" id="succ2" onclick="toggleDS('succ',2)"></div>
-        </div>
-      </div>
-      <div class="ds-group">
-        <div class="ds-label fail">Falha</div>
-        <div class="ds-circles">
-          <div class="ds-circle" id="fail0" onclick="toggleDS('fail',0)"></div>
-          <div class="ds-circle" id="fail1" onclick="toggleDS('fail',1)"></div>
-          <div class="ds-circle" id="fail2" onclick="toggleDS('fail',2)"></div>
-        </div>
-      </div>
+    <div style="display:flex;gap:16px;justify-content:center;margin-top:8px">
+      <div class="ds-group"><div class="ds-label succ">Sucesso</div><div class="ds-circles"><div class="ds-circle" id="succ0" onclick="toggleDS('succ',0)"></div><div class="ds-circle" id="succ1" onclick="toggleDS('succ',1)"></div><div class="ds-circle" id="succ2" onclick="toggleDS('succ',2)"></div></div></div>
+      <div class="ds-group"><div class="ds-label fail">Falha</div><div class="ds-circles"><div class="ds-circle" id="fail0" onclick="toggleDS('fail',0)"></div><div class="ds-circle" id="fail1" onclick="toggleDS('fail',1)"></div><div class="ds-circle" id="fail2" onclick="toggleDS('fail',2)"></div></div></div>
     </div>
-    <div style="font-size:9px;color:#666;margin-top:6px;text-align:center">Apenas quando HP = 0</div>
+    <div style="font-size:9px;color:#444;margin-top:6px;text-align:center">Apenas quando HP = 0</div>
   </div>
-
-  <!-- REST BUTTONS -->
   <div class="rest-btns">
-    <button class="rest-btn short-rest" onclick="doShortRest()">⚡ Short Rest</button>
-    <button class="rest-btn long-rest" onclick="doLongRest()">🌙 Long Rest</button>
-    <div id="magCunning" style="font-size:10px;color:#666;text-align:center;margin-top:4px;cursor:pointer" onclick="useMagicalCunning()">
-      Magical Cunning: <span id="mcStatus" style="color:#4CAF50;font-weight:600">disponível</span>
-    </div>
+    <button class="rest-btn short-rest" onclick="doShortRest()">Short Rest</button>
+    <button class="rest-btn long-rest" onclick="doLongRest()">Long Rest</button>
+    <div id="magCunning" onclick="useMagicalCunning()">Magical Cunning: <span id="mcStatus" style="color:#4CAF50;font-weight:600">disponivel</span></div>
   </div>
 </div>
-
-<!-- CONDITIONS -->
-<div class="card" style="border-radius:12px;overflow:visible">
-  <div class="card-title"><i class="ti ti-activity"></i>Condições Ativas</div>
+<div class="card" style="border-radius:12px">
+  <div class="card-title"><i class="ti ti-activity"></i>Condicoes - Concentracao</div>
   <div class="cond-row">
-    <button class="cond-btn c-conc" id="cond-concentracao" onclick="toggleCond('concentracao')">🔮 Concentração</button>
-    <button class="cond-btn c-fear" id="cond-com-medo" onclick="toggleCond('com-medo')">😨 Com Medo</button>
-    <button class="cond-btn c-prone" id="cond-caido" onclick="toggleCond('caido')">⬇ Caído</button>
-    <button class="cond-btn c-blind" id="cond-cego" onclick="toggleCond('cego')">👁 Cego</button>
-    <button class="cond-btn c-charm" id="cond-encantado" onclick="toggleCond('encantado')">💜 Encantado</button>
-    <button class="cond-btn c-poison" id="cond-envenenado" onclick="toggleCond('envenenado')">☠ Envenenado</button>
-    <div id="concSpell" style="margin-left:auto;font-size:10px;color:#9B8AC4;display:flex;align-items:center;gap:5px;flex-wrap:wrap">
-      <span>Conc. em:</span>
+    <button class="cond-btn c-fear" id="cond-medo" onclick="toggleCond('medo')">Com Medo</button>
+    <button class="cond-btn c-prone" id="cond-caido" onclick="toggleCond('caido')">Caido</button>
+    <button class="cond-btn c-blind" id="cond-cego" onclick="toggleCond('cego')">Cego</button>
+    <button class="cond-btn c-charm" id="cond-encantado" onclick="toggleCond('encantado')">Encantado</button>
+    <button class="cond-btn c-poison" id="cond-envenenado" onclick="toggleCond('envenenado')">Envenenado</button>
+    <button class="cond-btn c-restrained" id="cond-imobilizado" onclick="toggleCond('imobilizado')">Imobilizado</button>
+    <div style="margin-left:auto;display:flex;align-items:center;gap:5px;flex-wrap:wrap">
+      <span style="font-size:10px;color:#555">Conc:</span>
       <button class="conc-btn" id="conc-hex" onclick="setConc('Hex')">Hex</button>
       <button class="conc-btn" id="conc-darkness" onclick="setConc('Darkness')">Darkness</button>
-      <button class="conc-btn" id="conc-none" onclick="setConc(null)">Nenhuma</button>
+      <button class="conc-btn" id="conc-none" onclick="setConc(null)">X Nenhuma</button>
+      <span id="concDisplay" style="font-size:11px;color:#FFD700;font-weight:600;min-width:20px">-</span>
     </div>
   </div>
 </div>
-
-<!-- MAIN COLS -->
 <div class="cols">
-
-  <!-- COL 1: ATTRS + SKILLS -->
   <div style="display:flex;flex-direction:column;gap:8px">
     <div class="card">
       <div class="card-title"><i class="ti ti-sword"></i>Atributos</div>
       <div class="card-body">
         <div class="attr-grid">
-          <div class="attr-box"><div class="attr-name">Força</div><div class="attr-val">8</div><div class="attr-mod">−1</div></div>
+          <div class="attr-box"><div class="attr-name">Forca</div><div class="attr-val">8</div><div class="attr-mod">-1</div></div>
           <div class="attr-box"><div class="attr-name">Destreza</div><div class="attr-val">13</div><div class="attr-mod">+1</div></div>
-          <div class="attr-box"><div class="attr-name">Constituição</div><div class="attr-val">15</div><div class="attr-mod">+2</div></div>
-          <div class="attr-box"><div class="attr-name">Inteligência</div><div class="attr-val">11</div><div class="attr-mod">+0</div></div>
+          <div class="attr-box"><div class="attr-name">Constituicao</div><div class="attr-val">15</div><div class="attr-mod">+2</div></div>
+          <div class="attr-box"><div class="attr-name">Inteligencia</div><div class="attr-val">11</div><div class="attr-mod">+0</div></div>
           <div class="attr-box"><div class="attr-name">Sabedoria</div><div class="attr-val">11</div><div class="attr-mod">+0</div></div>
           <div class="attr-box"><div class="attr-name">Carisma</div><div class="attr-val">17</div><div class="attr-mod">+3</div></div>
         </div>
         <div class="save-row">
-          <div class="save-badge save-norm">For −1</div>
-          <div class="save-badge save-norm">Des +1</div>
-          <div class="save-badge save-norm">Con +2</div>
-          <div class="save-badge save-norm">Int +0</div>
-          <div class="save-badge save-prof">Sab +2★</div>
-          <div class="save-badge save-prof">Car +5★</div>
+          <div class="save-badge save-norm">For -1</div><div class="save-badge save-norm">Des +1</div><div class="save-badge save-norm">Con +2</div>
+          <div class="save-badge save-norm">Int +0</div><div class="save-badge save-prof">Sab +2*</div><div class="save-badge save-prof">Car +5*</div>
         </div>
       </div>
     </div>
@@ -327,158 +300,107 @@ body{font-family:'Inter',sans-serif;font-size:13px;color:#1A1A1A;background:#0D0
       <div class="card-body">
         <div class="skill-row"><div class="skill-dot dot-norm"></div><span class="skill-name">Acrobacia</span><span class="skill-mod">+1</span></div>
         <div class="skill-row"><div class="skill-dot dot-norm"></div><span class="skill-name">Arcanismo</span><span class="skill-mod">+0</span></div>
-        <div class="skill-row"><div class="skill-dot dot-norm"></div><span class="skill-name">Atletismo</span><span class="skill-mod">−1</span></div>
-        <div class="skill-row skill-prof"><div class="skill-dot dot-prof"></div><span class="skill-name">Enganação</span><span class="skill-mod">+5</span></div>
+        <div class="skill-row"><div class="skill-dot dot-norm"></div><span class="skill-name">Atletismo</span><span class="skill-mod">-1</span></div>
+        <div class="skill-row skill-prof"><div class="skill-dot dot-prof"></div><span class="skill-name">Enganacao</span><span class="skill-mod">+5</span></div>
         <div class="skill-row"><div class="skill-dot dot-norm"></div><span class="skill-name">Furtividade</span><span class="skill-mod">+1</span></div>
-        <div class="skill-row"><div class="skill-dot dot-norm"></div><span class="skill-name">História</span><span class="skill-mod">+0</span></div>
-        <div class="skill-row"><div class="skill-dot dot-norm"></div><span class="skill-name">Intuição</span><span class="skill-mod">+0</span></div>
-        <div class="skill-row skill-prof"><div class="skill-dot dot-prof"></div><span class="skill-name">Intimidação</span><span class="skill-mod">+5</span></div>
-        <div class="skill-row skill-prof"><div class="skill-dot dot-prof"></div><span class="skill-name">Investigação</span><span class="skill-mod">+2</span></div>
+        <div class="skill-row"><div class="skill-dot dot-norm"></div><span class="skill-name">Historia</span><span class="skill-mod">+0</span></div>
+        <div class="skill-row"><div class="skill-dot dot-norm"></div><span class="skill-name">Intuicao</span><span class="skill-mod">+0</span></div>
+        <div class="skill-row skill-prof"><div class="skill-dot dot-prof"></div><span class="skill-name">Intimidacao</span><span class="skill-mod">+5</span></div>
+        <div class="skill-row skill-prof"><div class="skill-dot dot-prof"></div><span class="skill-name">Investigacao</span><span class="skill-mod">+2</span></div>
         <div class="skill-row"><div class="skill-dot dot-norm"></div><span class="skill-name">Medicina</span><span class="skill-mod">+0</span></div>
-        <div class="skill-row"><div class="skill-dot dot-norm"></div><span class="skill-name">Percepção</span><span class="skill-mod">+0</span></div>
+        <div class="skill-row"><div class="skill-dot dot-norm"></div><span class="skill-name">Percepcao</span><span class="skill-mod">+0</span></div>
         <div class="skill-row"><div class="skill-dot dot-norm"></div><span class="skill-name">Performance</span><span class="skill-mod">+3</span></div>
-        <div class="skill-row skill-prof"><div class="skill-dot dot-prof"></div><span class="skill-name">Persuasão</span><span class="skill-mod">+5</span></div>
-        <div class="skill-row skill-prof"><div class="skill-dot dot-prof"></div><span class="skill-name">Prestidigitação</span><span class="skill-mod">+3</span></div>
+        <div class="skill-row skill-prof"><div class="skill-dot dot-prof"></div><span class="skill-name">Persuasao</span><span class="skill-mod">+5</span></div>
+        <div class="skill-row skill-prof"><div class="skill-dot dot-prof"></div><span class="skill-name">Prestidigitacao</span><span class="skill-mod">+3</span></div>
         <div class="skill-row skill-prof"><div class="skill-dot dot-prof"></div><span class="skill-name">Stealth</span><span class="skill-mod">+3</span></div>
-        <div class="skill-row"><div class="skill-dot dot-norm"></div><span class="skill-name">Sobrevivência</span><span class="skill-mod">+0</span></div>
+        <div class="skill-row"><div class="skill-dot dot-norm"></div><span class="skill-name">Sobrevivencia</span><span class="skill-mod">+0</span></div>
       </div>
     </div>
-  </div>
-
-  <!-- COL 2: ATTACKS + SPELLS -->
-  <div style="display:flex;flex-direction:column;gap:8px">
     <div class="card">
-      <div class="card-title"><i class="ti ti-crosshair"></i>Ataques</div>
+      <div class="card-title"><i class="ti ti-lock"></i>Proficiencias</div>
       <div class="card-body">
-        <div class="atk-header">
-          <div class="col-lbl">Nome</div><div class="col-lbl" style="text-align:center">Bônus</div><div class="col-lbl" style="text-align:center">Dano</div><div class="col-lbl" style="text-align:right">Alcance</div>
-        </div>
-        <div class="atk-row"><div><div class="atk-name">Eldritch Blast</div><div class="atk-type">Força · Cantrip · Ação</div></div><div class="atk-bonus">+5</div><div class="atk-dmg">1d10+3</div><div class="atk-range">36m</div></div>
-        <div class="atk-row"><div><div class="atk-name">Chill Touch</div><div class="atk-type">Necrótico · Cantrip · Ação</div></div><div class="atk-bonus">+5</div><div class="atk-dmg">1d8</div><div class="atk-range">18m</div></div>
-        <div class="atk-row"><div><div class="atk-name">Besta Leve</div><div class="atk-type">Perfurante · Ação</div></div><div class="atk-bonus">+3</div><div class="atk-dmg">1d8+1</div><div class="atk-range">24/96m</div></div>
-        <div class="atk-row"><div><div class="atk-name">Adaga (corpo)</div><div class="atk-type">Perfurante · Finesse</div></div><div class="atk-bonus">+3</div><div class="atk-dmg">1d4+1</div><div class="atk-range">C/C</div></div>
-        <div class="atk-row"><div><div class="atk-name">Adaga (arremesso)</div><div class="atk-type">Perfurante · Ação</div></div><div class="atk-bonus">+3</div><div class="atk-dmg">1d4+1</div><div class="atk-range">6/18m</div></div>
+        <div style="margin-bottom:6px"><span class="tag">Armas Simples</span><span class="tag">Armadura Leve</span><span class="tag">Thieves Tools</span><span class="tag">Cartographers Tools</span></div>
+        <div><span style="font-size:10px;color:#444;margin-right:4px">Idiomas:</span><span class="tag">Common</span><span class="tag">Elvish</span><span class="tag">Draconic</span></div>
       </div>
     </div>
-
-    <div class="card">
-      <div class="card-title"><i class="ti ti-sparkles"></i>Magias</div>
-      <!-- SLOT TRACKER -->
-      <div class="spell-slots-row">
-        <span class="slot-label">Slots Nv2:</span>
-        <div class="slot-bubble available" id="slot0" onclick="toggleSlot(0)" title="Slot 1 — clique para usar/recuperar">1</div>
-        <div class="slot-bubble available" id="slot1" onclick="toggleSlot(1)" title="Slot 2 — clique para usar/recuperar">2</div>
-        <div style="margin-left:8px;font-size:9px;color:#555">← clique para usar</div>
-        <div class="conc-indicator">
-          Concentração: <span class="conc-active" id="concDisplay">—</span>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="spell-row">
-          <div class="spell-lvl spell-cantrip">Cantrip</div>
-          <div><div class="spell-name">Eldritch Blast</div><div class="spell-desc">1d10+3 Força · push 3m · à vontade</div></div>
-          <div class="spell-action">Ação</div>
-        </div>
-        <div class="spell-row">
-          <div class="spell-lvl spell-cantrip">Cantrip</div>
-          <div><div class="spell-name">Chill Touch</div><div class="spell-desc">1d8 Necrótico · sem cura · desvantagem p/ undead</div></div>
-          <div class="spell-action">Ação</div>
-        </div>
-        <div class="spell-row">
-          <div class="spell-lvl">1→2</div>
-          <div><div class="spell-name">Hex <span class="conc-tag">Conc.</span></div><div class="spell-desc">+1d6 dano · desvantagem num atributo · 27m · 1h</div></div>
-          <div class="spell-action">Ação<br><span style="font-size:9px;color:#666">BA mover</span></div>
-        </div>
-        <div class="spell-row">
-          <div class="spell-lvl">1→2</div>
-          <div><div class="spell-name">Armor of Agathys</div><div class="spell-desc">10 HP temp + 10 frio p/ quem acertar (upcast nv2)</div></div>
-          <div class="spell-action">Ação</div>
-        </div>
-        <div class="spell-row">
-          <div class="spell-lvl">2</div>
-          <div><div class="spell-name">Darkness <span class="conc-tag">Conc.</span></div><div class="spell-desc">Escuridão mágica 4,5m raio · só Marcus enxerga</div></div>
-          <div class="spell-action">Ação</div>
-        </div>
-        <div class="spell-row">
-          <div class="spell-lvl">2</div>
-          <div><div class="spell-name">Misty Step</div><div class="spell-desc">Teleport 9m instantâneo · sem Concentração</div></div>
-          <div class="spell-action ab-tag">Ação<br>Bônus</div>
-        </div>
-        <div class="spell-row">
-          <div class="spell-lvl spell-chain">Chain</div>
-          <div><div class="spell-name">Find Familiar — King</div><div class="spell-desc">Age no próprio turno · ataque com reação</div></div>
-          <div class="spell-action">Ação<br>Mágica</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- EQUIPMENT -->
     <div class="card">
       <div class="card-title"><i class="ti ti-backpack"></i>Equipamento</div>
       <div class="card-body">
-        <div class="equip-row"><span class="equip-name">Besta Leve + 20 Virotes</span><span class="equip-detail">1d8+1 · 24/96m</span></div>
-        <div class="equip-row"><span class="equip-name">Adaga</span><span class="equip-detail">Escondida na bota · 6/18m</span></div>
+        <div class="equip-row"><span class="equip-name">Besta Leve + 20 Virotes</span><span class="equip-detail">1d8+1 - 24/96m</span></div>
+        <div class="equip-row"><span class="equip-name">Adaga</span><span class="equip-detail">Bota - Finesse - Thrown 6/18m</span></div>
         <div class="equip-row"><span class="equip-name">Armadura de Couro</span><span class="equip-detail">CA 11 + Des</span></div>
-        <div class="equip-row"><span class="equip-name">Mochila · Diário Surrado</span><span class="equip-detail">Rotas, contatos, observações</span></div>
-        <div class="equip-row"><span class="equip-name">Cartographer's + Thieves' Tools</span><span class="equip-detail">Proficiente em ambos</span></div>
+        <div class="equip-row"><span class="equip-name">Mochila - Diario Surrado</span><span class="equip-detail">Rotas, contatos, observacoes</span></div>
+        <div class="equip-row"><span class="equip-name">Cart. + Thieves Tools</span><span class="equip-detail">Proficiente em ambos</span></div>
         <div class="equip-row"><span class="equip-name">220 GP</span><span class="equip-detail">Reserva de mercador</span></div>
       </div>
     </div>
   </div>
-
-  <!-- COL 3: FEATURES + KING -->
   <div style="display:flex;flex-direction:column;gap:8px">
-
-    <!-- RESOURCES -->
     <div class="card">
-      <div class="card-title"><i class="ti ti-wand"></i>Recursos & Habilidades</div>
+      <div class="card-title"><i class="ti ti-crosshair"></i>Ataques</div>
       <div class="card-body">
-        <div class="feature-row">
-          <div class="feature-name">
-            Form of Dread
-            <div class="use-pips">
-              <div class="pip available" id="fod0" onclick="toggleFoD(0)" title="Uso 1"></div>
-              <div class="pip available" id="fod1" onclick="toggleFoD(1)" title="Uso 2"></div>
+        <div class="atk-header"><div class="col-lbl">Nome</div><div class="col-lbl" style="text-align:center">Bonus</div><div class="col-lbl" style="text-align:center">Dano</div><div class="col-lbl" style="text-align:right">Alcance</div></div>
+        <div class="atk-row"><div><div class="atk-name">Eldritch Blast</div><div class="atk-type">Forca - Cantrip - Acao</div></div><div class="atk-bonus">+5</div><div class="atk-dmg">1d10+3</div><div class="atk-range">36m</div></div>
+        <div class="atk-row"><div><div class="atk-name">Minor Illusion</div><div class="atk-type">Ilusao - Cantrip - Acao</div></div><div class="atk-bonus">-</div><div class="atk-dmg">-</div><div class="atk-range">9m</div></div>
+        <div class="atk-row"><div><div class="atk-name">Besta Leve</div><div class="atk-type">Perfurante - Acao</div></div><div class="atk-bonus">+3</div><div class="atk-dmg">1d8+1</div><div class="atk-range">24/96m</div></div>
+        <div class="atk-row"><div><div class="atk-name">Adaga (corpo)</div><div class="atk-type">Perfurante - Finesse</div></div><div class="atk-bonus">+3</div><div class="atk-dmg">1d4+1</div><div class="atk-range">C/C</div></div>
+        <div class="atk-row"><div><div class="atk-name">Adaga (arremesso)</div><div class="atk-type">Perfurante - Acao</div></div><div class="atk-bonus">+3</div><div class="atk-dmg">1d4+1</div><div class="atk-range">6/18m</div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><i class="ti ti-sparkles"></i>Magias <span style="font-size:9px;color:#C8A951;font-weight:400;margin-left:4px">Clique para detalhes</span></div>
+      <div class="spell-slots-row">
+        <span class="slot-label">Slots Nv2:</span>
+        <div class="slot-bubble available" id="slot0" onclick="toggleSlot(0)" title="Slot 1">1</div>
+        <div class="slot-bubble available" id="slot1" onclick="toggleSlot(1)" title="Slot 2">2</div>
+        <span style="font-size:9px;color:#333;margin-left:4px">clique para usar</span>
+        <div class="conc-indicator">Conc: <span class="conc-active" id="concDisplay2">-</span></div>
+      </div>
+      <div class="card-body">
+        <div class="spell-row" onclick="openModal('eldritch-blast')"><div class="spell-lvl spell-cantrip">Cantrip</div><div><div class="spell-name">Eldritch Blast</div><div class="spell-desc">1d10+3 Forca - push 3m - a vontade</div></div><div class="spell-action">Acao</div></div>
+        <div class="spell-row" onclick="openModal('minor-illusion')"><div class="spell-lvl spell-cantrip">Cantrip</div><div><div class="spell-name">Minor Illusion</div><div class="spell-desc">Som ou imagem estatica ate 1.5m cubico - a vontade</div></div><div class="spell-action">Acao</div></div>
+        <div class="spell-row" onclick="openModal('hex')"><div class="spell-lvl">1-2</div><div><div class="spell-name">Hex <span class="conc-tag">Conc.</span></div><div class="spell-desc">+1d6 dano - desvantagem num atributo - 27m - 1h</div></div><div class="spell-action">Acao<br><span style="font-size:9px;color:#444">BA mover</span></div></div>
+        <div class="spell-row" onclick="openModal('armor-of-agathys')"><div class="spell-lvl">1-2</div><div><div class="spell-name">Armor of Agathys</div><div class="spell-desc">10 HP temp + 10 frio p quem acertar (upcast nv2)</div></div><div class="spell-action">Acao</div></div>
+        <div class="spell-row" onclick="openModal('darkness')"><div class="spell-lvl">2</div><div><div class="spell-name">Darkness <span class="conc-tag">Conc.</span></div><div class="spell-desc">Escuridao magica 4.5m raio - so Marcus enxerga</div></div><div class="spell-action">Acao</div></div>
+        <div class="spell-row" onclick="openModal('misty-step')"><div class="spell-lvl">2</div><div><div class="spell-name">Misty Step</div><div class="spell-desc">Teleport 9m instantaneo - sem Concentracao</div></div><div class="spell-action ab-tag">Acao<br>Bonus</div></div>
+        <div class="spell-row" onclick="openModal('find-familiar')"><div class="spell-lvl spell-chain">Chain</div><div><div class="spell-name">Find Familiar - King</div><div class="spell-desc">Age no proprio turno - ataque com reacao</div></div><div class="spell-action">Acao<br>Magica</div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><i class="ti ti-eye"></i>Invocacoes Eldrica <span style="font-size:9px;color:#C8A951;font-weight:400">Clique para detalhes</span></div>
+      <div class="card-body">
+        <div class="invc-row" onclick="openModal('agonizing-blast')"><div class="invc-name">Agonizing Blast</div><div class="invc-desc">+3 dano (mod. Car) por projetil do Eldritch Blast</div></div>
+        <div class="invc-row" onclick="openModal('mask-of-many-faces')"><div class="invc-name">Mask of Many Faces</div><div class="invc-desc">Conjura Disguise Self a vontade - sem slots</div></div>
+        <div class="invc-row" onclick="openModal('devils-sight')"><div class="invc-name">Devils Sight</div><div class="invc-desc">Visao perfeita 36m em qualquer escuridao</div></div>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:8px">
+    <div class="card">
+      <div class="card-title"><i class="ti ti-wand"></i>Recursos <span style="font-size:9px;color:#C8A951;font-weight:400">Clique para detalhes</span></div>
+      <div class="card-body">
+        <div class="feature-row" onclick="openModal('form-of-dread')">
+          <div class="feature-name">Form of Dread
+            <div class="use-pips" onclick="event.stopPropagation()">
+              <div class="pip available" id="fod0" onclick="toggleFoD(0)"></div>
+              <div class="pip available" id="fod1" onclick="toggleFoD(1)"></div>
             </div>
-            <span style="font-size:9px;color:#666;margin-left:2px">/ Long Rest</span>
+            <span style="font-size:9px;color:#444">/ Long Rest</span>
           </div>
-          <div class="feature-desc"><span style="background:#3D2A00;color:#C8A951;font-size:9px;padding:1px 5px;border-radius:4px;font-weight:600;margin-right:4px">Ação Bônus</span>1d10+3 HP temp · WIS DC 13 medo · 1 min</div>
+          <div class="feature-desc"><span style="background:#3D2A00;color:#C8A951;font-size:9px;padding:1px 5px;border-radius:4px;font-weight:600;margin-right:4px">Acao Bonus</span>1d10+3 HP temp - WIS DC 13 medo - 1 min</div>
         </div>
-        <div class="feature-row">
-          <div class="feature-name">Pact Magic</div>
-          <div class="feature-desc">2 slots nível 2 · recupera no Short Rest · ver bolhas acima</div>
-        </div>
-        <div class="feature-row">
-          <div class="feature-name">Pact of the Chain</div>
-          <div class="feature-desc">King age no próprio turno · renuncia ataque → King usa reação</div>
-        </div>
-        <div class="feature-row">
-          <div class="feature-name">Devil's Sight</div>
-          <div class="feature-desc">Visão 36m em escuridão normal e mágica — combo com Darkness</div>
-        </div>
-        <div class="feature-row">
-          <div class="feature-name">Alert (Feat)</div>
-          <div class="feature-desc">+5 Iniciativa (total +6) · nunca surpreendido · invis. sem vantagem</div>
-        </div>
+        <div class="feature-row" onclick="openModal('pact-magic')"><div class="feature-name">Pact Magic</div><div class="feature-desc">2 slots nivel 2 - recupera no Short Rest</div></div>
+        <div class="feature-row" onclick="openModal('pact-of-the-chain')"><div class="feature-name">Pact of the Chain</div><div class="feature-desc">King age sozinho - renuncia ataque - King usa reacao</div></div>
+        <div class="feature-row" onclick="openModal('devils-sight')"><div class="feature-name">Devils Sight</div><div class="feature-desc">Visao 36m em escuridao normal e magica</div></div>
+        <div class="feature-row" onclick="openModal('alert')"><div class="feature-name">Alert (Feat)</div><div class="feature-desc">+5 Iniciativa - nunca surpreendido - invisive sem vantagem</div></div>
+        <div class="feature-row" onclick="openModal('dark-ones-blessing')"><div class="feature-name">Dark Ones Blessing</div><div class="feature-desc">Mata inimigo - ganha 5 HP temp</div></div>
       </div>
     </div>
-
-    <!-- INVOCATIONS -->
     <div class="card">
-      <div class="card-title"><i class="ti ti-eye"></i>Invocações Éldrica</div>
-      <div class="card-body">
-        <div class="invc-row"><div class="invc-name">Agonizing Blast</div><div class="invc-desc">+3 dano (mod. Car) por projétil do EB</div></div>
-        <div class="invc-row"><div class="invc-name">Repelling Blast</div><div class="invc-desc">Empurra alvo 3m por projétil do EB</div></div>
-        <div class="invc-row"><div class="invc-name">Devil's Sight</div><div class="invc-desc">Visão perfeita 36m em qualquer escuridão</div></div>
-      </div>
-    </div>
-
-    <!-- KING -->
-    <div class="card">
-      <div class="card-title"><i class="ti ti-dragon"></i>King — Pseudodragão</div>
+      <div class="card-title"><i class="ti ti-dragon"></i>King - Pseudodragao</div>
       <div class="card-body">
         <div class="king-stats">
-          <div class="king-attr"><div class="king-attr-name">For</div><div class="king-attr-val">6</div><div class="king-attr-mod">−2</div></div>
+          <div class="king-attr"><div class="king-attr-name">For</div><div class="king-attr-val">6</div><div class="king-attr-mod">-2</div></div>
           <div class="king-attr"><div class="king-attr-name">Des</div><div class="king-attr-val">15</div><div class="king-attr-mod">+2</div></div>
           <div class="king-attr"><div class="king-attr-name">Con</div><div class="king-attr-val">13</div><div class="king-attr-mod">+1</div></div>
           <div class="king-attr"><div class="king-attr-name">Int</div><div class="king-attr-val">10</div><div class="king-attr-mod">+0</div></div>
@@ -487,261 +409,189 @@ body{font-family:'Inter',sans-serif;font-size:13px;color:#1A1A1A;background:#0D0
         </div>
         <div class="king-hp-row">
           <span style="font-size:10px;color:#9B8AC4">HP do King:</span>
-          <button class="king-hp-btn" onclick="changeKingHP(-1)">−</button>
+          <button class="king-hp-btn" onclick="changeKingHP(-1)">-</button>
           <div class="king-hp-display" id="kingHpDisplay">7</div>
           <button class="king-hp-btn" onclick="changeKingHP(+1)">+</button>
-          <span style="font-size:9px;color:#555">/ 7 · CA 13</span>
+          <span style="font-size:9px;color:#333">/ 7 - CA 13</span>
         </div>
-        <div class="feature-row"><div class="feature-name" style="color:#9B8AC4;font-size:10px">Mordida</div><div class="feature-desc">+4 · 1d4+2 Perfurante · 1,5m</div></div>
-        <div class="feature-row"><div class="feature-name" style="color:#9B8AC4;font-size:10px">Ferrão</div><div class="feature-desc">+4 · 1d4+2 Perfurante + Veneno DC 11 CON</div></div>
-        <div class="feature-row"><div class="feature-name" style="color:#9B8AC4;font-size:10px">Sentidos</div><div class="feature-desc">Blindsight 3m · Darkvision 18m · Telepatia 9m · Voo 18m</div></div>
-        <div class="feature-row" style="border-bottom:none"><div class="feature-desc" style="color:#C8A951;font-style:italic;font-size:10px">Sabe o sobrenome verdadeiro de Marcus.</div></div>
-      </div>
-    </div>
-
-    <!-- PROFICIENCIES -->
-    <div class="card">
-      <div class="card-title"><i class="ti ti-lock"></i>Proficiências & Idiomas</div>
-      <div class="card-body">
-        <div style="margin-bottom:5px"><span class="tag">Armas Simples</span><span class="tag">Armadura Leve</span><span class="tag">Thieves' Tools</span><span class="tag">Cartographer's Tools</span></div>
-        <div><span style="font-size:10px;color:#666;margin-right:4px">Idiomas:</span><span class="tag">Common</span><span class="tag">Elvish</span><span class="tag">Draconic</span></div>
-      </div>
-    </div>
-
-    <!-- BACKSTORY -->
-    <div class="card">
-      <div class="card-title"><i class="ti ti-book"></i>Backstory</div>
-      <div class="card-body">
-        <div class="bs-row"><span class="bs-label">Origem: </span><span class="bs-text">Família nobre. Sobrenome abandonado.</span></div>
-        <div class="bs-row"><span class="bs-label">O Pacto: </span><span class="bs-text">Acordou com poderes. Entidade sem forma, sem nome.</span></div>
-        <div class="bs-row"><span class="bs-label">A Mulher: </span><span class="bs-text">Um amor que sumiu. Nome a definir.</span></div>
-        <div class="bs-row"><span class="bs-label">"The Last Shot": </span><span class="bs-text">No bar é a última rodada. Em combate é o último disparo.</span></div>
+        <div class="feature-row" onclick="openModal('king-attacks')" style="border-bottom:none">
+          <div class="feature-name" style="color:#9B8AC4;font-size:10px">Mordida + Ferrao (clique para detalhes)</div>
+          <div class="feature-desc">Mordida: +4 1d4+2 | Ferrao: +4 1d4+2 + Veneno DC 11 CON</div>
+        </div>
+        <div style="padding:4px 6px;font-size:10px;color:#444">Blindsight 3m - Darkvision 18m - Telepatia 9m - Voo 18m</div>
+        <div style="padding:4px 6px;font-size:10px;color:#C8A951;font-style:italic">Sabe o sobrenome verdadeiro de Marcus.</div>
       </div>
     </div>
   </div>
-
 </div>
-
-<!-- FOOTER BAR -->
 <div class="footer-bar">
   <div class="fb-item"><div class="fb-val">DC 13</div><div class="fb-lbl">Spell Save DC</div></div>
   <div class="fb-item"><div class="fb-val">+5</div><div class="fb-lbl">Spell Attack</div></div>
-  <div class="fb-item"><div class="fb-val">2× Nv2</div><div class="fb-lbl">Slots (Short Rest)</div></div>
+  <div class="fb-item"><div class="fb-val">2x Nv2</div><div class="fb-lbl">Slots (Short Rest)</div></div>
   <div class="fb-item"><div class="fb-val">10</div><div class="fb-lbl">Passive Perc.</div></div>
   <div class="fb-item"><div class="fb-val">12</div><div class="fb-lbl">Passive Inv.</div></div>
   <div class="fb-item"><div class="fb-val">3d8</div><div class="fb-lbl">Dados de Vida</div></div>
-  <div class="fb-item"><div class="fb-val">Neutro</div><div class="fb-lbl">Alinhamento</div></div>
-  <div class="fb-item"><div class="fb-val">Milestone</div><div class="fb-lbl">Progressão</div></div>
+</div>
 </div>
 
-</div><!-- end .sheet -->
+<div class="tab-panel" id="tab-bio">
+<div class="bio-grid">
+  <div class="bio-card"><div class="bio-title">Origem e Familia</div><div class="bio-body"><div class="bio-text">
+    <p>Marcus nasceu com outro nome - um nome que carrega peso, historia e expectativas que ele escolheu deixar para tras. Filho de uma familia nobre, cresceu com acesso a educacao, rotas comerciais e conforto que a maioria nunca conhece.</p>
+    <p>A saida foi silenciosa. Sem carta. Sem despedida. Sem explicacao. Um dia ele simplesmente nao estava mais la. Quem ficou para tras ainda carrega perguntas sem resposta.</p>
+    <div class="bio-quote">O sobrenome e a unica coisa que ele protege com mais cuidado do que a propria vida. King sabe. E isso e o suficiente para manter Marcus acordado as vezes.</div>
+    <p>Como mercador independente, Marcus construiu uma identidade nova do zero. As <span class="bio-highlight">Cartographers Tools</span> nao sao acidente. Os <span class="bio-highlight">Thieves Tools</span> vieram depois, quando percebeu que o mundo honesto nao era tao diferente do desonesto.</p>
+  </div></div></div>
+  <div class="bio-card"><div class="bio-title">O Pacto</div><div class="bio-body"><div class="bio-text">
+    <p>Nao foi uma escolha. Ou foi - mas nao do tipo que voce toma acordado, com tempo para pensar nas consequencias.</p>
+    <p>Aconteceu numa estalagem qualquer, depois de uma noite de bebida com estranhos. Ele dormiu. No sonho, havia algo sem forma definida - nao era escuridao, porque escuridao e ausencia. Isso era <span class="bio-highlight">presenca</span>. Algo alem do que palavras podem nomear.</p>
+    <p>Quando acordou, sabia coisas que nao deveria saber. Sentia coisas que nao deveria sentir. E King estava ali, enrolado no cobertor, como se sempre tivesse estado.</p>
+    <div class="bio-quote">"Nao sei o que quer de mim. Sei que ainda nao quer que eu morra - o que e, no minimo, conveniente."</div>
+    <p>A entidade e mecanicamente classificada como <span class="bio-highlight">The Undead</span>, mas isso e uma aproximacao humana para algo que provavelmente nao se importa com categorias.</p>
+  </div></div></div>
+  <div class="bio-card"><div class="bio-title">A Mulher</div><div class="bio-body"><div class="bio-text">
+    <p>Ha uma pessoa que sumiu. O nome ainda nao foi definido. Ela e mais uma sombra do que uma presenca, mais uma pergunta do que uma memoria especifica.</p>
+    <p>Marcus nao fala sobre ela. Nao diretamente. Mas os padroes estao la para quem prestar atencao: ele nunca fica em lugar nenhum por muito tempo. Ele conhece o nome de cada estalagem em cada rota que percorre. Ele sempre sabe duas saidas de qualquer sala.</p>
+    <div class="bio-quote">Procurando ou fugindo - talvez as duas coisas ao mesmo tempo.</div>
+  </div></div></div>
+  <div class="bio-card"><div class="bio-title">The Last Shot</div><div class="bio-body"><div class="bio-text">
+    <p>O apelido surgiu num bar. A historia que ele conta muda dependendo de quem pergunta e de quantas rodadas ja foram servidas.</p>
+    <p>Versao 1: Era o ultimo a sair sempre, e sempre pagava a ultima rodada. Generosidade ou solidao.</p>
+    <p>Versao 2: Numa situacao que ele nao entra em detalhes, houve um momento onde sobrou um disparo. Ele nao errou.</p>
+    <div class="bio-quote">"The Last Shot" - ele nunca explica qual dos dois e o verdadeiro. Provavelmente porque sao os dois.</div>
+    <p>Em combate: <span class="bio-highlight">Eldritch Blast</span>, 36 metros de distancia, na escuridao que so ele enxerga. O ultimo disparo que o inimigo nunca viu vir.</p>
+  </div></div></div>
+  <div class="bio-card" style="grid-column:1/-1"><div class="bio-title">King</div><div class="bio-body"><div class="bio-text" style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+    <div>
+      <p>King apareceu junto com os poderes. O pseudodragao age com uma dignidade irritante para algo do tamanho de um gato. Ele escolhe quando aparece em publico e quando fica invisivel. Ele julga as pessoas silenciosamente.</p>
+      <div class="bio-quote">King sabe o sobrenome verdadeiro de Marcus. Esse detalhe nunca foi discutido entre eles. E simplesmente uma verdade que existe, como a gravidade.</div>
+    </div>
+    <div>
+      <p>A telepatia funciona em sentimentos e imagens, nao palavras. Mas depois de tempo suficiente juntos, Marcus entende o suficiente: perigo, mentira, confianca, fome (King tem muita fome).</p>
+      <p>Ha uma teoria - que Marcus nunca disse em voz alta - de que King nao e apenas um familiar. Que ele e um fragmento da entidade. Um olho. Uma ancora. Mas King olha para Marcus com algo que parece afeicao genuina. E talvez seja so isso.</p>
+    </div>
+  </div></div></div>
+</div>
+</div>
 
-<!-- TOAST -->
+<div class="tab-panel" id="tab-qa">
+<div class="qa-grid">
+  <div class="qa-card">
+    <div class="bio-title" style="padding:8px 14px">Tracos de Personalidade</div>
+    <div class="qa-trait"><div class="qa-icon">&#127867;</div><div><div class="qa-trait-label">Traco 1</div><div class="qa-trait-text">Marcus sempre compra a ultima rodada. Nao importa o quanto custou a noite - a ultima rodada e dele. E o unico ritual que ele mantem sem questionar.</div></div></div>
+    <div class="qa-trait"><div class="qa-icon">&#128506;</div><div><div class="qa-trait-label">Traco 2</div><div class="qa-trait-text">Ele sempre sabe duas saidas de qualquer sala. Nao e paranoia - e um habito tao antigo que ele nao percebe mais fazendo. Outros percebem.</div></div></div>
+    <div class="qa-trait"><div class="qa-icon">&#128527;</div><div><div class="qa-trait-label">Traco 3</div><div class="qa-trait-text">Tem um humor seco que surge nos momentos errados. E um mecanismo de defesa que ele nunca parou para examinar.</div></div></div>
+    <div class="qa-trait"><div class="qa-icon">&#128065;</div><div><div class="qa-trait-label">Traco 4 - Modo Sombrio</div><div class="qa-trait-text">Quando a situacao fica grave, algo muda nele. A voz fica mais baixa, os olhos mais escuros. E a mesma sensacao do sonho.</div></div></div>
+  </div>
+  <div class="qa-card">
+    <div class="bio-title" style="padding:8px 14px">Ideais, Vinculos e Falhas</div>
+    <div class="qa-trait"><div class="qa-icon">&#128293;</div><div><div class="qa-trait-label">Ideal</div><div class="qa-trait-text"><strong style="color:#C8A951">Liberdade.</strong> Ninguem deveria ter que carregar um nome que nao escolheu. As correntes mais pesadas sao as invisiveis.</div></div></div>
+    <div class="qa-trait"><div class="qa-icon">&#128009;</div><div><div class="qa-trait-label">Vinculo 1</div><div class="qa-trait-text">King. O que Marcus sente por ele e real. Se alguem machucar King, Marcus vai lembrar.</div></div></div>
+    <div class="qa-trait"><div class="qa-icon">&#128156;</div><div><div class="qa-trait-label">Vinculo 2</div><div class="qa-trait-text">A mulher que sumiu. Ele nao sabe se esta procurando ela ou tentando provar que consegue viver sem saber.</div></div></div>
+    <div class="qa-trait"><div class="qa-icon">&#127917;</div><div><div class="qa-trait-label">Falha</div><div class="qa-trait-text">Marcus foge antes de precisar. Nao de combate - de conversas. De compromissos. E mais facil ser "The Last Shot" do que ser quem ele era antes.</div></div></div>
+  </div>
+  <div class="qa-card">
+    <div class="bio-title" style="padding:8px 14px">Perguntas de Roleplay</div>
+    <div class="qa-item"><div class="qa-q">Por que voce saiu da sua familia?</div><div class="qa-a">Ele muda de assunto. Se pressionado: "Tinha coisas la que nao conseguia ser. Aqui consigo." Nao e a resposta completa. Mas e honesta.</div></div>
+    <div class="qa-item"><div class="qa-q">O que voce quer?</div><div class="qa-a">Essa pergunta o desconforta mais do que qualquer combate. A resposta mais honesta: encontrar o que perdeu sem ter que admitir que perdeu.</div></div>
+    <div class="qa-item"><div class="qa-q">Voce tem medo da entidade?</div><div class="qa-a">"Medo e a palavra errada. E mais como respeito por algo que voce nao entende. Entao, sim. Mais ou menos."</div></div>
+    <div class="qa-item"><div class="qa-q">O que King significa pra voce?</div><div class="qa-a">Ele olha pro familiar antes de responder. "Companhia. A unica criatura que sabe quem eu sou de verdade e ainda fica."</div></div>
+  </div>
+  <div class="qa-card">
+    <div class="bio-title" style="padding:8px 14px">Relacao com o Pacto</div>
+    <div class="qa-item"><div class="qa-q">Como voce se sente sobre seus poderes?</div><div class="qa-a">Uteis. As vezes assustadores, mas principalmente uteis. Marcus e pragmatico demais para entrar em crise existencial sobre a origem de algo que funciona.</div></div>
+    <div class="qa-item"><div class="qa-q">Voce tentou entender a entidade?</div><div class="qa-a">No comeco, sim. As respostas que encontrou faziam a entidade parecer menor do que ela e. Entao parou de procurar respostas.</div></div>
+    <div class="qa-item"><div class="qa-q">Form of Dread - como voce experimenta isso?</div><div class="qa-a">E como se algo que normalmente fica quieto atras dos olhos decidisse olhar de volta. Ele nao controla o que aparece.</div></div>
+    <div class="qa-item"><div class="qa-q">E se a entidade pedir algo?</div><div class="qa-a">"Depende do que pedir. Quando ela pedir, a gente ve."</div></div>
+  </div>
+</div>
+</div>
+
+</div>
+
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+  <div class="modal" id="modal">
+    <div class="modal-header" id="modalHeader">
+      <div class="modal-title" id="modalTitle">-</div>
+      <div class="modal-sub" id="modalSub"></div>
+      <button class="modal-close" onclick="closeModal()">X</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
 <div class="toast" id="toast"></div>
 
 <script>
-const MAX_HP = 24;
-const MAX_KING_HP = 7;
-
-const state = {
-  hp: 24, tempHp: 0,
-  slots: [true, true],
-  fod: [true, true],
-  deathSucc: [false,false,false],
-  deathFail: [false,false,false],
-  concentration: null,
-  conditions: {},
-  kingHp: 7,
-  magicalCunning: true,
-};
-
-function save(){ try{ localStorage.setItem('marcus_state', JSON.stringify(state)); }catch(e){} }
-function load(){
-  try{
-    const d = localStorage.getItem('marcus_state');
-    if(d){ Object.assign(state, JSON.parse(d)); }
-  }catch(e){}
-}
-
-function toast(msg){
-  const t = document.getElementById('toast');
-  t.textContent = msg; t.classList.add('show');
-  clearTimeout(t._t);
-  t._t = setTimeout(()=>t.classList.remove('show'), 2200);
-}
-
+const MAX_HP=24,MAX_KING_HP=7;
+const state={hp:24,tempHp:0,slots:[true,true],fod:[true,true],deathSucc:[false,false,false],deathFail:[false,false,false],concentration:null,conditions:{},kingHp:7,magicalCunning:true};
+function save(){try{localStorage.setItem("marcus_v3",JSON.stringify(state));}catch(e){}}
+function load(){try{const d=localStorage.getItem("marcus_v3");if(d)Object.assign(state,JSON.parse(d));}catch(e){}}
+function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove("show"),2500);}
 function render(){
-  // HP
-  const hp = state.hp;
-  const hpEl = document.getElementById('hpDisplay');
-  hpEl.textContent = hp;
-  hpEl.className = 'hp-display' + (hp <= 0 ? ' critical' : hp <= 8 ? ' hurt' : '');
-
-  // Temp HP
-  document.getElementById('tempHpDisplay').textContent = state.tempHp;
-
-  // Slots
-  state.slots.forEach((avail, i) => {
-    const el = document.getElementById('slot'+i);
-    el.className = 'slot-bubble ' + (avail ? 'available' : 'used');
-  });
-
-  // Form of Dread
-  state.fod.forEach((avail, i) => {
-    const el = document.getElementById('fod'+i);
-    if(el) el.className = 'pip ' + (avail ? 'available' : 'used');
-  });
-
-  // Death saves
-  ['succ','fail'].forEach(type => {
-    const arr = type === 'succ' ? state.deathSucc : state.deathFail;
-    arr.forEach((active, i) => {
-      const el = document.getElementById(type+i);
-      el.className = 'ds-circle' + (active ? ' active-'+type : '');
-    });
-  });
-
-  // Concentration
-  const concMap = {'Hex':'conc-hex','Darkness':'conc-darkness',null:'conc-none'};
-  ['conc-hex','conc-darkness','conc-none'].forEach(id => {
-    document.getElementById(id).className = 'conc-btn';
-  });
-  if(state.concentration !== undefined){
-    const activeId = concMap[state.concentration];
-    if(activeId) document.getElementById(activeId).className = 'conc-btn active';
-  }
-  document.getElementById('concDisplay').textContent = state.concentration || '—';
-
-  // Conditions
-  document.querySelectorAll('.cond-btn').forEach(btn => {
-    const key = btn.id.replace('cond-','');
-    btn.className = btn.className.replace(' active','');
-    if(state.conditions[key]) btn.className += ' active';
-  });
-
-  // King HP
-  const kHp = state.kingHp;
-  const kEl = document.getElementById('kingHpDisplay');
-  kEl.textContent = kHp;
-  kEl.className = 'king-hp-display' + (kHp <= 0 ? ' dead' : '');
-
-  // Magical Cunning
-  const mcEl = document.getElementById('mcStatus');
-  if(mcEl) mcEl.textContent = state.magicalCunning ? 'disponível' : 'usado';
-  if(mcEl) mcEl.style.color = state.magicalCunning ? '#4CAF50' : '#666';
-
+  const hp=state.hp;const hpEl=document.getElementById("hpDisplay");hpEl.textContent=hp;hpEl.className="hp-display"+(hp<=0?" critical":hp<=8?" hurt":"");
+  document.getElementById("tempHpDisplay").textContent=state.tempHp;
+  state.slots.forEach((a,i)=>{const el=document.getElementById("slot"+i);el.className="slot-bubble "+(a?"available":"used");});
+  state.fod.forEach((a,i)=>{const el=document.getElementById("fod"+i);if(el)el.className="pip "+(a?"available":"used");});
+  ["succ","fail"].forEach(type=>{const arr=type==="succ"?state.deathSucc:state.deathFail;arr.forEach((active,i)=>{const el=document.getElementById(type+i);if(el)el.className="ds-circle"+(active?" active-"+type:"");});});
+  ["conc-hex","conc-darkness","conc-none"].forEach(id=>{const el=document.getElementById(id);if(el)el.className="conc-btn";});
+  if(state.concentration){const id="conc-"+state.concentration.toLowerCase();const el=document.getElementById(id);if(el)el.className="conc-btn active";}
+  else{const el=document.getElementById("conc-none");if(el)el.className="conc-btn active";}
+  const cd=state.concentration||"-";["concDisplay","concDisplay2"].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=cd;});
+  document.querySelectorAll(".cond-btn").forEach(btn=>{const key=btn.id.replace("cond-","");const base=btn.className.split(" ").filter(c=>c!=="active").join(" ");btn.className=base+(state.conditions[key]?" active":"");});
+  const kEl=document.getElementById("kingHpDisplay");if(kEl){kEl.textContent=state.kingHp;kEl.className="king-hp-display"+(state.kingHp<=0?" dead":"");}
+  const mcEl=document.getElementById("mcStatus");if(mcEl){mcEl.textContent=state.magicalCunning?"disponivel":"usado";mcEl.style.color=state.magicalCunning?"#4CAF50":"#555";}
   save();
 }
-
-function changeHP(delta){
-  // Temp HP absorbs damage first
-  if(delta < 0 && state.tempHp > 0){
-    const absorbed = Math.min(state.tempHp, Math.abs(delta));
-    state.tempHp -= absorbed;
-    delta += absorbed;
-  }
-  state.hp = Math.max(0, Math.min(MAX_HP, state.hp + delta));
-  if(state.hp === 0) toast('⚠️ HP zerado — fazer death saves!');
-  render();
+function changeHP(delta){if(delta<0&&state.tempHp>0){const abs=Math.min(state.tempHp,Math.abs(delta));state.tempHp-=abs;delta+=abs;}state.hp=Math.max(0,Math.min(MAX_HP,state.hp+delta));if(state.hp===0)toast("HP zerado - death saves!");render();}
+function changeTempHP(delta){state.tempHp=Math.max(0,state.tempHp+delta);render();}
+function toggleSlot(i){state.slots[i]=!state.slots[i];toast(state.slots[i]?"Slot "+(i+1)+" recuperado":"Slot "+(i+1)+" usado");render();}
+function toggleFoD(i){state.fod[i]=!state.fod[i];toast(state.fod[i]?"Form of Dread recuperado":"Form of Dread usado");render();}
+function toggleDS(type,i){const arr=type==="succ"?state.deathSucc:state.deathFail;arr[i]=!arr[i];if(state.deathSucc.filter(Boolean).length>=3)toast("3 sucessos - estabilizado!");if(state.deathFail.filter(Boolean).length>=3)toast("3 falhas - Marcus morreu!");render();}
+function setConc(spell){state.concentration=spell;toast(spell?"Concentracao: "+spell:"Concentracao encerrada");render();}
+function toggleCond(key){state.conditions[key]=!state.conditions[key];render();}
+function changeKingHP(delta){state.kingHp=Math.max(0,Math.min(MAX_KING_HP,state.kingHp+delta));if(state.kingHp===0)toast("King caiu! Ressurge em 1h.");render();}
+function useMagicalCunning(){if(!state.magicalCunning){toast("Magical Cunning ja usado neste Long Rest");return;}const idx=state.slots.findIndex(s=>!s);if(idx===-1){toast("Nenhum slot pra recuperar");return;}state.slots[idx]=true;state.magicalCunning=false;toast("Magical Cunning: 1 slot recuperado!");render();}
+function doShortRest(){state.slots=[true,true];state.deathSucc=[false,false,false];state.deathFail=[false,false,false];toast("Short Rest - Slots recuperados!");render();}
+function doLongRest(){state.hp=MAX_HP;state.tempHp=0;state.slots=[true,true];state.fod=[true,true];state.deathSucc=[false,false,false];state.deathFail=[false,false,false];state.concentration=null;state.conditions={};state.kingHp=MAX_KING_HP;state.magicalCunning=true;toast("Long Rest - Tudo recuperado!");render();}
+document.getElementById("hpInput").addEventListener("keydown",e=>{if(e.key==="Enter"){const v=parseInt(e.target.value);if(!isNaN(v)){changeHP(v);e.target.value="";}}});
+document.getElementById("tempHpInput").addEventListener("keydown",e=>{if(e.key==="Enter"){const v=parseInt(e.target.value);if(!isNaN(v)){state.tempHp=Math.max(0,v);e.target.value="";render();}}});
+function switchTab(event,name){document.querySelectorAll(".tab-panel").forEach(p=>p.classList.remove("active"));document.querySelectorAll(".nav-tab").forEach(t=>t.classList.remove("active"));document.getElementById("tab-"+name).classList.add("active");event.target.classList.add("active");}
+const modalData={
+"eldritch-blast":{title:"Eldritch Blast",badges:["Cantrip","Evocacao","A vontade"],stats:[{l:"Tempo",v:"1 Acao"},{l:"Alcance",v:"36m"},{l:"Duracao",v:"Instantanea"}],comp:"V, S",body:"<p>Um feixe de energia creptante disparado em direcao a uma criatura. Faca um ataque de magia a distancia. Com acerto: <strong>1d10 de dano de forca</strong>.</p>",tags:[{l:"Agonizing +3",c:"gold"},{l:"Repelling push 3m",c:"gold"},{l:"Ataque magico",c:""}],tip:"Com Agonizing Blast, cada projetil causa 1d10+3. Com Devils Sight e Darkness ativo, voce ataca com vantagem enquanto o inimigo tem desvantagem."},
+"minor-illusion":{title:"Minor Illusion",badges:["Cantrip","Ilusao","A vontade"],stats:[{l:"Tempo",v:"1 Acao"},{l:"Alcance",v:"9m"},{l:"Duracao",v:"1 minuto"}],comp:"S, M",body:"<p>Voce cria um <strong>som</strong> (voz, animal, barulho) ou uma <strong>imagem estatica</strong> de um objeto (cubo de 1,5m). Humanoides e criaturas sao excluidos da ilusao visual. A imagem nao se move.</p><p>Investigacao DC 13 revela a ilusao.</p>",tags:[{l:"Sem concentracao",c:"green"},{l:"Sem slot",c:"green"},{l:"Nao cria pessoas",c:"red"}],tip:"Ideal para distracao: barulhos de passos, vozes, portas. Em roleplay, Marcus pode usar para criar aparencia de mercadorias. Lembre: sem personagens ou criaturas."},
+"hex":{title:"Hex",badges:["Nivel 1 upcast 2","Encantamento","Concentracao"],stats:[{l:"Tempo",v:"1 Acao"},{l:"Alcance",v:"27m"},{l:"Duracao",v:"8h (Nv2, Conc)"}],comp:"V, S, M",body:"<p>Voce amaldicoa uma criatura visivel. Ate o feitco terminar: <strong>+1d6 dano necrotico</strong> a cada acerto seu. Alem disso, o alvo tem <strong>desvantagem</strong> num atributo de sua escolha.</p><p>Se o alvo cair a 0 HP, voce pode usar <strong>acao bonus</strong> para mover o Hex para outra criatura.</p>",tags:[{l:"Concentracao",c:"red"},{l:"+1d6 necrotico",c:"gold"},{l:"Move com AB",c:"gold"}],tip:"O mais importante: mova com acao bonus. Um slot cobre multiplos inimigos em encontros longos. Coloque desvantagem em CON para enfraquecer Concentration inimiga, ou STR para reduzir dano fisico."},
+"armor-of-agathys":{title:"Armor of Agathys",badges:["Nivel 1 upcast 2","Abjuracao","Sem Concentracao"],stats:[{l:"Tempo",v:"1 Acao"},{l:"Alcance",v:"Pessoal"},{l:"Duracao",v:"1 hora"}],comp:"V, S, M",body:"<p>Voce ganha <strong>10 pontos de vida temporarios</strong> (upcast nv2). Se uma criatura acertar voce com ataque corpo a corpo enquanto voce tiver esses HP temp, ela sofre <strong>10 de dano de frio</strong>.</p>",tags:[{l:"Sem concentracao",c:"green"},{l:"10 HP temp",c:"gold"},{l:"10 frio por acerto",c:"gold"}],tip:"Combo com Form of Dread: ativa FoD (AB, 1d10+3 HP temp) e Armor of Agathys juntos. HP temp nao se acumula - fica o maior. Use Agathys quando esperar ataques corpo-a-corpo."},
+"darkness":{title:"Darkness",badges:["Nivel 2","Evocacao","Concentracao"],stats:[{l:"Tempo",v:"1 Acao"},{l:"Alcance",v:"18m"},{l:"Duracao",v:"10min (Conc)"}],comp:"V, M",body:"<p>Escuridao magica em esfera de raio <strong>4,5m</strong>. Darkvision nao funciona aqui. Luz nao-magica nao ilumina.</p><p>Pode ser lancada num objeto que voce carrega - a escuridao se move com ele.</p>",tags:[{l:"Concentracao",c:"red"},{l:"Escuridao magica",c:"gold"},{l:"Combo Devils Sight",c:"gold"}],tip:"O combo definitivo: Darkness em si mesmo. Voce enxerga via Devils Sight. Inimigos ficam cegos - voce com vantagem, eles com desvantagem. Equivale a +5 no ataque efetivo. Concorre com Hex pela Concentracao."},
+"misty-step":{title:"Misty Step",badges:["Nivel 2","Conjuracao","Sem Concentracao"],stats:[{l:"Tempo",v:"1 Acao Bonus"},{l:"Alcance",v:"Pessoal"},{l:"Duracao",v:"Instantanea"}],comp:"V",body:"<p>Envolt em nevoa prateada, voce se teleporta ate <strong>9 metros</strong> para um espaco desocupado que voce pode ver.</p><p>Por ser acao bonus e sem Concentracao, pode ser usado no mesmo turno que Eldritch Blast ou qualquer outro feitco de acao.</p>",tags:[{l:"Acao Bonus",c:"gold"},{l:"Sem concentracao",c:"green"},{l:"9 metros",c:""}],tip:"Usos: sair de corpo-a-corpo sem ataque de oportunidade, reposicionar para linha de visao, escapar de armadilhas, entrar dentro de Darkness. Componente verbal - nao funciona se silenciado."},
+"find-familiar":{title:"Find Familiar - King",badges:["Pact of the Chain","Conjuracao","Permanente"],stats:[{l:"Tempo",v:"1h (ritual)"},{l:"Alcance",v:"3 metros"},{l:"Duracao",v:"Permanente"}],comp:"V, S, M",body:"<p>Via Pact of the Chain, King e um familiar superior com as estatisticas de um pseudodragao.</p><p><strong>Acao de Attack:</strong> Voce pode renunciar um ataque para King atacar usando sua Reacao.</p><p><strong>Turno proprio:</strong> King age na propria iniciativa, independente de Marcus.</p><p><strong>Telepatia:</strong> Sentimentos e imagens em 9m.</p>",tags:[{l:"Pact of Chain",c:"gold"},{l:"Turno proprio",c:"green"},{l:"Telepatia 9m",c:""}],tip:"King da Help (acao) para vantagem no proximo ataque de Marcus. O ferrao tem veneno DC 11 CON: falha = dorme 1h. Incrivelmente forte fora de combate. Se cair a 0 HP, desaparece e pode ser ressumido apos 1h."},
+"agonizing-blast":{title:"Agonizing Blast",badges:["Invocacao Eldrica","Passiva","Sempre ativa"],stats:[{l:"Requisito",v:"Nenhum"},{l:"Tipo",v:"Modificador"},{l:"Alvo",v:"Eldritch Blast"}],comp:"-",body:"<p>Quando voce lanca Eldritch Blast, adicione seu <strong>modificador de Carisma (+3)</strong> ao dano de cada projetil.</p><p>Resultado: cada projetil do EB causa <strong>1d10+3</strong> de dano de forca.</p>",tags:[{l:"Sempre ativa",c:"green"},{l:"+3 dano por projetil",c:"gold"}],tip:"A invocacao mais importante do Warlock. Em niveis mais altos com multiplos projeteis, o bonus se aplica a CADA um."},
+"mask-of-many-faces":{title:"Mask of Many Faces",badges:["Invocacao Eldrica","Ilusao","A vontade"],stats:[{l:"Requisito",v:"Nenhum"},{l:"Efeito",v:"Disguise Self"},{l:"Custo",v:"Sem slot"}],comp:"-",body:"<p>Voce pode lancar <strong>Disguise Self</strong> a vontade, sem gastar slot.</p><p>Disguise Self permite mudar sua aparencia completa - roupas, armadura, altura (ate 30cm diferenca), peso. Voce nao pode mudar tipo de corpo ou racar.</p><p>A ilusao nao resiste ao toque. Investigacao DC 13 revela a ilusao.</p>",tags:[{l:"Sem slot",c:"green"},{l:"A vontade",c:"green"},{l:"Identidade falsa",c:"gold"}],tip:"Para Marcus mercador/criminal: identidade falsa instantanea, sem custo, quantas vezes quiser. Combine com Enganacao +5 e Persuasao +5. Voce pode ser qualquer pessoa em segundos. Perfeito para infiltracao e fuga."},
+"devils-sight":{title:"Devils Sight",badges:["Invocacao Eldrica","Sensory","Sempre ativa"],stats:[{l:"Requisito",v:"Nenhum"},{l:"Alcance",v:"36 metros"},{l:"Tipo",v:"Visao especial"}],comp:"-",body:"<p>Voce pode ver normalmente em escuridao, tanto <strong>magica</strong> quanto nao-magica, ate 36 metros.</p><p>Diferente de Darkvision (so escuridao nao-magica), Devils Sight funciona em QUALQUER escuridao, incluindo a criada por Darkness.</p>",tags:[{l:"Sempre ativa",c:"green"},{l:"Escuridao magica",c:"gold"},{l:"36 metros",c:""}],tip:"O motivo pelo qual Darkness e tao poderoso para Marcus. Outros com Darkvision ficam cegos dentro de Darkness magica. So Devils Sight funciona la dentro."},
+"form-of-dread":{title:"Form of Dread",badges:["The Undead","Acao Bonus","2x Long Rest"],stats:[{l:"Tempo",v:"Acao Bonus"},{l:"Duracao",v:"1 minuto"},{l:"Usos",v:"2 / Long Rest"}],comp:"-",body:"<p>Como acao bonus, voce transforma sua aparencia em algo aterrorizante por 1 minuto:</p><p>- Voce ganha <strong>1d10+3 HP temporarios</strong>.<br>- Quando acerta uma criatura, pode forca-la a WIS DC 13 ou ficar com <strong>medo</strong> ate fim do seu proximo turno.<br>- Voce e imune ao efeito assustado.</p>",tags:[{l:"Acao Bonus",c:"gold"},{l:"1d10+3 HP temp",c:"gold"},{l:"DC 13 WIS medo",c:"red"}],tip:"Ative no primeiro turno. Combo: FoD (acao bonus) + Darkness (acao) + EB nos turnos seguintes. Medo impede que criatura se mova em direcao a voce - mantem inimigos longe enquanto voce usa EB."},
+"pact-magic":{title:"Pact Magic",badges:["Warlock Core","Classe"],stats:[{l:"Slots",v:"2 (Nivel 2)"},{l:"Recupera",v:"Short Rest"},{l:"Nivel",v:"2"}],comp:"-",body:"<p>O Warlock recupera spell slots no <strong>Short Rest</strong>. No nivel 3: <strong>2 slots de nivel 2</strong>.</p><p>Todos os feitcos do Warlock sao lancados no nivel maximo disponivel. Hex e Armor of Agathys fazem upcast para nivel 2 automaticamente.</p><p><strong>Magical Cunning:</strong> Uma vez por Long Rest, ritual de 1 min para recuperar 1 slot.</p>",tags:[{l:"Short Rest",c:"gold"},{l:"2 slots Nv2",c:"green"}],tip:"A diferenca mais importante do Warlock. Gerencie quando fazer Short Rest. 2 slots e suficiente porque EB (cantrip, sem slot) garante dano constante."},
+"pact-of-the-chain":{title:"Pact of the Chain",badges:["Pact Boon","Nivel 3"],stats:[{l:"Tipo",v:"Pact Boon"},{l:"Familiar",v:"Pseudodragao"},{l:"Acao",v:"Acao Magica"}],comp:"-",body:"<p>Voce aprende Find Familiar como Acao Magica. O familiar pode ser: Imp, Pseudodragao, Quasit ou Sprite.</p><p>Quando voce toma a acao de Ataque, pode <strong>renunciar um ataque</strong> para o familiar atacar usando sua Reacao.</p><p>O familiar age no proprio turno com iniciativa propria.</p>",tags:[{l:"King - Pseudodragao",c:"gold"},{l:"Turno proprio",c:"green"}],tip:"King e mais valioso dando Help (vantagem no proximo ataque). O ferrao venenoso DC 11 CON e eficaz contra alvos com CON baixa."},
+"alert":{title:"Alert",badges:["Feat","Passivo","Permanente"],stats:[{l:"Tipo",v:"Feat de Origem"},{l:"Bonus",v:"+5 Iniciativa"},{l:"Total",v:"+6 (Alert+Des)"}],comp:"-",body:"<p>Beneficios permanentes:<br>- <strong>+5 de bonus para Iniciativa</strong> (total +6 com DES +1)<br>- Voce <strong>nao pode ser surpreendido</strong> enquanto consciente.<br>- Criaturas ocultas nao ganham vantagem de ataque contra voce.</p>",tags:[{l:"+5 Iniciativa",c:"gold"},{l:"Nunca surpreendido",c:"green"}],tip:"Para um personagem que depende de Concentracao, agir primeiro e crucial. Voce estabelece Darkness e Hex antes que inimigos ajam. +6 Iniciativa coloca Marcus no topo na maioria dos encontros."},
+"dark-ones-blessing":{title:"Dark Ones Blessing",badges:["The Undead","Passivo"],stats:[{l:"Ativa",v:"Ao reduzir a 0 HP"},{l:"Efeito",v:"+5 HP temp"},{l:"Raio",v:"3m aliados"}],comp:"-",body:"<p>Quando voce reduz um inimigo a 0 HP, ganha <strong>5 HP temporarios</strong>. Tambem ativa se um aliado dentro de 3m reduzir um inimigo a 0 HP.</p><p>HP temp nao se acumula - fica o maior.</p>",tags:[{l:"5 HP temp",c:"gold"},{l:"Ao matar",c:""},{l:"Aliados 3m",c:"green"}],tip:"Healing passivo em combate. Em encontros com multiplos inimigos fracos, Marcus pode sustentar combate por muito mais tempo."},
+"king-attacks":{title:"King - Ataques",badges:["Pseudodragao","Pact of the Chain"],stats:[{l:"Mordida",v:"+4 - 1d4+2"},{l:"Ferrao",v:"+4 - Veneno DC 11"},{l:"CA",v:"13"}],comp:"-",body:"<p><strong>Mordida:</strong> +4 para acertar, alcance 1,5m. Com acerto: 1d4+2 perfurante.</p><p><strong>Ferrao:</strong> +4 para acertar, alcance 1,5m. Com acerto: 1d4+2 perfurante e DC 11 CON ou fica inconsciente por 1 hora. Acorda com dano ou se alguem acordar.</p><p><strong>Resistencias:</strong> Dano nao-magico B/P/C. Imune: Encantado, Paralisado.</p>",tags:[{l:"Veneno DC 11 CON",c:"red"},{l:"Dorme 1h",c:"red"},{l:"Resistencias fisicas",c:"green"}],tip:"O ferrao e surpreendente em roleplay. DC 11 CON e baixo o suficiente para ser viavel contra a maioria dos humanos. Uma criatura dormindo por 1h e essencialmente tirada do encontro."}
+};
+function openModal(key){
+  const data=modalData[key];if(!data)return;
+  document.getElementById("modalTitle").textContent=data.title;
+  const sub=document.getElementById("modalSub");sub.innerHTML=data.badges.map(b=>"<span class=modal-badge>"+b+"</span>").join("");
+  const body=document.getElementById("modalBody");let html="";
+  if(data.stats){html+="<div class=modal-stat-row>";data.stats.forEach(s=>{html+="<div class=modal-stat><div class=modal-stat-label>"+s.l+"</div><div class=modal-stat-val>"+s.v+"</div></div>";});html+="</div>";}
+  if(data.comp)html+="<div style='font-size:11px;color:#9B8AC4;margin-bottom:10px'>Componentes: <strong style=color:#C3ADE8>"+data.comp+"</strong></div>";
+  html+="<div class=modal-section><div class=modal-section-title>Descricao</div><div class=modal-text>"+data.body+"</div></div>";
+  if(data.tags&&data.tags.length){html+="<div class=modal-section><div class=modal-section-title>Tags</div><div>";data.tags.forEach(t=>{html+="<span class='modal-tag "+(t.c||"")+"'>"+t.l+"</span>";});html+="</div></div>";}
+  if(data.tip)html+="<div class=modal-tip><div class=modal-tip-label>Dica para Marcus</div><div class=modal-tip-text>"+data.tip+"</div></div>";
+  body.innerHTML=html;
+  document.getElementById("modalOverlay").classList.add("open");
+  document.body.style.overflow="hidden";
 }
-
-function changeTempHP(delta){
-  state.tempHp = Math.max(0, state.tempHp + delta);
-  render();
-}
-
-function toggleSlot(i){
-  state.slots[i] = !state.slots[i];
-  toast(state.slots[i] ? `Slot ${i+1} recuperado` : `Slot ${i+1} usado`);
-  render();
-}
-
-function toggleFoD(i){
-  state.fod[i] = !state.fod[i];
-  toast(state.fod[i] ? 'Form of Dread recuperado' : 'Form of Dread usado');
-  render();
-}
-
-function toggleDS(type, i){
-  const arr = type === 'succ' ? state.deathSucc : state.deathFail;
-  arr[i] = !arr[i];
-  const succCount = state.deathSucc.filter(Boolean).length;
-  const failCount = state.deathFail.filter(Boolean).length;
-  if(succCount >= 3) toast('✅ 3 sucessos — estabilizado!');
-  if(failCount >= 3) toast('💀 3 falhas — Marcus morreu!');
-  render();
-}
-
-function setConc(spell){
-  state.concentration = spell;
-  if(spell) toast(`Concentração: ${spell}`);
-  else toast('Concentração encerrada');
-  render();
-}
-
-function toggleCond(key){
-  state.conditions[key] = !state.conditions[key];
-  render();
-}
-
-function changeKingHP(delta){
-  state.kingHp = Math.max(0, Math.min(MAX_KING_HP, state.kingHp + delta));
-  if(state.kingHp === 0) toast('😿 King caiu! Ele desaparece — convoque novamente em 1h.');
-  render();
-}
-
-function useMagicalCunning(){
-  if(!state.magicalCunning){ toast('Magical Cunning já foi usado neste Long Rest'); return; }
-  const usedSlots = state.slots.filter(s=>!s);
-  if(usedSlots.length === 0){ toast('Nenhum slot pra recuperar'); return; }
-  // Recover 1 slot
-  const idx = state.slots.findIndex(s=>!s);
-  state.slots[idx] = true;
-  state.magicalCunning = false;
-  toast('Magical Cunning: 1 slot recuperado!');
-  render();
-}
-
-function doShortRest(){
-  state.slots = [true, true];
-  state.deathSucc = [false,false,false];
-  state.deathFail = [false,false,false];
-  toast('⚡ Short Rest — Slots recuperados!');
-  render();
-}
-
-function doLongRest(){
-  state.hp = MAX_HP;
-  state.tempHp = 0;
-  state.slots = [true, true];
-  state.fod = [true, true];
-  state.deathSucc = [false,false,false];
-  state.deathFail = [false,false,false];
-  state.concentration = null;
-  state.conditions = {};
-  state.kingHp = MAX_KING_HP;
-  state.magicalCunning = true;
-  toast('🌙 Long Rest — Tudo recuperado!');
-  render();
-}
-
-// HP input handler
-document.getElementById('hpInput').addEventListener('keydown', e => {
-  if(e.key === 'Enter'){
-    const val = parseInt(e.target.value);
-    if(!isNaN(val)){ changeHP(val); e.target.value = ''; }
-  }
-});
-document.getElementById('tempHpInput').addEventListener('keydown', e => {
-  if(e.key === 'Enter'){
-    const val = parseInt(e.target.value);
-    if(!isNaN(val)){ state.tempHp = Math.max(0, val); e.target.value = ''; render(); }
-  }
-});
-
-// Init
-load();
-render();
+function closeModal(){document.getElementById("modalOverlay").classList.remove("open");document.body.style.overflow="";}
+function closeModalOutside(e){if(e.target===document.getElementById("modalOverlay"))closeModal();}
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal();});
+load();render();
 </script>
 </body>
 </html>
