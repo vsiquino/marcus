@@ -611,14 +611,14 @@ body{font-family:Inter,sans-serif;font-size:13px;color:#EDE5F7;background:#0A011
           <button class="quick-btn" onclick="quickRoll('Eldritch Blast',20,5,'1d10+3',10)">Eldritch Blast<span>+5</span></button>
           <button class="quick-btn" onclick="quickRoll('Besta Leve',20,3,'1d8+1',8)">Besta Leve<span>+3</span></button>
           <button class="quick-btn" onclick="quickRoll('Adaga',20,3,'1d4+1',4)">Adaga<span>+3</span></button>
-          <button class="quick-btn" onclick="quickRoll('King Mordida',20,4,'1d4+2',4)">King: Mordida<span>+4</span></button>
         </div>
       </div>
       <div class="quick-rolls" style="border-top:1px solid #2D1560">
         <div class="quick-label">Dano</div>
         <div class="quick-grid">
           <button class="quick-btn" onclick="quickDamage('EB Dano',10,3)">EB Dano<span>1d10+3</span></button>
-          <button class="quick-btn" onclick="quickDamage('Toll Dead',12,0)">Toll the Dead<span>1d12</span></button>
+          <button class="quick-btn" onclick="quickDamage('Toll HP cheio',8,0)">Toll (HP cheio)<span>1d8</span></button>
+          <button class="quick-btn" onclick="quickDamage('Toll ferido',12,0)">Toll (ferido)<span>1d12</span></button>
           <button class="quick-btn" onclick="quickDamage('Hex Bonus',6,0)">Hex Bonus<span>1d6</span></button>
           <button class="quick-btn" onclick="quickDamage('FoD HP Temp',10,3)">Form of Dread<span>1d10+3</span></button>
         </div>
@@ -643,13 +643,55 @@ body{font-family:Inter,sans-serif;font-size:13px;color:#EDE5F7;background:#0A011
           <button class="quick-btn" onclick="quickRoll('Save CHA',20,5)">Carisma<span>+5</span></button>
           <button class="quick-btn" onclick="quickRoll('Save CON',20,2)">Const.<span>+2</span></button>
           <button class="quick-btn" onclick="quickRoll('Save DEX',20,1)">Destr.<span>+1</span></button>
+          <button class="quick-btn" onclick="quickRoll('Save FOR',20,-1)">Forca<span>-1</span></button>
+          <button class="quick-btn" onclick="quickRoll('Save INT',20,0)">Inteligencia<span>+0</span></button>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="dice-card" style="margin-top:0">
+      <div class="card-title"><i class="ti ti-dragon"></i>King — Pseudodragao</div>
+      <div class="quick-rolls">
+        <div class="quick-label">Ataques</div>
+        <div class="quick-grid">
+          <button class="quick-btn" onclick="quickRoll('King Mordida',20,4,'1d4+2',4)">Mordida<span>+4</span></button>
+          <button class="quick-btn" onclick="quickRoll('King Ferrao',20,4,'1d4+2',4)">Ferrao<span>+4</span></button>
         </div>
       </div>
       <div class="quick-rolls" style="border-top:1px solid #2D1560">
-        <div class="quick-label">King</div>
+        <div class="quick-label">Dano</div>
         <div class="quick-grid">
-          <button class="quick-btn" onclick="quickRoll('King Ferrao',20,4,'1d4+2',4)">King: Ferrao<span>+4</span></button>
-          <button class="quick-btn" onclick="quickDamage('King Dano',4,2)">King: Dano<span>1d4+2</span></button>
+          <button class="quick-btn" onclick="quickDamage('Mordida Dano',4,2)">Mordida<span>1d4+2</span></button>
+          <button class="quick-btn" onclick="quickDamage('Ferrao Dano',4,2)">Ferrao<span>1d4+2</span></button>
+        </div>
+      </div>
+      <div class="quick-rolls" style="border-top:1px solid #2D1560">
+        <div class="quick-label">Efeito do Ferrao</div>
+        <div class="quick-grid">
+          <button class="quick-btn" onclick="quickRoll('Veneno (alvo faz CON DC 11)',20,0)">Veneno DC 11 CON<span>d20</span></button>
+        </div>
+        <div style="font-size:10px;color:#555;margin-top:6px">Falha: alvo dorme por 1 hora</div>
+      </div>
+      <div class="quick-rolls" style="border-top:1px solid #2D1560">
+        <div class="quick-label">Testes de Habilidade</div>
+        <div class="quick-grid">
+          <button class="quick-btn" onclick="quickRoll('King Acrobacia',20,2)">Acrobacia<span>+2</span></button>
+          <button class="quick-btn" onclick="quickRoll('King Furtividade',20,2)">Furtividade<span>+2</span></button>
+          <button class="quick-btn" onclick="quickRoll('King Percepcao',20,3)">Percepcao<span>+3</span></button>
+          <button class="quick-btn" onclick="quickRoll('King Furtividade',20,2)">Intuicao<span>+1</span></button>
+        </div>
+      </div>
+      <div class="quick-rolls" style="border-top:1px solid #2D1560">
+        <div class="quick-label">Saving Throws</div>
+        <div class="quick-grid">
+          <button class="quick-btn" onclick="quickRoll('King Save FOR',20,-2)">Forca<span>-2</span></button>
+          <button class="quick-btn" onclick="quickRoll('King Save DES',20,2)">Destreza<span>+2</span></button>
+          <button class="quick-btn" onclick="quickRoll('King Save CON',20,1)">Constituicao<span>+1</span></button>
+          <button class="quick-btn" onclick="quickRoll('King Save INT',20,0)">Inteligencia<span>+0</span></button>
+          <button class="quick-btn" onclick="quickRoll('King Save SAB',20,1)">Sabedoria<span>+1</span></button>
+          <button class="quick-btn" onclick="quickRoll('King Save CAR',20,0)">Carisma<span>+0</span></button>
         </div>
       </div>
     </div>
