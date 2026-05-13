@@ -239,6 +239,52 @@ body{font-family:Inter,sans-serif;font-size:13px;color:#EDE5F7;background:#0A011
 .hist-result.fail{color:#E05050}
 .hist-total{color:#EDE5F7;font-size:12px;font-weight:600}
 </style>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBS1UrrvsFxa4ObxcwMZFBEV-e1nd6la6Q",
+    authDomain: "marcus-sheet-143dc.firebaseapp.com",
+    databaseURL: "https://marcus-sheet-143dc-default-rtdb.firebaseio.com",
+    projectId: "marcus-sheet-143dc",
+    storageBucket: "marcus-sheet-143dc.firebasestorage.app",
+    messagingSenderId: "855716617127",
+    appId: "1:855716617127:web:3756fcdfec25382f6ff482"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+  const stateRef = ref(db, 'marcus/state');
+
+  let remoteUpdateInProgress = false;
+
+  // Listen for remote changes and update UI
+  onValue(stateRef, (snapshot) => {
+    const data = snapshot.val();
+    if (data) {
+      remoteUpdateInProgress = true;
+      Object.assign(window._marcusState, data);
+      window._render();
+      remoteUpdateInProgress = false;
+      showSyncIndicator();
+    }
+  });
+
+  // Called by the main script to push state to Firebase
+  window._pushToFirebase = function(state) {
+    if (remoteUpdateInProgress) return;
+    set(stateRef, state).catch(e => console.error('Firebase write error:', e));
+  };
+
+  function showSyncIndicator() {
+    const el = document.getElementById('syncIndicator');
+    if (!el) return;
+    el.style.opacity = '1';
+    clearTimeout(el._t);
+    el._t = setTimeout(() => el.style.opacity = '0', 1500);
+  }
+</script>
 </head>
 <body>
 <div class="sheet">
@@ -246,6 +292,7 @@ body{font-family:Inter,sans-serif;font-size:13px;color:#EDE5F7;background:#0A011
   <div>
     <div class="char-name">Marcus "The Last Shot"</div>
     <div class="char-sub">Warlock 3 - The Undead - Humano - Criminal - Neutro</div>
+    <div id="syncIndicator" style="font-size:10px;color:#4CAF50;margin-top:4px;opacity:0;transition:opacity .5s">&#9729; sincronizado</div>
   </div>
   <div></div>
   <div class="stat-pills">
@@ -714,7 +761,10 @@ body{font-family:Inter,sans-serif;font-size:13px;color:#EDE5F7;background:#0A011
 <script>
 const MAX_HP=24,MAX_KING_HP=7;
 const state={hp:24,tempHp:0,slots:[true,true],fod:[true,true],deathSucc:[false,false,false],deathFail:[false,false,false],concentration:null,conditions:{},kingHp:7,magicalCunning:true};
-function save(){try{localStorage.setItem("marcus_v3",JSON.stringify(state));}catch(e){}}
+function save(){
+  try{localStorage.setItem("marcus_v3",JSON.stringify(state));}catch(e){}
+  if(window._pushToFirebase) window._pushToFirebase(state);
+}
 function load(){try{const d=localStorage.getItem("marcus_v3");if(d)Object.assign(state,JSON.parse(d));}catch(e){}}
 function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove("show"),2500);}
 function render(){
@@ -910,6 +960,8 @@ function renderHistory() {
 }
 
 load();render();
+window._marcusState = state;
+window._render = render;
 </script>
 </body>
 </html>
