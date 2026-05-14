@@ -238,6 +238,43 @@ body{font-family:Inter,sans-serif;font-size:13px;color:#EDE5F7;background:#0A011
 .hist-result.crit{color:#FFD700}
 .hist-result.fail{color:#E05050}
 .hist-total{color:#EDE5F7;font-size:12px;font-weight:600}
+
+.levelup-bar{background:#1A0A2E;border-radius:12px;padding:10px 18px;display:flex;align-items:center;justify-content:space-between;border:1px solid #3D1A6E;flex-wrap:wrap;gap:8px}
+.levelup-info{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.current-level{font-family:Cinzel,serif;font-size:16px;font-weight:600;color:#C8A951}
+.level-stats{display:flex;gap:10px;font-size:11px;color:#9B8AC4}
+.level-stat{background:#0A0118;border:1px solid #2D1560;border-radius:6px;padding:3px 8px}
+.level-stat span{color:#C3ADE8;font-weight:600}
+.levelup-btns{display:flex;gap:8px;align-items:center}
+.btn-levelup{background:linear-gradient(135deg,#3D1A6E,#5A1A9E);border:none;color:#C8A951;border-radius:8px;padding:8px 16px;font-size:12px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif;transition:all .2s;letter-spacing:.3px}
+.btn-levelup:hover{background:linear-gradient(135deg,#5A1A9E,#7A2ABE);transform:translateY(-1px)}
+.btn-levelup:active{transform:translateY(0)}
+.btn-reset{background:#0A0118;border:1px solid #2D1560;color:#666;border-radius:8px;padding:8px 14px;font-size:11px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif;transition:all .2s}
+.btn-reset:hover{border-color:#E05050;color:#E05050}
+.levelup-modal{position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:2000;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .2s;backdrop-filter:blur(6px)}
+.levelup-modal.open{opacity:1;pointer-events:all}
+.levelup-box{background:#1A0A2E;border:1px solid #5A2A9E;border-radius:16px;max-width:480px;width:100%;max-height:85vh;overflow-y:auto}
+.levelup-header{background:linear-gradient(135deg,#3D1A6E,#5A1A9E);padding:18px 20px;border-radius:16px 16px 0 0;text-align:center}
+.levelup-title{font-family:Cinzel,serif;font-size:22px;color:#C8A951;margin-bottom:4px}
+.levelup-sub{font-size:11px;color:#C3ADE8}
+.levelup-body{padding:16px 20px}
+.change-item{display:flex;align-items:start;gap:10px;padding:7px 0;border-bottom:1px solid #1D0D3E;font-size:12px}
+.change-item:last-child{border-bottom:none}
+.change-icon{font-size:14px;flex-shrink:0;margin-top:1px}
+.change-text{color:#C3ADE8;line-height:1.4}
+.change-auto{color:#4CAF50}
+.change-choice{color:#C8A951}
+.levelup-confirm{width:100%;background:linear-gradient(135deg,#3D1A6E,#5A1A9E);border:none;color:#C8A951;border-radius:8px;padding:12px;font-size:14px;font-weight:600;cursor:pointer;font-family:Cinzel,sans-serif;margin-top:14px;transition:all .2s;letter-spacing:.5px}
+.levelup-confirm:hover{background:linear-gradient(135deg,#5A1A9E,#7A2ABE)}
+.levelup-cancel{width:100%;background:none;border:1px solid #2D1560;color:#666;border-radius:8px;padding:8px;font-size:12px;cursor:pointer;font-family:Inter,sans-serif;margin-top:6px;transition:all .2s}
+.levelup-cancel:hover{border-color:#E05050;color:#E05050}
+.reset-confirm-box{background:#1A0A2E;border:1px solid #E05050;border-radius:12px;padding:14px 18px;max-width:360px;width:100%;text-align:center}
+.reset-confirm-title{font-size:14px;font-weight:600;color:#E05050;margin-bottom:6px}
+.reset-confirm-sub{font-size:11px;color:#9B8AC4;margin-bottom:14px;line-height:1.5}
+.reset-yes{background:#2A0A0A;border:1px solid #E05050;color:#E05050;border-radius:7px;padding:7px 20px;font-size:12px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif;margin-right:8px;transition:all .15s}
+.reset-yes:hover{background:#E05050;color:#fff}
+.reset-no{background:#0A0118;border:1px solid #2D1560;color:#666;border-radius:7px;padding:7px 20px;font-size:12px;cursor:pointer;font-family:Inter,sans-serif;transition:all .15s}
+.reset-no:hover{border-color:#C8A951;color:#C8A951}
 </style>
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
@@ -309,6 +346,49 @@ body{font-family:Inter,sans-serif;font-size:13px;color:#EDE5F7;background:#0A011
   <button class="nav-tab" onclick="switchTab(event,'bio')">&#128214; Bio & Historia</button>
   <button class="nav-tab" onclick="switchTab(event,'qa')">&#127917; Personalidade</button>
   <button class="nav-tab" onclick="switchTab(event,'dados')">&#127922; Dados</button>
+</div>
+
+
+<div class="levelup-bar">
+  <div class="levelup-info">
+    <div class="current-level" id="lvlLabel">Warlock — Nível 3</div>
+    <div class="level-stats">
+      <div class="level-stat">DC <span id="lvlDC">13</span></div>
+      <div class="level-stat">Spell Atk <span id="lvlSpellAtk">+5</span></div>
+      <div class="level-stat">Slots <span id="lvlSlotInfo">2×Nv2</span></div>
+      <div class="level-stat">Prof <span id="lvlProf">+2</span></div>
+      <div class="level-stat">CAR <span id="lvlCar">17</span></div>
+    </div>
+  </div>
+  <div class="levelup-btns">
+    <button class="btn-reset" onclick="showResetConfirm()">↩ Resetar Nível 3</button>
+    <button class="btn-levelup" id="btnLevelUp" onclick="showLevelUp()">⬆ Subir de Nível</button>
+  </div>
+</div>
+
+<!-- LEVEL UP MODAL -->
+<div class="levelup-modal" id="levelupModal">
+  <div class="levelup-box">
+    <div class="levelup-header">
+      <div class="levelup-title" id="luTitle">Nível 4</div>
+      <div class="levelup-sub" id="luSub">Warlock — The Undead</div>
+    </div>
+    <div class="levelup-body">
+      <div id="luChanges"></div>
+      <button class="levelup-confirm" onclick="confirmLevelUp()">✦ Confirmar Level Up ✦</button>
+      <button class="levelup-cancel" onclick="closeLevelUp()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<!-- RESET CONFIRM MODAL -->
+<div class="levelup-modal" id="resetModal">
+  <div class="reset-confirm-box">
+    <div class="reset-confirm-title">Resetar para Nível 3?</div>
+    <div class="reset-confirm-sub">Isso vai voltar o Marcus para o estado original — HP 24, slots nível 2, CAR 17, DC 13, magias e invocações do nível 3. O estado atual será perdido.</div>
+    <button class="reset-yes" onclick="confirmReset()">Resetar</button>
+    <button class="reset-no" onclick="closeReset()">Cancelar</button>
+  </div>
 </div>
 
 <div class="tab-panel active" id="tab-ficha">
@@ -962,6 +1042,314 @@ function renderHistory() {
 load();render();
 window._marcusState = state;
 window._render = render;
+
+const MARCUS_BASE = {
+  level: 3,
+  hp: 24,
+  slots: [true, true],
+  slotLevel: 2,
+  car: 17,
+  dc: 13,
+  spellAtk: 5,
+  profBonus: 2,
+  ebProjectiles: 1,
+  spells: ['Hex','Armor of Agathys','Darkness','Misty Step'],
+  cantrips: ['Eldritch Blast','Toll the Dead'],
+  invocations: ['Agonizing Blast','Devils Sight','Mask of Many Faces'],
+  features: ['Form of Dread (2x)','Pact of the Chain','Dark Ones Blessing','Alert','Magical Cunning'],
+};
+
+const LEVEL_UP_DATA = {
+  4: {
+    hp: 31,
+    slots: [true, true],
+    slotLevel: 2,
+    car: 18,
+    dc: 14,
+    spellAtk: 6,
+    profBonus: 2,
+    ebProjectiles: 1,
+    newSpells: ['Mirror Image'],
+    removedSpells: [],
+    newInvocations: ['One with Shadows'],
+    newFeatures: ['ASI: Carisma 17 → 18'],
+    changes: [
+      { auto: true,  text: 'HP: 24 → 31 (+1d8+2)' },
+      { auto: true,  text: 'Carisma: 17 → 18' },
+      { auto: true,  text: 'Spell Save DC: 13 → 14' },
+      { auto: true,  text: 'Spell Attack: +5 → +6' },
+      { auto: false, text: 'Nova magia: Mirror Image ⭐', confirmed: true },
+      { auto: false, text: 'Nova invocação: One with Shadows ⭐', confirmed: true },
+    ]
+  },
+  5: {
+    hp: 38,
+    slots: [true, true],
+    slotLevel: 3,
+    car: 18,
+    dc: 14,
+    spellAtk: 6,
+    profBonus: 3,
+    ebProjectiles: 2,
+    newSpells: ['Hunger of Hadar', 'Counterspell'],
+    removedSpells: ['Darkness'],
+    newInvocations: [],
+    newFeatures: ['Eldritch Blast → 2 projéteis', 'Bônus de Proficiência: 2 → 3'],
+    changes: [
+      { auto: true,  text: 'HP: 31 → 38 (+1d8+2)' },
+      { auto: true,  text: 'Slots: Nível 2 → Nível 3' },
+      { auto: true,  text: 'Eldritch Blast: 1 → 2 projéteis' },
+      { auto: true,  text: 'Proficiência: +2 → +3' },
+      { auto: false, text: 'Nova magia: Hunger of Hadar ⭐', confirmed: true },
+      { auto: false, text: 'Nova magia: Counterspell ⭐', confirmed: true },
+      { auto: false, text: 'Troca: Darkness → removida ⭐', confirmed: true },
+    ]
+  },
+  6: {
+    hp: 45,
+    slots: [true, true],
+    slotLevel: 3,
+    car: 18,
+    dc: 14,
+    spellAtk: 6,
+    profBonus: 3,
+    ebProjectiles: 2,
+    newSpells: ['Hypnotic Pattern'],
+    removedSpells: [],
+    newInvocations: ['Maddening Hex'],
+    newFeatures: ['Form of Dread: imune a medo permanente'],
+    changes: [
+      { auto: true,  text: 'HP: 38 → 45 (+1d8+2)' },
+      { auto: true,  text: 'Imune a medo permanente (The Undead nível 6)' },
+      { auto: false, text: 'Nova magia: Hypnotic Pattern ⭐', confirmed: true },
+      { auto: false, text: 'Nova invocação: Maddening Hex ⭐', confirmed: true },
+    ]
+  },
+  7: {
+    hp: 52,
+    slots: [true, true],
+    slotLevel: 4,
+    car: 18,
+    dc: 14,
+    spellAtk: 6,
+    profBonus: 3,
+    ebProjectiles: 2,
+    newSpells: ['Shadow of Moil'],
+    removedSpells: [],
+    newInvocations: [],
+    newFeatures: [],
+    changes: [
+      { auto: true,  text: 'HP: 45 → 52 (+1d8+2)' },
+      { auto: true,  text: 'Slots: Nível 3 → Nível 4' },
+      { auto: false, text: 'Nova magia: Shadow of Moil ⭐', confirmed: true },
+    ]
+  },
+  8: {
+    hp: 59,
+    slots: [true, true],
+    slotLevel: 4,
+    car: 20,
+    dc: 15,
+    spellAtk: 7,
+    profBonus: 3,
+    ebProjectiles: 2,
+    newSpells: ['Dimension Door'],
+    removedSpells: [],
+    newInvocations: ['Ghostly Gaze'],
+    newFeatures: ['ASI: Carisma 18 → 20'],
+    changes: [
+      { auto: true,  text: 'HP: 52 → 59 (+1d8+2)' },
+      { auto: true,  text: 'Carisma: 18 → 20' },
+      { auto: true,  text: 'Spell Save DC: 14 → 15' },
+      { auto: true,  text: 'Spell Attack: +6 → +7' },
+      { auto: false, text: 'Nova magia: Dimension Door ⭐', confirmed: true },
+      { auto: false, text: 'Nova invocação: Ghostly Gaze ⭐', confirmed: true },
+    ]
+  },
+  9: {
+    hp: 66,
+    slots: [true, true],
+    slotLevel: 5,
+    car: 20,
+    dc: 15,
+    spellAtk: 7,
+    profBonus: 4,
+    ebProjectiles: 2,
+    newSpells: ['Synaptic Static'],
+    removedSpells: [],
+    newInvocations: [],
+    newFeatures: ['Bônus de Proficiência: 3 → 4'],
+    changes: [
+      { auto: true,  text: 'HP: 59 → 66 (+1d8+2)' },
+      { auto: true,  text: 'Slots: Nível 4 → Nível 5' },
+      { auto: true,  text: 'Proficiência: +3 → +4' },
+      { auto: false, text: 'Nova magia: Synaptic Static ⭐', confirmed: true },
+    ]
+  },
+  10: {
+    hp: 73,
+    slots: [true, true],
+    slotLevel: 5,
+    car: 20,
+    dc: 15,
+    spellAtk: 7,
+    profBonus: 4,
+    ebProjectiles: 2,
+    newSpells: ['Modify Memory'],
+    removedSpells: [],
+    newInvocations: ['Sign of Ill Omen'],
+    newFeatures: ['Subclasse nível 10 (The Undead)'],
+    changes: [
+      { auto: true,  text: 'HP: 66 → 73 (+1d8+2)' },
+      { auto: true,  text: 'Habilidade de subclasse nível 10' },
+      { auto: false, text: 'Nova magia: Modify Memory ⭐', confirmed: true },
+      { auto: false, text: 'Nova invocação: Sign of Ill Omen ⭐', confirmed: true },
+    ]
+  },
+};
+
+// Current level tracking
+state.currentLevel = state.currentLevel || 3;
+
+function getLevelData(lvl) { return LEVEL_UP_DATA[lvl] || null; }
+
+function renderLevelBar() {
+  const lvl = state.currentLevel;
+  const data = getLevelData(lvl);
+  const car = data ? data.car : 17;
+  const dc = data ? data.dc : 13;
+  const sa = data ? data.spellAtk : 5;
+  const prof = data ? data.profBonus : 2;
+  const slotLvl = data ? data.slotLevel : 2;
+
+  document.getElementById('lvlLabel').textContent = 'Warlock — Nível ' + lvl;
+  document.getElementById('lvlDC').textContent = dc;
+  document.getElementById('lvlSpellAtk').textContent = '+' + sa;
+  document.getElementById('lvlSlotInfo').textContent = '2×Nv' + slotLvl;
+  document.getElementById('lvlProf').textContent = '+' + prof;
+  document.getElementById('lvlCar').textContent = car;
+
+  const btn = document.getElementById('btnLevelUp');
+  if (lvl >= 10) {
+    btn.textContent = 'Nível máximo (10)';
+    btn.disabled = true;
+    btn.style.opacity = '.5';
+    btn.style.cursor = 'default';
+  } else {
+    btn.textContent = '⬆ Subir para Nível ' + (lvl + 1);
+    btn.disabled = false;
+    btn.style.opacity = '1';
+    btn.style.cursor = 'pointer';
+  }
+  // Update header subtitle
+  const sub = document.querySelector('.char-sub');
+  if (sub) sub.textContent = 'Warlock ' + lvl + ' — The Undead · Humano · Criminal · Neutro';
+}
+
+function showLevelUp() {
+  const nextLvl = state.currentLevel + 1;
+  const data = LEVEL_UP_DATA[nextLvl];
+  if (!data) return;
+
+  document.getElementById('luTitle').textContent = '✦ Nível ' + nextLvl + ' ✦';
+  document.getElementById('luSub').textContent = 'Warlock — The Undead · Marcus "The Last Shot"';
+
+  let html = '';
+  data.changes.forEach(c => {
+    const icon = c.auto ? '✅' : '⭐';
+    const cls = c.auto ? 'change-auto' : 'change-choice';
+    html += '<div class="change-item"><span class="change-icon">' + icon + '</span><span class="change-text ' + cls + '">' + c.text + '</span></div>';
+  });
+  document.getElementById('luChanges').innerHTML = html;
+  document.getElementById('levelupModal').classList.add('open');
+}
+
+function closeLevelUp() {
+  document.getElementById('levelupModal').classList.remove('open');
+}
+
+function confirmLevelUp() {
+  const nextLvl = state.currentLevel + 1;
+  const data = LEVEL_UP_DATA[nextLvl];
+  if (!data) return;
+
+  // Apply changes
+  state.currentLevel = nextLvl;
+  state.hp = data.hp;
+  state.slots = data.slots.slice();
+
+  closeLevelUp();
+  renderLevelBar();
+  updatePageForLevel(nextLvl, data);
+  render();
+  toast('✦ Bem-vindo ao nível ' + nextLvl + '!');
+  save();
+}
+
+function updatePageForLevel(lvl, data) {
+  // Update header pills
+  const hpMax = document.querySelector('.pill-val');
+  // Update spell slots info
+  // Update DC and spell attack in footer
+  const fbVals = document.querySelectorAll('.fb-val');
+  fbVals.forEach(el => {
+    if (el.textContent === 'DC 13' || el.textContent === 'DC 14' || el.textContent === 'DC 15') {
+      el.textContent = 'DC ' + data.dc;
+    }
+    if (el.textContent.startsWith('+5') || el.textContent.startsWith('+6') || el.textContent.startsWith('+7')) {
+      if (el.nextElementSibling && el.nextElementSibling.textContent === 'Spell Attack') {
+        el.textContent = '+' + data.spellAtk;
+      }
+    }
+  });
+  // Update max HP display hint
+  const hpHint = document.querySelector('[style*="Max: 24"]') || document.querySelector('div[style*="Max:"]');
+  if (hpHint) hpHint.textContent = 'Max: ' + data.hp;
+  // Update footer spell slots
+  document.querySelectorAll('.fb-lbl').forEach(el => {
+    if (el.textContent === 'Slots (Short Rest)') {
+      el.previousElementSibling.textContent = '2×Nv' + data.slotLevel;
+    }
+  });
+}
+
+function showResetConfirm() {
+  document.getElementById('resetModal').classList.add('open');
+}
+
+function closeReset() {
+  document.getElementById('resetModal').classList.remove('open');
+}
+
+function confirmReset() {
+  // Full reset to level 3 base
+  state.currentLevel = 3;
+  state.hp = 24;
+  state.tempHp = 0;
+  state.slots = [true, true];
+  state.fod = [true, true];
+  state.deathSucc = [false, false, false];
+  state.deathFail = [false, false, false];
+  state.concentration = null;
+  state.conditions = {};
+  state.kingHp = 7;
+  state.magicalCunning = true;
+  closeReset();
+  renderLevelBar();
+  render();
+  toast('↩ Resetado para o Nível 3');
+  save();
+}
+
+// Close modals on outside click
+document.getElementById('levelupModal').addEventListener('click', function(e) {
+  if (e.target === this) closeLevelUp();
+});
+document.getElementById('resetModal').addEventListener('click', function(e) {
+  if (e.target === this) closeReset();
+});
+
+renderLevelBar();
 </script>
 </body>
 </html>
