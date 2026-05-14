@@ -894,6 +894,19 @@ const modalData={
 "dark-ones-blessing":{title:"Dark Ones Blessing",badges:["The Undead","Passivo"],stats:[{l:"Ativa",v:"Ao reduzir a 0 HP"},{l:"Efeito",v:"+5 HP temp"},{l:"Raio",v:"3m aliados"}],comp:"-",body:"<p>Quando voce reduz um inimigo a 0 HP, ganha <strong>5 HP temporarios</strong>. Tambem ativa se um aliado dentro de 3m reduzir um inimigo a 0 HP.</p><p>HP temp nao se acumula - fica o maior.</p>",tags:[{l:"5 HP temp",c:"gold"},{l:"Ao matar",c:""},{l:"Aliados 3m",c:"green"}],tip:"Healing passivo em combate. Em encontros com multiplos inimigos fracos, Marcus pode sustentar combate por muito mais tempo."},
 "king-attacks":{title:"King - Ataques",badges:["Pseudodragao","Pact of the Chain"],stats:[{l:"Mordida",v:"+4 - 1d4+2"},{l:"Ferrao",v:"+4 - Veneno DC 11"},{l:"CA",v:"13"}],comp:"-",body:"<p><strong>Mordida:</strong> +4 para acertar, alcance 1,5m. Com acerto: 1d4+2 perfurante.</p><p><strong>Ferrao:</strong> +4 para acertar, alcance 1,5m. Com acerto: 1d4+2 perfurante e DC 11 CON ou fica inconsciente por 1 hora. Acorda com dano ou se alguem acordar.</p><p><strong>Resistencias:</strong> Dano nao-magico B/P/C. Imune: Encantado, Paralisado.</p>",tags:[{l:"Veneno DC 11 CON",c:"red"},{l:"Dorme 1h",c:"red"},{l:"Resistencias fisicas",c:"green"}],tip:"O ferrao e surpreendente em roleplay. DC 11 CON e baixo o suficiente para ser viavel contra a maioria dos humanos. Uma criatura dormindo por 1h e essencialmente tirada do encontro."},
 "toll-the-dead":{title:"Toll the Dead",badges:["Cantrip","Necromancia","WIS Save"],stats:[{l:"Tempo",v:"1 Acao"},{l:"Alcance",v:"18m"},{l:"Duracao",v:"Instantanea"}],comp:"V, S",body:"<p>Voce aponta para uma criatura visivel dentro do alcance e o som de um sino funeral enche o ar. A criatura deve ser bem-sucedida num <strong>teste de resistencia de Sabedoria (DC 13)</strong> ou sofrer dano necrotico.</p><p><strong>1d8 necrotico</strong> se o alvo tiver todos os HP.<br><strong>1d12 necrotico</strong> se o alvo ja tiver sofrido dano (HP faltando).",tags:[{l:"WIS Save DC 13",c:"red"},{l:"1d8 ou 1d12",c:"gold"},{l:"Sem rolagem de ataque",c:"green"}],tip:"Superior ao Chill Touch contra alvos ja danificados. 1d12 medio e 6.5 - use quando precisar de dano garantido via save. Nao precisa acertar - o alvo faz o save."}
+
+,"mirror-image":{title:"Mirror Image",badges:["Nivel 2","Ilusao","Sem Concentracao"],stats:[{l:"Tempo",v:"1 Acao"},{l:"Alcance",v:"Pessoal"},{l:"Duracao",v:"1 minuto"}],comp:"V, S",body:"<p>Tres copias ilusorias de voce aparecem ao seu redor. Ate o feitco acabar, sempre que uma criatura acertar voce com um ataque, role um d20 para determinar se o ataque acerta uma das copias em vez de voce.</p><p>Com 1 copia: DC 6. Com 2 copias: DC 8. Com 3 copias: DC 11. Copia atingida e destruida. Copia tambem e destruida se for alvo de Dispel Magic ou efeito similar.</p>",tags:[{l:"Sem concentracao",c:"green"},{l:"3 duplicatas",c:"gold"},{l:"Sem slot extra",c:"green"}],tip:"A melhor defesa do Marcus sem custo de Concentracao. Lanca no primeiro turno junto com Hex ou Darkness — voce fica ofensivo E defensivo ao mesmo tempo. Cada copia absorve um acerto inteiro. Contra multiplos inimigos dura surpreendentemente."}
+,"hunger-of-hadar":{title:"Hunger of Hadar",badges:["Nivel 3","Conjuracao","Concentracao"],stats:[{l:"Tempo",v:"1 Acao"},{l:"Alcance",v:"45m"},{l:"Duracao",v:"1 min (Conc)"}],comp:"V, S, M",body:"<p>Voce abre um portal para o vazio entre as estrelas — uma esfera de <strong>3m de raio</strong> de escuridao e sons sussurrantes aparece em um ponto que voce escolhe.</p><p>A area e <strong>escuridao magica</strong> (Devils Sight funciona) e <strong>terreno dificil</strong>. Criaturas nao podem ver atraves dela.</p><p>No inicio do turno de cada criatura na area: <strong>2d6 de dano de frio</strong>.<br>No fim do turno de cada criatura na area: <strong>2d6 de dano acido</strong> (se falhar num DEX save DC 13).</p>",tags:[{l:"Concentracao",c:"red"},{l:"Escuridao magica",c:"gold"},{l:"2d6 frio + 2d6 acido",c:"gold"},{l:"Terreno dificil",c:"gold"}],tip:"Substitui Darkness e e muito melhor. Lance no centro do combate — voce enxerga tudo via Devils Sight enquanto inimigos estao cegos, lentos e sofrendo dano em cada turno sem voce fazer nada. Combine com One with Shadows para ficar invisivel dentro da propria esfera."}
+,"counterspell":{title:"Counterspell",badges:["Nivel 3","Abjuracao","Reacao"],stats:[{l:"Tempo",v:"Reacao"},{l:"Alcance",v:"18m"},{l:"Duracao",v:"Instantanea"}],comp:"S",body:"<p>Voce tenta interromper uma criatura no processo de lancar um feitco. Se a criatura estiver lancando um feitco de <strong>nivel 3 ou inferior</strong>, o feitco falha e nao tem efeito.</p><p>Se estiver lancando um feitco de nivel 4 ou superior, faca um teste de habilidade usando seu modificador de conjuracao (Carisma). A DC e 10 + o nivel do feitco. Com sucesso, o feitco da criatura falha.</p>",tags:[{l:"Reacao",c:"gold"},{l:"Nível 3 ou menos: automatico",c:"green"},{l:"Nivel 4+: CHA check",c:"red"}],tip:"Use para proteger o grupo de magias devastadoras — Fireball, Hold Person, qualquer coisa que possa mudar o combate. Em nivel 5 com slots nivel 3, voce nega automaticamente qualquer magia ate nivel 3. Para magias mais altas: CHA mod +3 no check."}
+,"hypnotic-pattern":{title:"Hypnotic Pattern",badges:["Nivel 3","Ilusao","Concentracao"],stats:[{l:"Tempo",v:"1 Acao"},{l:"Alcance",v:"36m"},{l:"Duracao",v:"1 min (Conc)"}],comp:"S, M",body:"<p>Voce cria um padrao torcido e cintilante de cores que enche um cubo de 9m dentro do alcance. Cada criatura na area ao ver o padrao deve fazer um teste de <strong>WIS DC 13</strong>.</p><p>Com falha: a criatura fica <strong>encantada</strong> pelo feitco. Enquanto encantada, ela fica incapacitada e tem velocidade 0. O efeito termina se a criatura for danificada ou se alguem usar uma acao para sacudi-la.</p>",tags:[{l:"Concentracao",c:"red"},{l:"WIS DC 13",c:"red"},{l:"Incapacita em area",c:"gold"}],tip:"Uma das magias de controle mais fortes do jogo. Lance dentro do Hunger of Hadar — inimigos ja estao cegos e lentos, e os que falharem ficam completamente parados. O grupo executa um por um sem risco. CUIDADO: qualquer dano quebra o efeito em cada criatura individualmente."}
+,"shadow-of-moil":{title:"Shadow of Moil",badges:["Nivel 4","Necromancia","Concentracao"],stats:[{l:"Tempo",v:"1 Acao"},{l:"Alcance",v:"Pessoal"},{l:"Duracao",v:"1 min (Conc)"}],comp:"V, S, M",body:"<p>A escuridao flamejante envolve voce, obscurecendo-o para os outros. Por um minuto voce fica <strong>fortemente obscurecido</strong> para todos exceto voce mesmo.</p><p>Alem disso, sempre que uma criatura acerta voce com um ataque, ela sofre <strong>2d8 de dano necrotico</strong>.</p><p>A escuridao emana de voce — voce continua enxergando normalmente via Devils Sight.</p>",tags:[{l:"Concentracao",c:"red"},{l:"2d8 necrotico por acerto",c:"gold"},{l:"Escuridao pessoal",c:"gold"}],tip:"A magia mais tematica do Marcus. Escuridao mana do proprio corpo, qualquer um que te acertar sofre 2d8 necrotico, e voce enxerga tudo via Devils Sight. E como Form of Dread visual. Combine com Armor of Agathys — quem te acertar sofre dano de frio E necrotico ao mesmo tempo."}
+,"dimension-door":{title:"Dimension Door",badges:["Nivel 4","Conjuracao","Sem Concentracao"],stats:[{l:"Tempo",v:"1 Acao"},{l:"Alcance",v:"450m"},{l:"Duracao",v:"Instantanea"}],comp:"V",body:"<p>Voce se teleporta de onde esta para qualquer lugar dentro do alcance. Pode levar <strong>uma criatura ou objeto</strong> de tamanho Grande ou menor que esteja carregando ou ao seu lado — contanto que a criatura concorde.</p><p>Se voce ou a criatura que voce levar chegar a um espaco ocupado, ambos sofrem <strong>4d6 de dano de forca</strong> e o feitco falha.</p>",tags:[{l:"Sem concentracao",c:"green"},{l:"450m",c:"gold"},{l:"Leva uma pessoa",c:"gold"}],tip:"Misty Step de 450m que leva alguem junto. Sem Concentracao significa que voce pode usar num turno onde tambem lancou Hex ou qualquer outra coisa. Use para: resgatar aliado caido, sair de uma situacao impossivel, infiltrar qualquer lugar, fuga de grupo inteiro (leva uma pessoa, aliado leva outra)."}
+,"synaptic-static":{title:"Synaptic Static",badges:["Nivel 5","Encantamento","Sem Concentracao"],stats:[{l:"Tempo",v:"1 Acao"},{l:"Alcance",v:"27m"},{l:"Duracao",v:"1 minuto"}],comp:"V, S",body:"<p>Voce escolhe um ponto dentro do alcance e explode energia psiquica de uma esfera de 6m. Cada criatura na area deve fazer um teste de <strong>INT DC 13</strong>.</p><p>Com falha: <strong>8d6 de dano psiquico</strong> e a criatura sofre interferencia psiquica. Ate o fim do feitco, a criatura rola um <strong>d6 e subtrai o resultado</strong> de todos os testes de habilidade, jogadas de ataque e saving throws que fizer.</p><p>Com sucesso: metade do dano e sem o debuff.</p>",tags:[{l:"Sem concentracao",c:"green"},{l:"8d6 psiquico",c:"gold"},{l:"-1d6 em rolls por 1 min",c:"gold"}],tip:"O unico dano em area do Marcus sem custo de Concentracao. Lance quando tiver multiplos inimigos agrupados — 8d6 medio e 28 de dano E todo mundo afetado fica com -1d6 em ataques e saves por 1 minuto. Nao concorre com nada. E o botao de panico do arsenal."}
+,"modify-memory":{title:"Modify Memory",badges:["Nivel 5","Encantamento","Concentracao"],stats:[{l:"Tempo",v:"1 Acao"},{l:"Alcance",v:"9m"},{l:"Duracao",v:"Concentracao ate 1 min"}],comp:"V, S",body:"<p>Voce tenta remodelar as memorias de outra criatura. Uma criatura que voce possa ver deve fazer um teste de <strong>WIS DC 13</strong>. Com falha, a criatura fica encantada por voce por 1 minuto.</p><p>Enquanto encantada, a criatura fica incapacitada e nao conhece sua condicao. Quando o feitco termina, voce pode alterar a memoria da criatura de um evento que ela vivenciou nas ultimas 24 horas e que durou no maximo 10 minutos.</p><p>Voce pode destruir a memoria, tornar o evento banal, ou criar uma falsa memoria — qualquer coisa em 10 minutos de duracao.</p>",tags:[{l:"Concentracao",c:"red"},{l:"WIS DC 13",c:"red"},{l:"Reescreve memorias",c:"gold"}],tip:"A magia que define o Marcus narrativamente. Um mercador com identidade falsa, Mask of Many Faces, Enganacao +6 que TAMBEM apaga memorias. Guarda pra momentos de roleplay decisivos — testemunha indesejada, guarda que te viu, NPC que sabe demais. Narrativamente devastador."}
+,"one-with-shadows":{title:"One with Shadows",badges:["Invocacao Eldrica","Acao Bonus","Nivel 4"],stats:[{l:"Requisito",v:"Nivel 4"},{l:"Acao",v:"Acao Bonus"},{l:"Duracao",v:"Ate agir"}],comp:"-",body:"<p>Quando voce esta em uma area de luz fraca ou escuridao, voce pode usar sua <strong>acao bonus</strong> para se tornar <strong>invisivel</strong> ate se mover, realizar uma acao ou uma reacao.</p>",tags:[{l:"Acao Bonus",c:"gold"},{l:"Invisivel",c:"green"},{l:"Luz fraca ou escuridao",c:""}],tip:"Dentro do Hunger of Hadar ou Darkness, voce DESAPARECE como acao bonus. No proximo turno: voce e invisivel, ataca com vantagem, inimigos com desvantagem. Apos atacar a invisibilidade quebra — mas voce pode reativar na acao bonus do mesmo turno se ainda estiver na escuridao."}
+,"maddening-hex":{title:"Maddening Hex",badges:["Invocacao Eldrica","Acao Bonus","Nivel 6"],stats:[{l:"Requisito",v:"Hex ativo"},{l:"Acao",v:"Acao Bonus"},{l:"Alcance",v:"1.5m do alvo do Hex"}],comp:"-",body:"<p>Como acao bonus, voce causa angustia psiquica ao alvo do seu feitco Hex. O alvo do Hex e cada criatura de sua escolha a <strong>1.5m dele</strong> sofrem <strong>dano psiquico igual ao seu modificador de Carisma</strong> (minimo 1).</p>",tags:[{l:"Requer Hex ativo",c:"red"},{l:"Acao Bonus",c:"gold"},{l:"+3 psiquico em area",c:"gold"}],tip:"Dano gratis toda vez que voce tiver Hex ativo — que e quase sempre. 3 de dano psiquico parece pouco, mas soma muito ao longo de um combate e nao custa slot nem acao principal. Contra inimigos agrupados e especialmente eficiente."}
+,"ghostly-gaze":{title:"Ghostly Gaze",badges:["Invocacao Eldrica","Acao","Nivel 8"],stats:[{l:"Requisito",v:"Nivel 5"},{l:"Acao",v:"1 Acao"},{l:"Duracao",v:"1 minuto"}],comp:"-",body:"<p>Como acao, voce ganha a habilidade de ver atraves de paredes solidas por um minuto. Durante esse tempo, voce tem <strong>visao de raios X ate 9m</strong>. Paredes com mais de 1m de espessura bloqueiam o efeito.</p><p>Voce tambem tem <strong>Darkvision</strong> nessa distancia (mas Devils Sight ja cobre isso).</p>",tags:[{l:"Ve atraves de paredes",c:"gold"},{l:"9 metros",c:""},{l:"1 minuto",c:""}],tip:"Informacao que nenhum outro personagem tem. Em dungeons: voce ve quantos inimigos estao na proxima sala, onde estao posicionados, se tem armadilhas. Combine com Ghostly Gaze + Counterspell — voce ve o mago inimigo recitando antes mesmo de entrar na sala."}
+,"sign-of-ill-omen":{title:"Sign of Ill Omen",badges:["Invocacao Eldrica","Bestow Curse","Nivel 10"],stats:[{l:"Requisito",v:"Nivel 5"},{l:"Uso",v:"1x Long Rest"},{l:"Slot",v:"Sem custo"}],comp:"-",body:"<p>Voce pode lancar <strong>Bestow Curse</strong> uma vez sem gastar um espaco de magia, usando seus espacos de magia do Pact Magic.</p><p>Bestow Curse: toca uma criatura, ela faz WIS save DC 13. Com falha, escolha um dos efeitos: desvantagem em testes e saves de um atributo escolhido; desvantagem em jogadas de ataque contra voce; deve fazer WIS save no inicio de cada turno ou perder a acao; voce causa +1d8 necrotico em ataques contra ela. Concentracao, ate 1 minuto.</p>",tags:[{l:"1x Long Rest",c:"red"},{l:"Sem slot",c:"green"},{l:"Concentracao",c:"red"},{l:"Combo com Hex",c:"gold"}],tip:"Bestow Curse + Hex no mesmo alvo e combinacao devastadora. Desvantagem no atributo escolhido + 1d6 bonus + 1d8 necrotico bonus em cada acerto. Reserve para boss fights — e o recurso mais poderoso do arsenal em nivel 10."}
 };
 function openModal(key){
   const data=modalData[key];if(!data)return;
@@ -1287,31 +1300,176 @@ function confirmLevelUp() {
 }
 
 function updatePageForLevel(lvl, data) {
-  // Update header pills
-  const hpMax = document.querySelector('.pill-val');
-  // Update spell slots info
-  // Update DC and spell attack in footer
-  const fbVals = document.querySelectorAll('.fb-val');
-  fbVals.forEach(el => {
-    if (el.textContent === 'DC 13' || el.textContent === 'DC 14' || el.textContent === 'DC 15') {
-      el.textContent = 'DC ' + data.dc;
-    }
-    if (el.textContent.startsWith('+5') || el.textContent.startsWith('+6') || el.textContent.startsWith('+7')) {
-      if (el.nextElementSibling && el.nextElementSibling.textContent === 'Spell Attack') {
-        el.textContent = '+' + data.spellAtk;
-      }
+  // ── Footer stats ──
+  document.querySelectorAll('.fb-val').forEach(el => {
+    const lbl = el.nextElementSibling ? el.nextElementSibling.textContent : '';
+    if (lbl === 'Spell Save DC') el.textContent = 'DC ' + data.dc;
+    if (lbl === 'Spell Attack')  el.textContent = '+' + data.spellAtk;
+    if (lbl === 'Slots (Short Rest)') el.textContent = '2\xd7Nv' + data.slotLevel;
+  });
+
+  // ── HP max hint ──
+  document.querySelectorAll('div').forEach(el => {
+    if (el.childNodes.length === 1 && el.textContent.startsWith('Max:')) {
+      el.textContent = 'Max: ' + data.hp;
     }
   });
-  // Update max HP display hint
-  const hpHint = document.querySelector('[style*="Max: 24"]') || document.querySelector('div[style*="Max:"]');
-  if (hpHint) hpHint.textContent = 'Max: ' + data.hp;
-  // Update footer spell slots
-  document.querySelectorAll('.fb-lbl').forEach(el => {
-    if (el.textContent === 'Slots (Short Rest)') {
-      el.previousElementSibling.textContent = '2×Nv' + data.slotLevel;
+
+  // ── Slot label in spell panel ──
+  const slotLabel = document.querySelector('.slot-label');
+  if (slotLabel) slotLabel.textContent = 'Slots Nv' + data.slotLevel + ':';
+
+  // ── Header subtitle ──
+  const sub = document.querySelector('.char-sub');
+  if (sub) sub.textContent = 'Warlock ' + lvl + ' \u2014 The Undead \u00b7 Humano \u00b7 Criminal \u00b7 Neutro';
+
+  // ── Remove spells ──
+  (data.removedSpells || []).forEach(spellName => {
+    document.querySelectorAll('.spell-row').forEach(row => {
+      const n = row.querySelector('.spell-name');
+      if (n && n.textContent.trim().startsWith(spellName)) row.remove();
+    });
+  });
+
+  // ── Add new spells to spell list ──
+  let spellCardBody = null;
+  document.querySelectorAll('.card-body').forEach(cb => {
+    if (cb.querySelector('.spell-row')) spellCardBody = cb;
+  });
+  (data.newSpells || []).forEach(spellName => {
+    const info = SPELL_INFO[spellName] || { lvl:'?', desc:spellName, action:'Acao', conc:false, ab:false };
+    const key = spellName.toLowerCase().replace(/ /g,'-').replace(/\'/g,'');
+    const row = document.createElement('div');
+    row.className = 'spell-row';
+    row.setAttribute('onclick', 'openModal("' + key + '")');
+    row.innerHTML =
+      '<div class="spell-lvl">' + info.lvl + '</div>' +
+      '<div><div class="spell-name">' + spellName + (info.conc ? ' <span class="conc-tag">Conc.</span>' : '') + '</div>' +
+      '<div class="spell-desc">' + info.desc + '</div></div>' +
+      '<div class="spell-action' + (info.ab ? ' ab-tag' : '') + '">' + info.action + '</div>';
+    if (spellCardBody) spellCardBody.appendChild(row);
+  });
+
+  // ── Add new invocations ──
+  let invcBody = null;
+  document.querySelectorAll('.card-body').forEach(cb => {
+    if (cb.querySelector('.invc-row')) invcBody = cb;
+  });
+  (data.newInvocations || []).forEach(invName => {
+    const info = INVC_INFO[invName] || { desc: invName };
+    const key = invName.toLowerCase().replace(/ /g,'-').replace(/\'/g,'');
+    const row = document.createElement('div');
+    row.className = 'invc-row';
+    row.setAttribute('onclick', 'openModal("' + key + '")');
+    row.innerHTML = '<div class="invc-name">' + invName + '</div><div class="invc-desc">' + info.desc + '</div>';
+    if (invcBody) invcBody.appendChild(row);
+  });
+
+  // ── Add new features ──
+  let featBody = null;
+  document.querySelectorAll('.card-body').forEach(cb => {
+    if (cb.querySelector('.feature-row') && !cb.querySelector('.spell-row') && !cb.querySelector('.invc-row')) featBody = cb;
+  });
+  (data.newFeatures || []).forEach(feat => {
+    const row = document.createElement('div');
+    row.className = 'feature-row';
+    row.style.cursor = 'default';
+    row.innerHTML = '<div class="feature-name" style="color:#C8A951">' + feat + '</div>';
+    if (featBody) featBody.appendChild(row);
+  });
+
+  // ── Update EB to 2 projectiles ──
+  if (data.ebProjectiles === 2) {
+    document.querySelectorAll('.atk-row').forEach(row => {
+      const n = row.querySelector('.atk-name');
+      if (n && n.textContent.trim() === 'Eldritch Blast') {
+        const t = row.querySelector('.atk-type');
+        if (t) t.textContent = 'Forca · 2 projeteis · Cantrip · Acao';
+      }
+    });
+    document.querySelectorAll('.spell-name').forEach(el => {
+      if (el.textContent.startsWith('Eldritch Blast')) {
+        const desc = el.parentElement.querySelector('.spell-desc');
+        if (desc) desc.textContent = '2\xd7 1d10+3 Forca · push 3m por projetil · a vontade';
+      }
+    });
+  }
+
+  // ── Update Quick Rolls (Dados tab) ──
+  updateQuickRolls(lvl, data);
+}
+
+function updateQuickRolls(lvl, data) {
+  const sa = data.spellAtk;
+  const eb = data.ebProjectiles;
+
+  // Update EB attack bonus in Marcus attacks
+  document.querySelectorAll('.quick-btn').forEach(btn => {
+    const txt = btn.textContent;
+    // Update Eldritch Blast attack
+    if (txt.startsWith('Eldritch Blast')) {
+      btn.setAttribute('onclick', "quickRoll('Eldritch Blast',20," + sa + ",'1d10+3',10)");
+      btn.querySelector('span').textContent = (sa >= 0 ? '+' : '') + sa;
+    }
+    // Update EB damage label if 2 projectiles
+    if (txt.startsWith('EB Dano') && eb === 2) {
+      btn.setAttribute('onclick', "quickDamage('EB Dano (x2)',10,3)");
+      btn.querySelector('span').textContent = '2\xd71d10+3';
+      btn.firstChild.textContent = 'EB Dano (x2)';
+    }
+  });
+
+  // Add new spell quick rolls if not already present
+  const quickGridAtk = document.querySelectorAll('.quick-grid')[0];
+  const quickGridDmg = document.querySelectorAll('.quick-grid')[1];
+
+  const spellQuickRolls = {
+    'Mirror Image':     null, // no attack/damage roll
+    'Hunger of Hadar':  { type:'dmg', name:'HoH Dano', sides:6, mod:0, label:'2d6' },
+    'Counterspell':     null,
+    'Hypnotic Pattern': null,
+    'Shadow of Moil':   { type:'dmg', name:'Shadow Moil', sides:8, mod:0, label:'2d8' },
+    'Dimension Door':   null,
+    'Synaptic Static':  { type:'dmg', name:'Synaptic Static', sides:6, mod:0, label:'8d6' },
+    'Modify Memory':    null,
+  };
+
+  (data.newSpells || []).forEach(spellName => {
+    const roll = spellQuickRolls[spellName];
+    if (!roll || !quickGridDmg) return;
+    // Check if already added
+    let alreadyThere = false;
+    document.querySelectorAll('.quick-btn').forEach(b => {
+      if (b.textContent.startsWith(roll.name)) alreadyThere = true;
+    });
+    if (alreadyThere) return;
+    const btn = document.createElement('button');
+    btn.className = 'quick-btn';
+    if (roll.type === 'dmg') {
+      btn.setAttribute('onclick', "quickDamage('" + roll.name + "'," + roll.sides + "," + roll.mod + ")");
+      btn.innerHTML = roll.name + '<span>' + roll.label + '</span>';
+      quickGridDmg.appendChild(btn);
     }
   });
 }
+
+const SPELL_INFO = {
+  'Mirror Image':      { lvl:'2', desc:'3 duplicatas que absorvem ataques · sem Concentracao', action:'Acao', conc:false, ab:false },
+  'Hunger of Hadar':   { lvl:'3', desc:'Esfera escuridao magica · terreno dificil · dano · Concentracao', action:'Acao', conc:true, ab:false },
+  'Counterspell':      { lvl:'3', desc:'Nega qualquer magia instantaneamente · Reacao', action:'Reacao', conc:false, ab:false },
+  'Hypnotic Pattern':  { lvl:'3', desc:'Encanta criaturas numa area · WIS save · Concentracao', action:'Acao', conc:true, ab:false },
+  'Shadow of Moil':    { lvl:'4', desc:'Escuridao emana do corpo · dano necrotico em acertos · Concentracao', action:'Acao', conc:true, ab:false },
+  'Dimension Door':    { lvl:'4', desc:'Teleport 45m · leva uma pessoa · sem Concentracao', action:'Acao', conc:false, ab:false },
+  'Synaptic Static':   { lvl:'5', desc:'8d6 psiquico em area · -1d6 em rolls por 1 min · sem Concentracao', action:'Acao', conc:false, ab:false },
+  'Modify Memory':     { lvl:'5', desc:'Reescreve ate 10 min de memoria · WIS save · Concentracao', action:'Acao', conc:true, ab:false },
+};
+
+const INVC_INFO = {
+  'One with Shadows': { desc:'Acao bonus: invisivel em area de escuridao — combo com Darkness e HoH' },
+  'Maddening Hex':    { desc:'Acao bonus: dano psiquico (mod CAR) em criaturas a 1.5m do alvo com Hex' },
+  'Ghostly Gaze':     { desc:'Enxerga atraves de paredes solidas ate 9m por 1 minuto · sem Concentracao' },
+  'Sign of Ill Omen': { desc:'Bestow Curse 1x Long Rest sem slot · desvantagem num save + Hex' },
+};
 
 function showResetConfirm() {
   document.getElementById('resetModal').classList.add('open');
